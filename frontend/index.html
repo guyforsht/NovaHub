@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaHub — מערכת סיוע לשורדי פסטיבל נובה. מידע על זכויות, אירועים קהילתיים ותמיכה רגשית.">
+    <title>NovaHub — יחד קדימה</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-gradient"></div>
+
+    <!-- Top Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+                        <circle cx="16" cy="16" r="8" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="16" cy="16" r="3" fill="currentColor"/>
+                    </svg>
+                </div>
+                <span class="logo-name">NovaHub</span>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-page="home" id="navHome">
+                    <span class="tab-icon">🏠</span>
+                    <span class="tab-label">דף הבית</span>
+                </button>
+                <button class="nav-tab" data-page="rights" id="navRights">
+                    <span class="tab-icon">📋</span>
+                    <span class="tab-label">הזכויות שלי</span>
+                </button>
+                <button class="nav-tab" data-page="community" id="navCommunity">
+                    <span class="tab-icon">🤝</span>
+                    <span class="tab-label">קהילה</span>
+                </button>
+                <button class="nav-tab" data-page="chat" id="navChat">
+                    <span class="tab-icon">💬</span>
+                    <span class="tab-label">צ׳אט תמיכה</span>
+                </button>
+            </div>
+            <div class="nav-emergency">
+                <a href="tel:1201" class="emergency-link">📞 ער״ן 1201</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE: HOME ==================== -->
+    <section class="page page-home active" id="pageHome">
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🌟 יחד קדימה</div>
+                <h1 class="hero-title">ברוכים הבאים ל-<span class="highlight">NovaHub</span></h1>
+                <p class="hero-subtitle">
+                    המרכז הדיגיטלי שלנו — מקום אחד שבו תמצאו את כל המידע, 
+                    הזכויות, האירועים הקהילתיים והתמיכה שאתם צריכים.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="navigateTo('rights')">
+                        הזכויות שלי
+                        <span class="btn-arrow">←</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateTo('chat')">
+                        דברו איתנו
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-circle c1"></div>
+                <div class="hero-circle c2"></div>
+                <div class="hero-circle c3"></div>
+                <div class="hero-stat">
+                    <span class="stat-number">💙</span>
+                    <span class="stat-label">אנחנו כאן בשבילכם</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mission Section -->
+        <div class="section mission-section">
+            <h2 class="section-title">מה זה NovaHub?</h2>
+            <p class="section-desc">
+                NovaHub נוצר מתוך הקהילה, עבור הקהילה. 
+                המטרה שלנו היא להנגיש את כל המידע הרלוונטי למקום אחד — 
+                כדי שלא תצטרכו לחפש בין עשרות אתרים, קבוצות ומסמכים.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card" onclick="navigateTo('rights')">
+                    <div class="feature-icon">📋</div>
+                    <h3>הזכויות שלי</h3>
+                    <p>כל הזכויות מרוכזות ומסודרות לפי אחוזי נכות — ברור ופשוט.</p>
+                </div>
+                <div class="feature-card" onclick="navigateTo('community')">
+                    <div class="feature-icon">🤝</div>
+                    <h3>קהילה ואירועים</h3>
+                    <p>מפגשים, סדנאות, ימי הנצחה ופעילויות — הכל מעודכן.</p>
+                </div>
+                <div class="feature-card" onclick="navigateTo('chat')">
+                    <div class="feature-icon">💬</div>
+                    <h3>צ׳אט תמיכה</h3>
+                    <p>עוזר חכם שעונה על שאלות בנושא זכויות, אירועים ותמיכה רגשית.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>מידע מאומת</h3>
+                    <p>כל המידע מבוסס על מקורות רשמיים — ביטוח לאומי, משרד הרווחה ומשרד הבריאות.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency contacts -->
+        <div class="section contacts-section">
+            <h2 class="section-title">קווי סיוע חשובים</h2>
+            <div class="contacts-grid">
+                <a href="tel:1201" class="contact-card">
+                    <span class="contact-icon">📞</span>
+                    <span class="contact-name">ער״ן — עזרה ראשונה נפשית</span>
+                    <span class="contact-number">1201</span>
+                </a>
+                <a href="tel:*2401" class="contact-card">
+                    <span class="contact-icon">🆘</span>
+                    <span class="contact-name">קו חירום נפשי</span>
+                    <span class="contact-number">*2401</span>
+                </a>
+                <a href="tel:*6771" class="contact-card">
+                    <span class="contact-icon">🤲</span>
+                    <span class="contact-name">נט״ל — נפגעי טרור</span>
+                    <span class="contact-number">*6771</span>
+                </a>
+                <a href="tel:*6050" class="contact-card">
+                    <span class="contact-icon">🏛️</span>
+                    <span class="contact-name">ביטוח לאומי</span>
+                    <span class="contact-number">*6050</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE: RIGHTS ==================== -->
+    <section class="page page-rights" id="pageRights">
+        <div class="page-header">
+            <h1>📋 הזכויות שלי</h1>
+            <p>בחרו את אחוז הנכות שנקבע לכם כדי לראות את הזכויות הרלוונטיות</p>
+        </div>
+
+        <!-- Disability % Selector -->
+        <div class="disability-selector">
+            <div class="disability-tabs">
+                <button class="disability-tab active" data-percent="all">
+                    <span class="dt-label">כל הזכויות</span>
+                    <span class="dt-sub">בסיס</span>
+                </button>
+                <button class="disability-tab" data-percent="10">
+                    <span class="dt-label">10%-19%</span>
+                    <span class="dt-sub">נכות קלה</span>
+                </button>
+                <button class="disability-tab" data-percent="20">
+                    <span class="dt-label">20%-39%</span>
+                    <span class="dt-sub">נכות חלקית</span>
+                </button>
+                <button class="disability-tab" data-percent="40">
+                    <span class="dt-label">40%-59%</span>
+                    <span class="dt-sub">נכות משמעותית</span>
+                </button>
+                <button class="disability-tab" data-percent="60">
+                    <span class="dt-label">60%-79%</span>
+                    <span class="dt-sub">נכות גבוהה</span>
+                </button>
+                <button class="disability-tab" data-percent="80">
+                    <span class="dt-label">80%-100%</span>
+                    <span class="dt-sub">נכות חמורה</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Info Notice -->
+        <div class="info-notice">
+            <span class="notice-icon">ℹ️</span>
+            <span>המידע להלן נועד להנגשה בלבד ואינו מהווה ייעוץ משפטי. מומלץ לבדוק מול ביטוח לאומי (*6050) לקבלת מידע מעודכן.</span>
+        </div>
+
+        <!-- Rights Cards -->
+        <div class="rights-grid" id="rightsGrid">
+            <!-- Cards will be rendered by JS -->
+        </div>
+    </section>
+
+    <!-- ==================== PAGE: COMMUNITY ==================== -->
+    <section class="page page-community" id="pageCommunity">
+        <div class="page-header">
+            <h1>🤝 קהילה ואירועים</h1>
+            <p>מפגשים, סדנאות ופעילויות קהילתיות עבור שורדי נובה</p>
+        </div>
+
+        <div class="community-content">
+            <div class="community-card featured">
+                <div class="cc-badge">🔗 קישורים חשובים</div>
+                <h3>שבט נובה — הקהילה שלנו</h3>
+                <p>העמותה הרשמית שמרכזת את הפעילות הקהילתית, האירועים ומעגלי התמיכה.</p>
+                <div class="cc-links">
+                    <a href="https://tribeofnova.com" target="_blank" class="cc-link">🌐 אתר שבט נובה</a>
+                    <a href="#" class="cc-link">📘 עמוד פייסבוק</a>
+                    <a href="#" class="cc-link">📱 קבוצות וואטסאפ</a>
+                </div>
+            </div>
+
+            <div class="community-events">
+                <h3 class="events-title">🗓️ אירועים קרובים</h3>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="ed-day">15</span>
+                        <span class="ed-month">מאי</span>
+                    </div>
+                    <div class="event-info">
+                        <h4>מעגל שיחה — ״דרכי התמודדות״</h4>
+                        <p>📍 מרכז החוסן, תל אביב | 🕐 18:00</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="ed-day">22</span>
+                        <span class="ed-month">מאי</span>
+                    </div>
+                    <div class="event-info">
+                        <h4>סדנת יוגה וריפוי — לשורדים ומשפחות</h4>
+                        <p>📍 סטודיו ״נשימה״, הרצליה | 🕐 10:00</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="ed-day">1</span>
+                        <span class="ed-month">יוני</span>
+                    </div>
+                    <div class="event-info">
+                        <h4>מפגש קהילתי חודשי</h4>
+                        <p>📍 גן יהושע, תל אביב | 🕐 17:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-note">
+                <p>💡 לעדכונים שוטפים, הצטרפו לקבוצות הוואטסאפ של הקהילה או עקבו אחרינו ברשתות החברתיות.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE: CHAT ==================== -->
+    <section class="page page-chat" id="pageChat">
+        <div class="chat-wrapper">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h2>💬 צ׳אט תמיכה</h2>
+                    <p>שאלו אותי על זכויות, אירועים קהילתיים, או סתם דברו איתי</p>
+                </div>
+                <div class="chat-status" id="chatStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">מחובר</span>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome -->
+                <div class="chat-welcome" id="chatWelcome">
+                    <div class="cw-icon">✨</div>
+                    <h3>שלום, איך אפשר לעזור?</h3>
+                    <p>אני יכול לעזור עם מידע על זכויות, אירועים קהילתיים, או לתת תמיכה רגשית.</p>
+                    <div class="cw-suggestions">
+                        <button class="cw-btn" data-query="מה הזכויות שמגיעות לי?">הזכויות שלי</button>
+                        <button class="cw-btn" data-query="יש אירועים קהילתיים בקרוב?">אירועים קרובים</button>
+                        <button class="cw-btn" data-query="אני צריך/ה לדבר עם מישהו">צריך/ה לדבר</button>
+                    </div>
+                </div>
+                <div class="messages-list" id="messagesList"></div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <textarea id="messageInput" placeholder="כתבו הודעה..." rows="1" maxlength="2000"></textarea>
+                    <button class="send-btn" id="sendBtn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <span class="chat-disclaimer">המידע ניתן לצורכי הנגשה בלבד ואינו מהווה ייעוץ משפטי או רפואי</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="mainFooter">
+        <div class="footer-inner">
+            <span>NovaHub © 2026 — נבנה באהבה עבור הקהילה 💙</span>
+            <span class="footer-disclaimer">המידע באתר אינו מהווה ייעוץ משפטי או רפואי</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
