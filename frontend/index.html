@@ -44,9 +44,15 @@
                     <span class="tab-icon">💬</span>
                     <span class="tab-label">צ׳אט תמיכה</span>
                 </button>
+                <button class="nav-tab" data-page="lawsuits" id="navLawsuits">
+                    <span class="tab-icon">⚖️</span>
+                    <span class="tab-label">תביעות ופנסיות</span>
+                </button>
             </div>
             <div class="nav-emergency">
-                <a href="tel:1201" class="emergency-link">📞 ער״ן 1201</a>
+                <button class="nav-tab" data-page="admin" id="navAdmin" style="margin-right: 10px; background: var(--neutral-100); border: 1px solid var(--border);">
+                    <span class="tab-icon">⚙️</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -94,8 +100,8 @@
             <div class="features-grid">
                 <div class="feature-card" onclick="navigateTo('rights')">
                     <div class="feature-icon">📋</div>
-                    <h3>הזכויות שלי</h3>
-                    <p>כל הזכויות מרוכזות ומסודרות לפי אחוזי נכות — ברור ופשוט.</p>
+                    <h3>הזכויות שלי ("מעטפות")</h3>
+                    <p>הזכויות מאורגנות לפי "מעטפות" — לימודים, דיור, כספים — ברור ופשוט.</p>
                 </div>
                 <div class="feature-card" onclick="navigateTo('community')">
                     <div class="feature-icon">🤝</div>
@@ -109,91 +115,142 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
-                    <h3>מידע מאומת</h3>
-                    <p>כל המידע מבוסס על מקורות רשמיים — ביטוח לאומי, משרד הרווחה ומשרד הבריאות.</p>
+                    <h3>מידע מאומת חי</h3>
+                    <p>המערכת מתעדכנת אוטומטית מאתרי הממשלה ומשלבת טיפים מתוך הקהילה.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Emergency contacts -->
-        <div class="section contacts-section">
-            <h2 class="section-title">קווי סיוע חשובים</h2>
-            <div class="contacts-grid">
-                <a href="tel:1201" class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <span class="contact-name">ער״ן — עזרה ראשונה נפשית</span>
-                    <span class="contact-number">1201</span>
-                </a>
-                <a href="tel:*2401" class="contact-card">
-                    <span class="contact-icon">🆘</span>
-                    <span class="contact-name">קו חירום נפשי</span>
-                    <span class="contact-number">*2401</span>
-                </a>
-                <a href="tel:*6771" class="contact-card">
-                    <span class="contact-icon">🤲</span>
-                    <span class="contact-name">נט״ל — נפגעי טרור</span>
-                    <span class="contact-number">*6771</span>
-                </a>
-                <a href="tel:*6050" class="contact-card">
-                    <span class="contact-icon">🏛️</span>
-                    <span class="contact-name">ביטוח לאומי</span>
-                    <span class="contact-number">*6050</span>
-                </a>
-            </div>
-        </div>
+
     </section>
 
-    <!-- ==================== PAGE: RIGHTS ==================== -->
+    <!-- ==================== PAGE: RIGHTS (SHELLS) ==================== -->
     <section class="page page-rights" id="pageRights">
         <div class="page-header">
-            <h1>📋 הזכויות שלי</h1>
-            <p>בחרו את אחוז הנכות שנקבע לכם כדי לראות את הזכויות הרלוונטיות</p>
+            <h1>📋 הזכויות שלי — מעטפות</h1>
+            <p>הזכויות מרוכזות לפי קטגוריות נושא ("מעטפות"). לחצו על מעטפה כדי לראות את כל הזכויות, המענקים והטיפים מהשטח.</p>
         </div>
 
-        <!-- Disability % Selector -->
-        <div class="disability-selector">
-            <div class="disability-tabs">
-                <button class="disability-tab active" data-percent="all">
-                    <span class="dt-label">כל הזכויות</span>
-                    <span class="dt-sub">בסיס</span>
-                </button>
-                <button class="disability-tab" data-percent="10">
-                    <span class="dt-label">10%-19%</span>
-                    <span class="dt-sub">נכות קלה</span>
-                </button>
-                <button class="disability-tab" data-percent="20">
-                    <span class="dt-label">20%-39%</span>
-                    <span class="dt-sub">נכות חלקית</span>
-                </button>
-                <button class="disability-tab" data-percent="40">
-                    <span class="dt-label">40%-59%</span>
-                    <span class="dt-sub">נכות משמעותית</span>
-                </button>
-                <button class="disability-tab" data-percent="60">
-                    <span class="dt-label">60%-79%</span>
-                    <span class="dt-sub">נכות גבוהה</span>
-                </button>
-                <button class="disability-tab" data-percent="80">
-                    <span class="dt-label">80%-100%</span>
-                    <span class="dt-sub">נכות חמורה</span>
-                </button>
+        <!-- Calculator Section -->
+        <div class="calculator-section" style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
+            <div style="background: linear-gradient(135deg, #fff, var(--primary-50)); border: 1px solid var(--primary-200); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-800);">🧮 מחשבון קצבה בסיסית (נפגעי איבה)</h3>
+                <p style="color: var(--text2); font-size: 0.9375rem; margin-bottom: 20px;">הזינו את אחוז הנכות שנקבע לכם כדי לראות את הקצבה החודשית הבסיסית המשוערת. <br><small>* הסכומים מעודכנים ל-2024. נכים בדרגות גבוהות או עם מצבים מיוחדים עשויים להיות זכאים לתוספות רבות (נצרך, ניידות, וכו') המגדילות משמעותית את הסכום.</small></p>
+                
+                <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <label for="calcPercent" style="display: block; font-weight: 600; margin-bottom: 8px;">אחוז נכות: <span id="percentLabel" style="color: var(--primary-600); font-size: 1.1rem;">20%</span></label>
+                        <input type="range" id="calcPercent" min="10" max="100" step="10" value="20" style="width: 100%; accent-color: var(--primary-600);">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+                            <span>10%</span><span>100%</span>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 16px 24px; border-radius: var(--radius); border: 2px solid var(--primary-300); text-align: center; min-width: 200px;">
+                        <div style="font-size: 0.875rem; font-weight: 600; color: var(--text2); margin-bottom: 4px;">קצבה חודשית בסיסית משוערת</div>
+                        <div id="calcResult" style="font-size: 2rem; font-weight: 800; color: var(--primary-700);">₪1,167</div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- Shortcuts Section (Nefesh Achat) -->
+        <div class="shortcuts-section" style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
+            <div class="shortcut-card nefesh-achat-card" onclick="toggleShortcutModal()" style="padding: 12px 24px; min-height: auto; cursor: pointer;">
+                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div class="nc-icon" style="font-size: 1.5rem; width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background: #fff; text-align: center; color: var(--primary-600);">⚡</div>
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin: 0; color: #fff;">נפש אחת — מסלול מהיר</h3>
+                            <p style="margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.9);">תעריפי טיפולים מירביים והנחיות הגשה.</p>
+                        </div>
+                    </div>
+                    <div class="nc-arrow" style="color: #fff;">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shells Grid -->
+        <div class="shells-grid" id="shellsGrid">
+            <!-- Shells will be rendered by JS -->
         </div>
 
         <!-- Info Notice -->
         <div class="info-notice">
             <span class="notice-icon">ℹ️</span>
-            <span>המידע להלן נועד להנגשה בלבד ואינו מהווה ייעוץ משפטי. מומלץ לבדוק מול ביטוח לאומי (*6050) לקבלת מידע מעודכן.</span>
-        </div>
-
-        <!-- Rights Cards -->
-        <div class="rights-grid" id="rightsGrid">
-            <!-- Cards will be rendered by JS -->
+            <span>המידע מתעדכן אוטומטית מאתרי הממשלה וממשתמשים בקהילה. מומלץ לוודא מול מוקד ביטוח לאומי (*6050) לפרטים ספציפיים אליכם.</span>
         </div>
     </section>
 
+    <!-- Modal for Nefesh Achat -->
+    <div class="modal-overlay" id="nefeshModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="toggleShortcutModal()">✕</button>
+            <h2>⚡ נפש אחת — החזרים ותעריפים</h2>
+            <p style="margin-bottom: 12px;"><strong>תעריפי החזר מקסימליים (לפי רפורמת נפש אחת):</strong></p>
+            <div id="nefeshTreatments" style="margin-bottom: 24px; font-size: 0.95rem; color: var(--text2); background: var(--neutral-100); padding: 12px; border-radius: 8px;">
+                <!-- Populated by JS -->
+            </div>
+
+            <p style="margin-bottom: 12px;"><strong>כדי לקבל החזר על טיפולים, יש לוודא שיש לכם את המסמכים הבאים:</strong></p>
+            <div class="checklist" id="nefeshChecklist">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="modal-actions">
+                <a href="https://btl.gov.il" target="_blank" class="btn btn-primary">מעבר לאתר להגשה ↗</a>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    <!-- Modal for Editing Right Content -->
+    <div class="modal-overlay" id="editRightModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <button class="modal-close" onclick="closeEditModal()">✕</button>
+            <h2 style="margin-bottom: 24px;">✏️ עריכת תוכן</h2>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="hidden" id="editShellId">
+                <input type="hidden" id="editRightId">
+                
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">כותרת:</label>
+                    <input type="text" id="editTitle" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border);">
+                </div>
+                
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">תיאור (פשוט וברור):</label>
+                    <textarea id="editDesc" rows="3" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border); resize: vertical;"></textarea>
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">תנאי זכאות:</label>
+                    <input type="text" id="editElig" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border);">
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">איך מגישים:</label>
+                    <input type="text" id="editApply" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border);">
+                </div>
+
+                <div>
+                    <label style="display: block; font-weight: 600; margin-bottom: 8px;">טיפים מהשטח (מופרדים בפסיק):</label>
+                    <textarea id="editTips" rows="2" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border); resize: vertical;"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 12px; margin-top: 16px;">
+                    <button class="btn btn-primary" onclick="saveEditedRight()">שמור שינויים</button>
+                    <button class="btn btn-secondary" onclick="closeEditModal()">ביטול</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ==================== PAGE: COMMUNITY ==================== -->
     <section class="page page-community" id="pageCommunity">
+        <!-- Content remains the same as before... -->
         <div class="page-header">
             <h1>🤝 קהילה ואירועים</h1>
             <p>מפגשים, סדנאות ופעילויות קהילתיות עבור שורדי נובה</p>
@@ -253,6 +310,7 @@
 
     <!-- ==================== PAGE: CHAT ==================== -->
     <section class="page page-chat" id="pageChat">
+        <!-- Content remains the same... -->
         <div class="chat-wrapper">
             <div class="chat-header">
                 <div class="chat-header-info">
@@ -272,8 +330,8 @@
                     <h3>שלום, איך אפשר לעזור?</h3>
                     <p>אני יכול לעזור עם מידע על זכויות, אירועים קהילתיים, או לתת תמיכה רגשית.</p>
                     <div class="cw-suggestions">
-                        <button class="cw-btn" data-query="מה הזכויות שמגיעות לי?">הזכויות שלי</button>
-                        <button class="cw-btn" data-query="יש אירועים קהילתיים בקרוב?">אירועים קרובים</button>
+                        <button class="cw-btn" data-query="מה כוללת מעטפת הלימודים?">מעטפת לימודים</button>
+                        <button class="cw-btn" data-query="איך מגישים קבלות לנפש אחת?">קבלות נפש אחת</button>
                         <button class="cw-btn" data-query="אני צריך/ה לדבר עם מישהו">צריך/ה לדבר</button>
                     </div>
                 </div>
@@ -295,11 +353,121 @@
         </div>
     </section>
 
+    <!-- ==================== PAGE: LAWSUITS & PENSIONS ==================== -->
+    <section class="page page-lawsuits" id="pageLawsuits">
+        <div class="page-header">
+            <h1>⚖️ תביעות משפטיות ואובדן כושר עבודה</h1>
+            <p>מידע על הליכים משפטיים קולקטיביים נגד גורמי טרור, וזכויות הנוגעות לקרנות פנסיה במקרה של פגיעת איבה.</p>
+        </div>
+
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 24px 48px;">
+            <h2 style="margin-bottom: 24px; color: var(--primary-800);">תביעות ייצוגיות ואזרחיות</h2>
+            <div class="shells-grid" style="margin-bottom: 48px;">
+                <div class="community-card" style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">🇺🇳</div>
+                    <h3 style="margin-bottom: 8px;">תביעה נגד אונר"א (UNRWA)</h3>
+                    <p style="color: var(--text2); font-size: 0.95rem; margin-bottom: 16px;">תביעה ייצוגית בארה"ב בהיקף של כמיליארד דולר בגין סיוע ומעורבות הארגון באירועי ה-7 באוקטובר. התביעה כוללת שורדי נובה ובני משפחות.</p>
+                    <div style="background: var(--neutral-100); padding: 12px; border-radius: 8px; font-size: 0.85rem; border-right: 3px solid var(--primary-500);">
+                        <strong>סטטוס עדכני:</strong> הליכים נמשכים מול בתי משפט פדרליים בארה"ב בשאלת חסינות הארגון.
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">🏛️</div>
+                    <h3 style="margin-bottom: 8px;">תביעות נגד הרשות הפלסטינית</h3>
+                    <p style="color: var(--text2); font-size: 0.95rem; margin-bottom: 16px;">תביעות נזיקין בבתי משפט בישראל בגין תמיכה ועידוד טרור. חלק מהתביעות מלוות בבקשות לעיקול כספי מיסים של הרשות.</p>
+                    <div style="background: var(--neutral-100); padding: 12px; border-radius: 8px; font-size: 0.85rem; border-right: 3px solid var(--primary-500);">
+                        <strong>סטטוס עדכני:</strong> בתי המשפט בישראל בוחנים עיקולים של מאות מיליוני שקלים.
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+                    <div style="font-size: 2rem; margin-bottom: 12px;">⚖️</div>
+                    <h3 style="margin-bottom: 8px;">תביעות נגד איראן</h3>
+                    <p style="color: var(--text2); font-size: 0.95rem; margin-bottom: 16px;">תביעות בבתי משפט בארה"ב בגין מימון, תכנון ולוגיסטיקה למתקפת החמאס. מיועד בעיקר לבעלי אזרחות אמריקאית.</p>
+                    <div style="background: var(--neutral-100); padding: 12px; border-radius: 8px; font-size: 0.85rem; border-right: 3px solid var(--primary-500);">
+                        <strong>סטטוס עדכני:</strong> התביעות בשלבי הגשה וגיבוש בבתי משפט זרים ע"י פירמות בינלאומיות.
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-bottom: 24px; color: var(--primary-800);">חברות פנסיה – תביעות אובדן כושר עבודה</h2>
+            <div style="background: linear-gradient(135deg, #fff, var(--warning-50)); border: 1px solid var(--warning-200); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);">
+                <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px;">
+                    <div style="font-size: 2.5rem; line-height: 1;">📝</div>
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 8px;">תביעת קרן פנסיה בגין פגיעת איבה</h3>
+                        <p style="color: var(--text2); line-height: 1.6;">
+                            עמיתים בקרן פנסיה (חדשה או ותיקה) עם כיסוי ביטוחי פעיל, שאירע להם אובדן כושר עבודה בעקבות אירועי ה-7 באוקטובר, זכאים להגיש תביעה. עם זאת, חשוב להכיר את החוקים הנוגעים לקיזוז מול ביטוח לאומי.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <div style="background: #fff; padding: 20px; border-radius: var(--radius); border-right: 4px solid var(--warning-500);">
+                        <h4 style="margin-bottom: 12px; color: var(--warning-700);">⚠️ חובה למצות זכויות תחילה</h4>
+                        <p style="font-size: 0.9rem; color: var(--text2);">
+                            אתם <strong>נדרשים</strong> למצות את זכויותיכם מול המוסד לביטוח לאומי (במסלול נפגעי איבה) במקביל לתביעה לקרן הפנסיה. אי-מיצוי זכויות (אי הגשת תביעה או ערעור) עלול להוביל לכך שהקרן תקזז קצבאות שהייתם עשויים לקבל, גם אם לא קיבלתם אותן בפועל!
+                        </p>
+                    </div>
+                    
+                    <div style="background: #fff; padding: 20px; border-radius: var(--radius); border-right: 4px solid var(--primary-500);">
+                        <h4 style="margin-bottom: 12px; color: var(--primary-700);">🔄 מנגנון הקיזוז (כפל קצבאות)</h4>
+                        <p style="font-size: 0.9rem; color: var(--text2);">
+                            קרן הפנסיה רשאית לקזז מקצבת הנכות שלה את הסכומים שאתם מקבלים (או זכאים לקבל) מהביטוח הלאומי. משמעות הדבר היא שלא תמיד תקבלו קצבה כפולה מליאה משני הגופים יחד.
+                        </p>
+                    </div>
+
+                    <div style="background: #fff; padding: 20px; border-radius: var(--radius); border-right: 4px solid var(--success-500);">
+                        <h4 style="margin-bottom: 12px; color: var(--success-700);">📋 הבדלים בין הקרנות</h4>
+                        <p style="font-size: 0.9rem; color: var(--text2);">
+                            <strong>קרנות חדשות:</strong> כוללות כיסוי לנכות וקיזוז לפי החוק וחוזרים של רשות שוק ההון.<br><br>
+                            <strong>קרנות ותיקות:</strong> לעיתים קרובות כוללות חריגים בתקנון השוללים זכאות כתוצאה מפעולות מלחמה/איבה. יש לבדוק את התקנון הספציפי.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--warning-200); font-size: 0.95rem;">
+                    <strong>💡 המלצה:</strong> תביעות מול קרנות פנסיה במקרים של איבה הן סבוכות. מומלץ מאוד להיעזר בסוכן ביטוח פנסיוני, יועץ או עורך דין המתמחה בתחום בטרם חתימה על פשרות מול הקרן.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PAGE: ADMIN ==================== -->
+    <section class="page page-admin" id="pageAdmin">
+        <div class="page-header">
+            <h1>⚙️ ניהול ידע ומחקר</h1>
+            <p>ממשק להזרקת "טיפים מהשטח" ולהפעלת סוכן המחקר האוטומטי.</p>
+        </div>
+        
+        <div class="admin-content" style="max-width:800px; margin:0 auto; padding:24px;">
+            <div class="admin-card" style="background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:24px;">
+                <h3>הזרקת טיפ מהשטח (Offline Knowledge)</h3>
+                <p style="font-size:14px; color:var(--text2); margin-bottom:16px;">הכנס טיפים ייחודיים שלא מופיעים באתרי הממשלה הרשמיים, והסוכן ישלב אותם בניסוח הזכויות הבא.</p>
+                <div style="display:flex; flex-direction:column; gap:12px;">
+                    <input type="text" placeholder="נושא / מילות מפתח (למשל: לימודים, פסיכולוג)" style="padding:10px; border-radius:8px; border:1px solid var(--border);" id="adminTipKeywords">
+                    <textarea placeholder="הטיפ / המידע (למשל: 'כדאי להגיש את הבקשה למלגה בחודש אוגוסט כי יש עומס')" rows="3" style="padding:10px; border-radius:8px; border:1px solid var(--border); resize:vertical;" id="adminTipContent"></textarea>
+                    <button class="btn btn-primary" onclick="alert('טיפ נשמר וישולב בסריקה הבאה!')" style="align-self:flex-start;">שמור טיפ במאגר</button>
+                </div>
+            </div>
+
+            <div class="admin-card" style="background:var(--primary-50); border:1px solid var(--primary-200); border-radius:var(--radius); padding:24px;">
+                <h3>סוכן מחקר אוטומטי</h3>
+                <p style="font-size:14px; color:var(--text2); margin-bottom:16px;">הפעל את ה-LangGraph Researcher שיחפש עדכונים מאתרי הממשלה ויעדכן את מסד הנתונים של ה"מעטפות".</p>
+                <div style="display:flex; align-items:center; gap:16px;">
+                    <button class="btn btn-primary" onclick="triggerResearchAgent(this)">הפעל סריקה עכשיו 🔍</button>
+                    <span id="researchStatus" style="font-size:14px; font-weight:600; color:var(--primary-700);"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="main-footer" id="mainFooter">
         <div class="footer-inner">
             <span>NovaHub © 2026 — נבנה באהבה עבור הקהילה 💙</span>
-            <span class="footer-disclaimer">המידע באתר אינו מהווה ייעוץ משפטי או רפואי</span>
+            <span class="footer-disclaimer">המידע באתר אינו מהווה ייעוץ משפטי או רפואי | עודכן לאחרונה: 01/05/2026</span>
         </div>
     </footer>
 

@@ -4,10 +4,11 @@ NovaHub FastAPI Server — HTTP API for the multi-agent system.
 
 import os
 import sys
+import json
 from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -16,24 +17,26 @@ from pydantic import BaseModel
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
 from novahub.graph import build_graph
+from novahub.researcher.graph import build_research_graph
+from novahub.utils.json_loader import load_rights_data
 
 # Load environment variables
 load_dotenv()
 
-# Build the graph once at startup
+# Build the graphs once at startup
 graph = None
-
+research_graph = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Initialize the graph on startup."""
-    global graph
-    print("🚀 Building NovaHub agent graph...")
+    """Initialize the graphs on startup."""
+    global graph, research_graph
+    print("🚀 Building NovaHub agent graphs...")
     graph = build_graph()
-    print("✅ Graph ready!")
+    research_graph = build_research_graph()
+    print("✅ Graphs ready!")
     yield
     print("👋 Shutting down NovaHub...")
-
 
 app = FastAPI(
     title="NovaHub API",
@@ -60,71 +63,48 @@ if os.path.exists(frontend_dir):
 # --- Request/Response Models ---
 
 class ChatRequest(BaseModel):
-    """User chat message."""
     message: str
-
+    thread_id: str = "default_thread"
 
 class ChatResponse(BaseModel):
-    """Agent response with metadata."""
     response: str
     route: str
     confidence: float
     sources: list[dict]
     safety_issues: list[str]
 
+class TipRequest(BaseModel):
+    keywords: str
+    content: str
 
-class HealthResponse(BaseModel):
-    """Health check response."""
-    status: str
-    message: str
-
+class UpdateRightsRequest(BaseModel):
+    shells: list
+    shortcuts: dict
+    emergency_contacts: dict
+    metadata: dict
 
 # --- Endpoints ---
 
-@app.get("/", response_model=HealthResponse)
-async def root():
-    """Health check endpoint."""
-    return HealthResponse(
-        status="ok",
-        message="NovaHub API is running 🌟",
-    )
-
-
-@app.get("/health", response_model=HealthResponse)
+@app.get("/health")
 async def health():
-    """Health check."""
-    return HealthResponse(
-        status="ok",
-        message="NovaHub is healthy",
-    )
-
+    return {"status": "ok", "message": "NovaHub API is running 🌟"}
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    """
-    Main chat endpoint — processes user message through the multi-agent graph.
-
-    The graph flow:
-    1. Router classifies the query
-    2. Appropriate agent generates a response
-    3. Safety filter validates the response
-    4. Returns the final safe response
-    """
     if not graph:
         raise HTTPException(status_code=503, detail="Graph not initialized")
-
     if not request.message.strip():
         raise HTTPException(status_code=400, detail="Message cannot be empty")
 
     try:
-        # Run the graph
+        config = {"configurable": {"thread_id": request.thread_id}}
         result = graph.invoke({
             "user_query": request.message,
             "messages": [],
             "rewrite_count": 0,
             "sources": [],
             "safety_issues": [],
-        })
+        }, config=config)
 
         return ChatResponse(
             response=result.get("final_response", result.get("agent_response", "")),
@@ -133,10 +113,77 @@ async def chat(request: ChatRequest):
             sources=result.get("sources", []),
             safety_issues=result.get("safety_issues", []),
         )
-
     except Exception as e:
         print(f"❌ Error processing message: {e}")
-        raise HTTPException(
-            status_code=500,
-            detail="אירעה שגיאה בעיבוד ההודעה. אנא נסה שוב.",
-        )
+        raise HTTPException(status_code=500, detail="אירעה שגיאה בעיבוד ההודעה.")
+
+@app.get("/api/rights")
+async def get_rights():
+    """Returns the full rights database (Shells)."""
+    return load_rights_data()
+
+@app.post("/api/rights/update")
+async def update_rights(request: UpdateRightsRequest):
+    """Overwrites the full rights database."""
+    rights_file = os.path.join(os.path.dirname(__file__), "data", "rights_data.json")
+    try:
+        data = request.dict()
+        with open(rights_file, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return {"status": "success", "message": "Rights updated successfully."}
+    except Exception as e:
+        print(f"❌ Error updating rights: {e}")
+        raise HTTPException(status_code=500, detail="שגיאה בשמירת הנתונים")
+
+@app.post("/api/save-tip")
+async def save_tip(request: TipRequest):
+    """Saves a manual tip to a local JSON file to be injected during next research cycle."""
+    tips_file = os.path.join(os.path.dirname(__file__), "data", "offline_tips.json")
+    try:
+        if os.path.exists(tips_file):
+            with open(tips_file, "r", encoding="utf-8") as f:
+                tips = json.load(f)
+        else:
+            tips = []
+            
+        tips.append({
+            "keywords": [k.strip() for k in request.keywords.split(",")],
+            "content": request.content
+        })
+        
+        with open(tips_file, "w", encoding="utf-8") as f:
+            json.dump(tips, f, ensure_ascii=False, indent=2)
+            
+        return {"status": "success", "message": "Tip saved successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+def run_researcher_task(topic: str):
+    """Background task to run the researcher agent."""
+    if not research_graph:
+        return
+        
+    # Load offline tips to inject
+    tips_file = os.path.join(os.path.dirname(__file__), "data", "offline_tips.json")
+    offline_tips = []
+    if os.path.exists(tips_file):
+        with open(tips_file, "r", encoding="utf-8") as f:
+            offline_tips = json.load(f)
+            
+    print(f"🔍 Starting background research on: {topic}")
+    try:
+        research_graph.invoke({
+            "shell_topic": topic,
+            "offline_knowledge": offline_tips
+        })
+        print(f"✅ Background research completed for: {topic}")
+    except Exception as e:
+        print(f"❌ Background research failed: {e}")
+
+@app.post("/api/trigger-research")
+async def trigger_research(background_tasks: BackgroundTasks):
+    """Triggers the background researcher agent."""
+    topics = ["מעטפת לימודים", "מעטפת רפואית", "מעטפת דיור", "מעטפת כלכלית"]
+    for topic in topics:
+        background_tasks.add_task(run_researcher_task, topic)
+    return {"status": "ok", "message": "Research agents started in background."}

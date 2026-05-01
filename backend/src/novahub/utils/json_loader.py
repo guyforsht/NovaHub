@@ -1,5 +1,5 @@
 """
-JSON Loader utility — loads and searches the structured rights database.
+JSON Loader utility — loads and searches the structured rights database (Shells architecture).
 """
 
 import json
@@ -21,47 +21,49 @@ def load_rights_data(data_path: Optional[str] = None) -> dict:
 
 def search_rights(query: str, rights_db: dict) -> list[dict]:
     """
-    Search the rights database for relevant entries.
+    Search the rights database for relevant entries in the Shells architecture.
 
-    Uses keyword matching against title, category, eligibility, and description.
-    Returns matching rights entries sorted by relevance (number of keyword matches).
+    Returns matching rights entries sorted by relevance.
     """
     query_lower = query.lower()
     query_words = set(query_lower.split())
 
-    # Hebrew keyword mapping for common search terms
     keyword_aliases = {
-        "כסף": ["financial", "מענק", "קצבה", "תשלום", "פיצוי"],
-        "טיפול": ["mental_health", "נפשי", "פסיכולוגי", "פסיכיאטר"],
+        "כסף": ["financial", "מענק", "קצבה", "תשלום", "פיצוי", "כלכלי"],
+        "טיפול": ["medical", "נפשי", "פסיכולוגי", "פסיכיאטר", "רפואי", "תרופות", "נפש אחת"],
         "עבודה": ["employment", "תעסוקה", "שיקום", "מקצועי"],
-        "דיור": ["housing", "דירה", "שכירות", "מגורים"],
+        "דיור": ["housing", "דירה", "שכירות", "מגורים", "ארנונה"],
+        "לימודים": ["academic", "אקדמי", "סטודנט", "שכר לימוד", "מלגה"],
         "ביטוח": ["insurance", "לאומי", "btl"],
         "הכרה": ["recognition", "נפגע", "איבה", "אישור"],
     }
 
-    # Expand query with aliases
     expanded_terms = set(query_words)
     for key, aliases in keyword_aliases.items():
         if key in query_lower:
             expanded_terms.update(aliases)
 
     scored_results = []
-    for right in rights_db.get("rights", []):
-        # Build searchable text from all fields
-        searchable = " ".join([
-            right.get("title", ""),
-            right.get("category", ""),
-            right.get("eligibility", ""),
-            right.get("description", ""),
-            right.get("how_to_apply", ""),
-        ]).lower()
+    
+    # Iterate through shells and their rights
+    for shell in rights_db.get("shells", []):
+        for right in shell.get("rights", []):
+            searchable = " ".join([
+                shell.get("shell_name", ""),
+                right.get("title", ""),
+                right.get("simple_description", ""),
+                right.get("eligibility", ""),
+                right.get("how_to_apply", ""),
+                " ".join(right.get("offline_tips", []))
+            ]).lower()
 
-        # Score based on keyword matches
-        score = sum(1 for term in expanded_terms if term in searchable)
+            score = sum(1 for term in expanded_terms if term in searchable)
 
-        if score > 0:
-            scored_results.append((score, right))
+            if score > 0:
+                # Add shell info to the right for context
+                right_with_context = right.copy()
+                right_with_context["shell_name"] = shell.get("shell_name")
+                scored_results.append((score, right_with_context))
 
-    # Sort by score (highest first) and return top results
     scored_results.sort(key=lambda x: x[0], reverse=True)
     return [r[1] for r in scored_results[:5]]

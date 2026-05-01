@@ -4,6 +4,7 @@ Uses Gemini with structured output for reliable classification.
 """
 
 import json
+import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from ..prompts.router_prompt import ROUTER_SYSTEM_PROMPT, ROUTER_USER_TEMPLATE
 from ..state import NovaHubState
@@ -21,6 +22,7 @@ def router_node(state: NovaHubState) -> dict:
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.0-flash",
         temperature=0,
+        api_key=os.getenv("GOOGLE_API_KEY")
     )
 
     user_query = state["user_query"]

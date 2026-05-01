@@ -1,106 +1,9 @@
 /**
- * NovaHub — Dashboard + Chat Logic
+ * NovaHub — Dashboard + Chat Logic (Shells Architecture)
  */
 const API_URL = 'http://localhost:8000';
 
-// === Rights Data (local copy for display) ===
-const rightsData = [
-  {
-    id:"R001", title:"הכרה כנפגע פעולת איבה", category:"recognition",
-    description:"הכרה רשמית ע\"י ביטוח לאומי כנפגע פעולת איבה, המקנה זכאות למגוון הטבות.",
-    eligibility:"מי שנפגע פיזית או נפשית מפעולת איבה, כולל שורדי נובה.",
-    how_to_apply:"הגשת תביעה לביטוח לאומי עם ת.ז., תיעוד רפואי ואישורים. באתר btl.gov.il או בסניף.",
-    source_url:"https://btl.gov.il", min_percent:0
-  },
-  {
-    id:"R002", title:"טיפולים נפשיים מסובסדים", category:"mental_health",
-    description:"טיפולים פסיכולוגיים ופסיכיאטריים מסובסדים דרך קופות החולים ומרכזי החוסן.",
-    eligibility:"מוכרים כנפגעי איבה. ניתן לקבל טיפול ראשוני גם לפני השלמת ההכרה.",
-    how_to_apply:"פנייה לקופת החולים או למרכז חוסן אזורי.",
-    source_url:"https://health.gov.il", min_percent:0
-  },
-  {
-    id:"R003", title:"מענק חד פעמי לנפגעי איבה", category:"financial",
-    description:"מענק כספי חד פעמי לנפגעי פעולות איבה מוכרים. הסכום נקבע ע\"י ביטוח לאומי.",
-    eligibility:"מי שהוכר כנפגע פעולת איבה.",
-    how_to_apply:"משולם אוטומטית לאחר ההכרה. אם לא התקבל — פנייה לסניף ביטוח לאומי.",
-    source_url:"https://btl.gov.il", min_percent:0
-  },
-  {
-    id:"R004", title:"קצבת נכות חודשית", category:"financial",
-    description:"קצבה חודשית לנפגעי איבה שנקבעה להם דרגת נכות ע\"י ועדה רפואית.",
-    eligibility:"נפגעי איבה עם נכות רפואית מ-10% ומעלה.",
-    how_to_apply:"הגשת בקשה לוועדה רפואית דרך ביטוח לאומי.",
-    source_url:"https://btl.gov.il", min_percent:10
-  },
-  {
-    id:"R005", title:"תוספת לקצבה — נכות 20%+", category:"financial",
-    description:"תוספת לקצבת הנכות החודשית עבור נכות של 20% ומעלה.",
-    eligibility:"נפגעי איבה עם דרגת נכות 20% ומעלה.",
-    how_to_apply:"משולם אוטומטית לאחר קביעת דרגת הנכות.",
-    source_url:"https://btl.gov.il", min_percent:20
-  },
-  {
-    id:"R006", title:"שיקום תעסוקתי", category:"employment",
-    description:"הכשרה מקצועית, ליווי בחיפוש עבודה, והתאמת מקום עבודה.",
-    eligibility:"נפגעי איבה מוכרים שזקוקים לסיוע בחזרה לשוק העבודה.",
-    how_to_apply:"פנייה לאגף שיקום בביטוח לאומי.",
-    source_url:"https://btl.gov.il", min_percent:10
-  },
-  {
-    id:"R007", title:"סיוע בדיור", category:"housing",
-    description:"סבסוד שכירות והתאמת דיור לנפגעי איבה עם נכות משמעותית.",
-    eligibility:"נפגעי איבה עם נכות 40% ומעלה וצורך מוכח.",
-    how_to_apply:"פנייה למשרד הבינוי והשיכון או לביטוח לאומי.",
-    source_url:"https://gov.il", min_percent:40
-  },
-  {
-    id:"R008", title:"ליווי משפטי חינם", category:"legal",
-    description:"ייעוץ וליווי משפטי חינם כולל ייצוג בוועדות רפואיות.",
-    eligibility:"נפגעי איבה מוכרים.",
-    how_to_apply:"פנייה ללשכת הסיוע המשפטי, משרד המשפטים.",
-    source_url:"https://justice.gov.il", min_percent:0
-  },
-  {
-    id:"R009", title:"פטור מארנונה", category:"financial",
-    description:"הנחה משמעותית או פטור מלא מארנונה לנפגעי איבה עם נכות גבוהה.",
-    eligibility:"נפגעי איבה עם דרגת נכות 60% ומעלה.",
-    how_to_apply:"פנייה לרשות המקומית עם אישור ביטוח לאומי.",
-    source_url:"https://gov.il", min_percent:60
-  },
-  {
-    id:"R010", title:"רכב רפואי", category:"financial",
-    description:"זכאות להלוואה/מענק לרכישת רכב מותאם לנפגעי איבה עם מוגבלות בניידות.",
-    eligibility:"נפגעי איבה עם נכות 80% ומעלה ומוגבלות בניידות.",
-    how_to_apply:"פנייה לאגף שיקום בביטוח לאומי.",
-    source_url:"https://btl.gov.il", min_percent:80
-  },
-  {
-    id:"R011", title:"הנצחה והכרה ממלכתית", category:"recognition",
-    description:"הכרה ממלכתית, השתתפות בטקסים ממלכתיים וזכויות הנצחה.",
-    eligibility:"כלל שורדי נובה ומשפחות הנספים.",
-    how_to_apply:"מידע באתר tribeofnova.com",
-    source_url:"https://gov.il", min_percent:0
-  },
-  {
-    id:"R012", title:"מענק שנתי — נכות 40%+", category:"financial",
-    description:"מענק כספי שנתי נוסף לנפגעי איבה עם נכות 40% ומעלה.",
-    eligibility:"נפגעי איבה עם דרגת נכות 40% ומעלה.",
-    how_to_apply:"משולם אוטומטית ע\"י ביטוח לאומי.",
-    source_url:"https://btl.gov.il", min_percent:40
-  }
-];
-
-const catLabels = {
-  financial:"כספי", mental_health:"בריאות הנפש", employment:"תעסוקה",
-  housing:"דיור", legal:"משפטי", recognition:"הכרה"
-};
-
-const routeLabels = {
-  official_rights:'📋 זכויות רשמיות',
-  community_events:'🤝 אירועים קהילתיים',
-  emotional_support:'💙 תמיכה רגשית'
-};
+let rightsData = {};
 
 // === Navigation ===
 function navigateTo(pageId) {
@@ -110,38 +13,152 @@ function navigateTo(pageId) {
   const tab = document.querySelector(`.nav-tab[data-page="${pageId}"]`);
   if (page) page.classList.add('active');
   if (tab) tab.classList.add('active');
-  // Show/hide footer on chat page
+  
   const footer = document.getElementById('mainFooter');
   if (footer) footer.style.display = pageId === 'chat' ? 'none' : '';
   window.scrollTo(0, 0);
 }
 
-// === Rights Rendering ===
-function renderRights(filter) {
-  const grid = document.getElementById('rightsGrid');
-  if (!grid) return;
-  let filtered = rightsData;
-  if (filter && filter !== 'all') {
-    const pct = parseInt(filter);
-    filtered = rightsData.filter(r => r.min_percent <= pct + 19 && r.min_percent >= 0);
-    // Show rights available at this percentage level
-    if (pct === 10) filtered = rightsData.filter(r => r.min_percent <= 19);
-    else if (pct === 20) filtered = rightsData.filter(r => r.min_percent <= 39);
-    else if (pct === 40) filtered = rightsData.filter(r => r.min_percent <= 59);
-    else if (pct === 60) filtered = rightsData.filter(r => r.min_percent <= 79);
-    else if (pct === 80) filtered = rightsData.filter(r => r.min_percent <= 100);
-  }
-  grid.innerHTML = filtered.map(r => `
-    <div class="right-card">
-      <span class="rc-cat ${r.category}">${catLabels[r.category] || r.category}</span>
-      ${r.min_percent > 0 ? `<span class="rc-percent-badge">${r.min_percent}%+</span>` : ''}
-      <h3>${r.title}</h3>
-      <p>${r.description}</p>
-      <p><strong>זכאות:</strong> ${r.eligibility}</p>
-      <div class="rc-apply">📝 ${r.how_to_apply}</div>
-      <div class="rc-source">מקור: <a href="${r.source_url}" target="_blank">${r.source_url}</a></div>
-    </div>
-  `).join('');
+// === Data Fetching & Rendering ===
+async function fetchRightsData() {
+    try {
+        const res = await fetch(`${API_URL}/api/rights`);
+        if (res.ok) {
+            rightsData = await res.json();
+            renderShells();
+            renderNefeshAchatChecklist();
+        }
+    } catch (e) {
+        console.error("Failed to load rights data", e);
+    }
+}
+
+function toggleShell(shellId) {
+    const el = document.getElementById(`shell-content-${shellId}`);
+    const arrow = document.getElementById(`shell-arrow-${shellId}`);
+    if (el.style.display === 'block') {
+        el.style.display = 'none';
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    } else {
+        el.style.display = 'block';
+        if (arrow) arrow.style.transform = 'rotate(90deg)';
+    }
+}
+
+function renderShells() {
+    const grid = document.getElementById('shellsGrid');
+    if (!grid || !rightsData.shells) return;
+    
+    grid.innerHTML = rightsData.shells.map(shell => `
+        <div class="shell-card" style="cursor: pointer; display: block; height: auto;" onclick="toggleShell('${shell.shell_id}')">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div class="shell-icon">${shell.icon}</div>
+                    <div class="shell-info">
+                        <h3>${shell.shell_name}</h3>
+                        <span class="shell-count">${shell.rights.length} פעולות זמינות</span>
+                    </div>
+                </div>
+                <div class="shell-arrow" id="shell-arrow-${shell.shell_id}" style="transition: transform 0.2s;">↓</div>
+            </div>
+            <div id="shell-content-${shell.shell_id}" style="display: none; padding: 0 16px 16px; border-top: 1px solid var(--border); margin-top: 8px; cursor: default;" onclick="event.stopPropagation()">
+                ${shell.rights.map(r => `
+                    <div style="padding: 12px 0; border-bottom: 1px dashed var(--border); position: relative;">
+                        <button onclick="openEditModal('${shell.shell_id}', '${r.id}')" style="position: absolute; left: 0; top: 12px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted);" title="ערוך תוכן">✏️</button>
+                        <h4 style="margin: 0 0 4px; color: var(--primary-700); padding-left: 30px;">${r.title}</h4>
+                        <p style="margin: 0 0 8px; font-size: 0.9rem; color: var(--text2);">${r.simple_description}</p>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">
+                            <strong>זכאות:</strong> ${r.eligibility}<br>
+                            <strong>איך להגיש:</strong> ${r.how_to_apply}
+                        </div>
+                        ${r.offline_tips && r.offline_tips.length > 0 ? 
+                            `<div style="margin-top: 8px; background: var(--warning-100); padding: 8px; border-radius: 4px; font-size: 0.85rem; color: #856404;">💡 ${r.offline_tips.join('<br>💡 ')}</div>` : ''}
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
+// === Editor Modal ===
+function openEditModal(shellId, rightId) {
+    const shell = rightsData.shells.find(s => s.shell_id === shellId);
+    const right = shell.rights.find(r => r.id === rightId);
+    
+    document.getElementById('editShellId').value = shellId;
+    document.getElementById('editRightId').value = rightId;
+    document.getElementById('editTitle').value = right.title;
+    document.getElementById('editDesc').value = right.simple_description;
+    document.getElementById('editElig').value = right.eligibility;
+    document.getElementById('editApply').value = right.how_to_apply;
+    document.getElementById('editTips').value = (right.offline_tips || []).join(', ');
+    
+    document.getElementById('editRightModal').classList.add('active');
+}
+
+function closeEditModal() {
+    document.getElementById('editRightModal').classList.remove('active');
+}
+
+async function saveEditedRight() {
+    const shellId = document.getElementById('editShellId').value;
+    const rightId = document.getElementById('editRightId').value;
+    
+    const shell = rightsData.shells.find(s => s.shell_id === shellId);
+    const right = shell.rights.find(r => r.id === rightId);
+    
+    right.title = document.getElementById('editTitle').value;
+    right.simple_description = document.getElementById('editDesc').value;
+    right.eligibility = document.getElementById('editElig').value;
+    right.how_to_apply = document.getElementById('editApply').value;
+    
+    const tipsStr = document.getElementById('editTips').value;
+    right.offline_tips = tipsStr ? tipsStr.split(',').map(t => t.trim()).filter(t => t) : [];
+    
+    try {
+        const res = await fetch(`${API_URL}/api/rights/update`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(rightsData)
+        });
+        
+        if (res.ok) {
+            closeEditModal();
+            renderShells(); // Re-render to show changes
+            
+            // Re-open the shell that was just edited so the user sees the change
+            const content = document.getElementById(`shell-content-${shellId}`);
+            const arrow = document.getElementById(`shell-arrow-${shellId}`);
+            if (content) content.style.display = 'block';
+            if (arrow) arrow.style.transform = 'rotate(90deg)';
+        } else {
+            alert('שגיאה בשמירת הנתונים');
+        }
+    } catch(e) {
+        alert('שגיאה בתקשורת עם השרת');
+    }
+}
+
+function toggleShortcutModal() {
+    const modal = document.getElementById('nefeshModal');
+    modal.classList.toggle('active');
+}
+
+function renderNefeshAchatChecklist() {
+    const list = document.getElementById('nefeshChecklist');
+    const treatments = document.getElementById('nefeshTreatments');
+    if (!list || !treatments || !rightsData.shortcuts || !rightsData.shortcuts.nefesh_achat) return;
+    
+    list.innerHTML = rightsData.shortcuts.nefesh_achat.checklist.map((item, i) => `
+        <label class="cl-item">
+            <input type="checkbox" id="cl_${i}">
+            <span class="cl-text">${item}</span>
+        </label>
+    `).join('');
+    
+    treatments.innerHTML = rightsData.shortcuts.nefesh_achat.treatment_basket.map(item => `
+        <div style="margin-bottom: 6px;">• ${item}</div>
+    `).join('');
 }
 
 // === Chat ===
@@ -171,6 +188,12 @@ function initChat() {
   checkHealth();
 }
 
+const routeLabels = {
+  official_rights:'📋 זכויות',
+  community_events:'🤝 קהילה',
+  emotional_support:'💙 תמיכה'
+};
+
 async function sendChat() {
   const input = document.getElementById('messageInput');
   const msg = input.value.trim();
@@ -183,12 +206,15 @@ async function sendChat() {
   input.value = ''; input.style.height = 'auto';
   document.getElementById('sendBtn').disabled = true;
 
+  const thread_id = localStorage.getItem('novahub_thread_id') || Math.random().toString(36).substring(2, 15);
+  localStorage.setItem('novahub_thread_id', thread_id);
+
   const typing = showTyping();
   isLoading = true;
   try {
     const res = await fetch(`${API_URL}/chat`, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({message: msg})
+      body: JSON.stringify({message: msg, thread_id: thread_id})
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
@@ -196,7 +222,7 @@ async function sendChat() {
     appendMsg('assistant', data.response, { route: data.route, sources: data.sources });
   } catch(e) {
     removeTyping(typing);
-    appendMsg('error', 'מצטערים, אירעה שגיאה. אנא נסו שוב או פנו לקו הסיוע 1201.');
+    appendMsg('error', 'מצטערים, השרת נפל או מתעדכן כרגע. נסה שוב עוד רגע.');
     console.error(e);
   } finally {
     isLoading = false;
@@ -260,21 +286,68 @@ function setStatus(s) {
   else { dot.style.background='var(--neutral-400)'; txt.textContent='לא מחובר'; }
 }
 
+// === Admin Functions ===
+async function triggerResearchAgent(btn) {
+    btn.disabled = true;
+    btn.textContent = 'סורק...';
+    document.getElementById('researchStatus').textContent = 'הסוכן רץ ברקע...';
+    try {
+        const res = await fetch(`${API_URL}/api/trigger-research`, {method: 'POST'});
+        if (res.ok) {
+            document.getElementById('researchStatus').textContent = '✅ נשלח לסריקה בהצלחה!';
+        }
+    } catch(e) {
+        document.getElementById('researchStatus').textContent = '❌ שגיאה בהפעלת הסוכן';
+    } finally {
+        setTimeout(() => { btn.disabled = false; btn.textContent = 'הפעל סריקה עכשיו 🔍'; }, 3000);
+    }
+}
+
+// === Calculator ===
+function initCalculator() {
+    const slider = document.getElementById('calcPercent');
+    const label = document.getElementById('percentLabel');
+    const result = document.getElementById('calcResult');
+    if (!slider || !label || !result) return;
+    
+    const btlRates = {
+        10: 0,
+        20: 1161,
+        30: 1742,
+        40: 2323,
+        50: 2904,
+        60: 3484,
+        70: 4065,
+        80: 4646,
+        90: 5227,
+        100: 5807
+    };
+    
+    function updateCalc() {
+        let percent = parseInt(slider.value, 10);
+        label.textContent = percent + '%';
+        const allowance = btlRates[percent] || 0;
+        
+        let addonHtml = '';
+        if (percent >= 50) {
+            addonHtml = `<div style="font-size: 0.85rem; color: var(--primary-600); margin-top: 8px;">+ תוספות נסתרות: ניידות, עזרת הזולת, ודמי חימום עשויים להוסיף סכומים משמעותיים!</div>`;
+        }
+        
+        result.innerHTML = '₪' + allowance.toLocaleString() + addonHtml;
+    }
+    
+    slider.addEventListener('input', updateCalc);
+    updateCalc();
+}
+
 // === Init ===
 document.addEventListener('DOMContentLoaded', () => {
   // Nav tabs
   document.querySelectorAll('.nav-tab').forEach(tab => {
     tab.addEventListener('click', () => navigateTo(tab.dataset.page));
   });
-  // Rights tabs
-  document.querySelectorAll('.disability-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.disability-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderRights(tab.dataset.percent);
-    });
-  });
-  // Initial render
-  renderRights('all');
+  
+  fetchRightsData();
   initChat();
+  initCalculator();
 });

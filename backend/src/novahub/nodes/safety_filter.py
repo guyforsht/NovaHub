@@ -4,6 +4,7 @@ Checks for false financial promises, insensitive language, and hallucinations.
 """
 
 import json
+import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from ..prompts.safety_prompt import SAFETY_SYSTEM_PROMPT, SAFETY_USER_TEMPLATE
 from ..state import NovaHubState
@@ -36,6 +37,7 @@ def safety_filter_node(state: NovaHubState) -> dict:
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.0-flash",
         temperature=0,
+        api_key=os.getenv("GOOGLE_API_KEY")
     )
 
     agent_response = state.get("agent_response", "")

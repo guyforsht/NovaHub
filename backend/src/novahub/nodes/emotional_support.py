@@ -2,6 +2,7 @@
 Emotional Support Agent Node — provides empathetic, trauma-informed responses.
 """
 
+import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from ..prompts.support_prompt import SUPPORT_SYSTEM_PROMPT, SUPPORT_USER_TEMPLATE
 from ..state import NovaHubState
@@ -17,6 +18,7 @@ def emotional_support_node(state: NovaHubState) -> dict:
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
         temperature=0.5,  # Some warmth for natural empathetic tone
+        api_key=os.getenv("GOOGLE_API_KEY")
     )
 
     user_query = state["user_query"]

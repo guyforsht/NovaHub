@@ -1,82 +1,61 @@
 """
-NovaHub State Graph — orchestrates all agents with conditional routing.
+NovaHub StateGraph — the core orchestration logic for the multi-agent system.
 """
 
 from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.memory import MemorySaver
 from .state import NovaHubState
-from .nodes import (
-    router_node,
-    official_rights_node,
-    community_scraper_node,
-    emotional_support_node,
-    safety_filter_node,
-    rewrite_node,
-)
-
-
-def route_by_category(state: NovaHubState) -> str:
-    """Route to the appropriate agent based on router classification."""
-    return state["route"]
-
-
-def route_by_safety(state: NovaHubState) -> str:
-    """Route based on safety filter result — pass to END or rewrite."""
-    if state.get("safety_status") == "pass":
-        return "end"
-    return "rewrite"
+from .nodes.router import router_node
+from .nodes.rights_researcher import rights_researcher_node
+from .nodes.community_scraper import community_scraper_node
+from .nodes.emotional_support import emotional_support_node
+from .nodes.safety_filter import safety_filter_node
 
 
 def build_graph() -> StateGraph:
-    """
-    Build and compile the NovaHub multi-agent state graph.
-
-    Flow:
-        START → Router → [Rights | Community | Support] → Safety Filter → END
-                                                              ↓ (fail)
-                                                           Rewrite → Safety Filter (loop, max 2)
-    """
+    """Builds and compiles the NovaHub agent graph with memory persistence."""
     builder = StateGraph(NovaHubState)
 
-    # --- Add Nodes ---
+    # 1. Add Nodes
     builder.add_node("router", router_node)
-    builder.add_node("official_rights", official_rights_node)
-    builder.add_node("community_scraper", community_scraper_node)
-    builder.add_node("emotional_support", emotional_support_node)
+    builder.add_node("rights_researcher", rights_researcher_node) # Replacing old official_rights
+    builder.add_node("community", community_scraper_node)
+    builder.add_node("support", emotional_support_node)
     builder.add_node("safety_filter", safety_filter_node)
-    builder.add_node("rewrite", rewrite_node)
 
-    # --- Set Entry Point ---
+    # 2. Define Edges and Routing
     builder.set_entry_point("router")
 
-    # --- Conditional Edges: Router → Agent ---
+    # Conditional routing based on the 'route' value in the state
+    def route_condition(state: NovaHubState) -> str:
+        route = state.get("route", "emotional_support")
+        if route == "official_rights":
+            return "rights_researcher"
+        elif route == "community_events":
+            return "community"
+        else:
+            return "support"
+
     builder.add_conditional_edges(
         "router",
-        route_by_category,
+        route_condition,
         {
-            "official_rights": "official_rights",
-            "community_events": "community_scraper",
-            "emotional_support": "emotional_support",
-        },
+            "rights_researcher": "rights_researcher",
+            "community": "community",
+            "support": "support",
+        }
     )
 
-    # --- Fixed Edges: Agent → Safety Filter ---
-    builder.add_edge("official_rights", "safety_filter")
-    builder.add_edge("community_scraper", "safety_filter")
-    builder.add_edge("emotional_support", "safety_filter")
+    # All specific agents flow into the safety filter
+    builder.add_edge("rights_researcher", "safety_filter")
+    builder.add_edge("community", "safety_filter")
+    builder.add_edge("support", "safety_filter")
 
-    # --- Conditional Edges: Safety Filter → END or Rewrite ---
-    builder.add_conditional_edges(
-        "safety_filter",
-        route_by_safety,
-        {
-            "end": END,
-            "rewrite": "rewrite",
-        },
-    )
+    # Safety loop (simplified for MVP: just goes to END after filter)
+    builder.add_edge("safety_filter", END)
 
-    # --- Fixed Edge: Rewrite → Safety Filter (loop back) ---
-    builder.add_edge("rewrite", "safety_filter")
+    # Initialize memory saver for thread persistence
+    memory = MemorySaver()
 
-    # --- Compile ---
-    graph = builder.compile()
-    return graph
+    # Compile the graph with checkpointer
+    return builder.compile(checkpointer=memory)
