@@ -89,6 +89,7 @@ body { font-family:var(--font); background:var(--bg); color:var(--text); line-he
 .shortcuts-section { max-width:1100px; margin:0 auto; padding:0 24px 24px; }
 .shortcut-card { background: linear-gradient(135deg, #fff, var(--warm-50)); border: 1px solid var(--warm-200); border-radius: var(--radius-lg); padding: 20px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: all 0.2s; box-shadow: var(--shadow-sm); }
 .shortcut-card:hover { box-shadow: var(--shadow-md); border-color: var(--warm-300); transform: translateY(-2px); }
+.nefesh-achat-card { background: linear-gradient(135deg, var(--primary-600), var(--primary-700)) !important; border: none !important; }
 .nc-icon { font-size: 2rem; }
 .nc-content { flex: 1; }
 .nc-content h3 { font-size: 1.125rem; font-weight: 700; color: #854d0e; margin-bottom: 4px; }
