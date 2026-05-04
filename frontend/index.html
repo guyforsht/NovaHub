@@ -131,6 +131,61 @@
             <p>הזכויות מרוכזות לפי קטגוריות נושא ("מעטפות"). לחצו על מעטפה כדי לראות את כל הזכויות, המענקים והטיפים מהשטח.</p>
         </div>
 
+        <!-- SmartCompass Profile Form -->
+        <div style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
+            <div style="background: linear-gradient(135deg, var(--primary-50), #fff); border: 1px solid var(--primary-200); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
+                <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: var(--primary-800);">🧭 הפרופיל שלי — לתשובות מותאמות אישית</h3>
+                <p style="color: var(--text2); font-size: 0.875rem; margin-bottom: 20px;">מלאו פעם אחת — הצ'אט יתאים את התשובות לפרופיל הספציפי שלכם.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">אחוז נכות: <span id="profilePctLabel" style="color: var(--primary-600);">20%</span></label>
+                        <input type="range" id="profilePct" min="0" max="100" step="1" value="20" style="width: 100%; accent-color: var(--primary-600);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">סוג פגיעה</label>
+                        <select id="profileCondition" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                            <option value="נפשי">נפשי (PTSD / חרדה)</option>
+                            <option value="גופני">גופני (פציעה פיזית)</option>
+                            <option value="שניהם">נפשי וגופני</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">סטטוס</label>
+                        <select id="profileStatus" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                            <option value="שכיר">שכיר</option>
+                            <option value="סטודנט">סטודנט</option>
+                            <option value="עצמאי">עצמאי</option>
+                            <option value="מובטל">מובטל</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">הכרת ביטוח לאומי</label>
+                        <select id="profileRecognition" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                            <option value="מוכר">מוכר כנפגע פעולת איבה</option>
+                            <option value="בתהליך">בתהליך הכרה</option>
+                            <option value="לא">טרם הגשתי</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">גיל (אופציונלי)</label>
+                        <input type="number" id="profileAge" min="16" max="99" placeholder="למשל: 28" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <label style="font-weight: 600; font-size: 0.875rem; display: block; margin-bottom: 6px;">מצב משפחתי</label>
+                        <select id="profileMarital" style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--border);">
+                            <option value="רווק">רווק/ה</option>
+                            <option value="נשוי">נשוי/אה</option>
+                            <option value="גרוש">גרוש/ה</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <button class="btn btn-primary" onclick="saveProfile()" style="padding: 10px 24px;">שמור פרופיל ✓</button>
+                    <span id="profileSaveMsg" style="display:none; color: var(--success-700); font-weight: 600; font-size: 0.875rem;">✅ הפרופיל נשמר! הצ'אט יתאים תשובות עבורך.</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Calculator Section -->
         <div class="calculator-section" style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
             <div style="background: linear-gradient(135deg, #fff, var(--primary-50)); border: 1px solid var(--primary-200); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
@@ -322,6 +377,9 @@
                     <span class="status-text">מחובר</span>
                 </div>
             </div>
+
+            <!-- Profile Banner -->
+            <div id="chatProfileBanner" style="display:none; background: var(--primary-50); border-bottom: 1px solid var(--primary-200); padding: 8px 20px; font-size: 0.875rem; color: var(--primary-800);"></div>
 
             <div class="chat-messages" id="chatMessages">
                 <!-- Welcome -->

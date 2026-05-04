@@ -34,5 +34,9 @@ class NovaHubState(TypedDict):
     safety_issues: list[str]
     rewrite_count: int  # Max 2 rewrites to prevent infinite loops
 
+    # --- User Profile (from SmartCompass) ---
+    # e.g. {"disability_pct": 40, "condition": "נפשי", "status": "סטודנט", "recognition": "מוכר"}
+    user_profile: Optional[dict]
+
     # --- Final ---
     final_response: str

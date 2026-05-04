@@ -65,6 +65,7 @@ if os.path.exists(frontend_dir):
 class ChatRequest(BaseModel):
     message: str
     thread_id: str = "default_thread"
+    user_profile: dict | None = None
 
 class ChatResponse(BaseModel):
     response: str
@@ -104,6 +105,7 @@ async def chat(request: ChatRequest):
             "rewrite_count": 0,
             "sources": [],
             "safety_issues": [],
+            "user_profile": request.user_profile,
         }, config=config)
 
         return ChatResponse(

@@ -6,7 +6,7 @@ from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 from .state import NovaHubState
 from .nodes.router import router_node
-from .nodes.rights_researcher import rights_researcher_node
+from .nodes.rights_rag_node import rights_rag_node
 from .nodes.community_scraper import community_scraper_node
 from .nodes.emotional_support import emotional_support_node
 from .nodes.safety_filter import safety_filter_node
@@ -18,7 +18,7 @@ def build_graph() -> StateGraph:
 
     # 1. Add Nodes
     builder.add_node("router", router_node)
-    builder.add_node("rights_researcher", rights_researcher_node) # Replacing old official_rights
+    builder.add_node("rights_researcher", rights_rag_node)
     builder.add_node("community", community_scraper_node)
     builder.add_node("support", emotional_support_node)
     builder.add_node("safety_filter", safety_filter_node)

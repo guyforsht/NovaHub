@@ -161,6 +161,56 @@ function renderNefeshAchatChecklist() {
     `).join('');
 }
 
+// === SmartCompass Profile ===
+function saveProfile() {
+  const pct = parseInt(document.getElementById('profilePct').value, 10) || 0;
+  const condition = document.getElementById('profileCondition').value;
+  const status = document.getElementById('profileStatus').value;
+  const recognition = document.getElementById('profileRecognition').value;
+  const age = document.getElementById('profileAge').value || null;
+  const marital = document.getElementById('profileMarital').value;
+
+  const profile = { disability_pct: pct, condition, status, recognition, marital };
+  if (age) profile.age = parseInt(age, 10);
+
+  localStorage.setItem('novahub_profile', JSON.stringify(profile));
+  document.getElementById('profileSaveMsg').style.display = 'block';
+  setTimeout(() => {
+    const msg = document.getElementById('profileSaveMsg');
+    if (msg) msg.style.display = 'none';
+  }, 2500);
+  updateChatProfileBanner(profile);
+}
+
+function loadProfileToForm() {
+  const raw = localStorage.getItem('novahub_profile');
+  if (!raw) return;
+  const p = JSON.parse(raw);
+  const el = (id) => document.getElementById(id);
+  if (el('profilePct') && p.disability_pct !== undefined) el('profilePct').value = p.disability_pct;
+  if (el('profilePctLabel') && p.disability_pct !== undefined) el('profilePctLabel').textContent = p.disability_pct + '%';
+  if (el('profileCondition') && p.condition) el('profileCondition').value = p.condition;
+  if (el('profileStatus') && p.status) el('profileStatus').value = p.status;
+  if (el('profileRecognition') && p.recognition) el('profileRecognition').value = p.recognition;
+  if (el('profileAge') && p.age) el('profileAge').value = p.age;
+  if (el('profileMarital') && p.marital) el('profileMarital').value = p.marital;
+}
+
+function updateChatProfileBanner(profile) {
+  const banner = document.getElementById('chatProfileBanner');
+  if (!banner) return;
+  if (!profile || !profile.disability_pct) {
+    banner.style.display = 'none';
+    return;
+  }
+  const condLabel = { 'נפשי': 'נכות נפשית', 'גופני': 'נכות גופנית', 'שניהם': 'נכות נפשית וגופנית' }[profile.condition] || profile.condition;
+  banner.style.display = 'block';
+  banner.innerHTML = `
+    <span>💡 מדבר איתך כ: ${profile.status || 'נפגע/ת'} עם ${profile.disability_pct}% ${condLabel}
+    (<a href="#" onclick="navigateTo('rights'); return false;" style="color:var(--primary-700); font-weight:600;">עדכן פרופיל</a>)</span>
+  `;
+}
+
 // === Chat ===
 let isLoading = false;
 function initChat() {
@@ -214,7 +264,11 @@ async function sendChat() {
   try {
     const res = await fetch(`${API_URL}/chat`, {
       method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({message: msg, thread_id: thread_id})
+      body: JSON.stringify({
+        message: msg,
+        thread_id: thread_id,
+        user_profile: JSON.parse(localStorage.getItem('novahub_profile') || 'null')
+      })
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
@@ -346,7 +400,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-tab').forEach(tab => {
     tab.addEventListener('click', () => navigateTo(tab.dataset.page));
   });
-  
+
+  // Profile percentage slider live label
+  const profileSlider = document.getElementById('profilePct');
+  const profileLabel = document.getElementById('profilePctLabel');
+  if (profileSlider && profileLabel) {
+    profileSlider.addEventListener('input', () => {
+      profileLabel.textContent = profileSlider.value + '%';
+    });
+  }
+
+  loadProfileToForm();
+  const savedProfile = JSON.parse(localStorage.getItem('novahub_profile') || 'null');
+  updateChatProfileBanner(savedProfile);
+
   fetchRightsData();
   initChat();
   initCalculator();
