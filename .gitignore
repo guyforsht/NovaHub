@@ -11,8 +11,9 @@ build/
 venv/
 .venv/
 
-# ChromaDB local data
+# ChromaDB local data (rebuilt via scripts/ingest_rights_to_chroma.py)
 chroma_db/
+backend/data/chroma_rights_db/
 
 # OS
 .DS_Store
