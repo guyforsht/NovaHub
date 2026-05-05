@@ -21,28 +21,38 @@ function navigateTo(pageId) {
 
 // === Data Fetching & Rendering ===
 async function fetchRightsData() {
+    const grid = document.getElementById('shellsGrid');
+    if (grid) {
+        grid.innerHTML = Array(4).fill('<div class="skeleton-card"></div>').join('');
+    }
     try {
         const res = await fetch(`${API_URL}/api/rights`);
         if (res.ok) {
             rightsData = await res.json();
             renderShells();
             renderNefeshAchatChecklist();
+        } else {
+            showShellsError();
         }
     } catch (e) {
         console.error("Failed to load rights data", e);
+        showShellsError();
+    }
+}
+
+function showShellsError() {
+    const grid = document.getElementById('shellsGrid');
+    if (grid) {
+        grid.innerHTML = `<div class="shells-empty" style="grid-column:1/-1"><div class="empty-icon">⚠️</div><p>לא ניתן לטעון את נתוני הזכויות כרגע. ודאו שהשרת פועל ונסו לרענן את הדף.</p></div>`;
     }
 }
 
 function toggleShell(shellId) {
     const el = document.getElementById(`shell-content-${shellId}`);
     const arrow = document.getElementById(`shell-arrow-${shellId}`);
-    if (el.style.display === 'block') {
-        el.style.display = 'none';
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    } else {
-        el.style.display = 'block';
-        if (arrow) arrow.style.transform = 'rotate(90deg)';
-    }
+    const isOpen = el.style.display === 'block';
+    el.style.display = isOpen ? 'none' : 'block';
+    if (arrow) arrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 function renderShells() {
@@ -56,10 +66,10 @@ function renderShells() {
                     <div class="shell-icon">${shell.icon}</div>
                     <div class="shell-info">
                         <h3>${shell.shell_name}</h3>
-                        <span class="shell-count">${shell.rights.length} פעולות זמינות</span>
+                        <span class="shell-count">${shell.rights.length} זכויות זמינות</span>
                     </div>
                 </div>
-                <div class="shell-arrow" id="shell-arrow-${shell.shell_id}" style="transition: transform 0.2s;">↓</div>
+                <div class="shell-expand-arrow" id="shell-arrow-${shell.shell_id}">▼</div>
             </div>
             <div id="shell-content-${shell.shell_id}" style="display: none; padding: 0 16px 16px; border-top: 1px solid var(--border); margin-top: 8px; cursor: default;" onclick="event.stopPropagation()">
                 ${shell.rights.map(r => `
@@ -341,6 +351,33 @@ function setStatus(s) {
 }
 
 // === Admin Functions ===
+async function saveAdminTip(btn) {
+    const keywords = document.getElementById('adminTipKeywords').value.trim();
+    const content = document.getElementById('adminTipContent').value.trim();
+    if (!keywords || !content) { alert('נא למלא גם מילות מפתח וגם תוכן הטיפ.'); return; }
+    btn.disabled = true;
+    btn.textContent = 'שומר...';
+    try {
+        const res = await fetch(`${API_URL}/api/save-tip`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ keywords, content })
+        });
+        if (res.ok) {
+            alert('✅ הטיפ נשמר ויוזן בסריקה הבאה!');
+            document.getElementById('adminTipKeywords').value = '';
+            document.getElementById('adminTipContent').value = '';
+        } else {
+            alert('❌ שגיאה בשמירת הטיפ');
+        }
+    } catch (e) {
+        alert('❌ שגיאה בתקשורת עם השרת');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'שמור טיפ במאגר';
+    }
+}
+
 async function triggerResearchAgent(btn) {
     btn.disabled = true;
     btn.textContent = 'סורק...';
@@ -380,7 +417,9 @@ function initCalculator() {
     function updateCalc() {
         let percent = parseInt(slider.value, 10);
         label.textContent = percent + '%';
-        const allowance = btlRates[percent] || 0;
+        const rounded = Math.round(percent / 10) * 10;
+        const clamped = Math.max(10, Math.min(100, rounded));
+        const allowance = btlRates[clamped] || 0;
         
         let addonHtml = '';
         if (percent >= 50) {

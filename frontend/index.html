@@ -131,6 +131,24 @@
             <p>הזכויות מרוכזות לפי קטגוריות נושא ("מעטפות"). לחצו על מעטפה כדי לראות את כל הזכויות, המענקים והטיפים מהשטח.</p>
         </div>
 
+        <!-- First Steps Banner -->
+        <div style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
+            <details style="background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid #fde68a; border-radius: var(--radius-lg); padding: 20px; cursor: pointer;">
+                <summary style="font-size: 1.05rem; font-weight: 700; color: #92400e; list-style: none; display: flex; align-items: center; justify-content: space-between;">
+                    <span>🚀 התחלתם רק עכשיו? — מדריך "צעד ראשון" לנפגעי איבה</span>
+                    <span style="font-size: 0.875rem; font-weight: 500; opacity: 0.7;">לחצו לפתיחה ▼</span>
+                </summary>
+                <ol style="margin-top: 16px; padding-right: 20px; line-height: 2; color: #78350f; font-size: 0.9375rem;">
+                    <li><strong>הגישו תביעת הכרה לביטוח לאומי</strong> — דרך אתר btl.gov.il (הכי קריטי!)</li>
+                    <li><strong>קבלו מכתב הכרה רשמי</strong> — שמרו אותו — זה המפתח לכל הזכויות</li>
+                    <li><strong>בקשו פגישה עם עובדת שיקום</strong> — היא תפתח לכם תיק אישי ותמפה זכויות</li>
+                    <li><strong>הגישו לנפש אחת</strong> — קבלות על טיפולים נפשיים מוחזרות עד 326-459 ₪ לטיפול</li>
+                    <li><strong>בדקו זכאות לרכב רפואי</strong> — נפגעים עם 40%+ פגיעה גופנית עשויים להיות זכאים</li>
+                    <li><strong>ייעוץ משפטי ראשוני חינם</strong> — דרך נט"ל לפני חתימה על כל מסמך</li>
+                </ol>
+            </details>
+        </div>
+
         <!-- SmartCompass Profile Form -->
         <div style="max-width:1100px; margin: 0 auto 24px; padding: 0 24px;">
             <div style="background: linear-gradient(135deg, var(--primary-50), #fff); border: 1px solid var(--primary-200); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
@@ -233,7 +251,7 @@
         <!-- Info Notice -->
         <div class="info-notice">
             <span class="notice-icon">ℹ️</span>
-            <span>המידע מתעדכן אוטומטית מאתרי הממשלה וממשתמשים בקהילה. מומלץ לוודא מול מוקד ביטוח לאומי (*6050) לפרטים ספציפיים אליכם.</span>
+            <span>המידע מתעדכן אוטומטית מאתרי הממשלה וממשתמשים בקהילה. מומלץ לוודא מול ביטוח לאומי לפרטים ספציפיים אליכם.</span>
         </div>
     </section>
 
@@ -258,10 +276,7 @@
         </div>
     </div>
 
-        </div>
-    </div>
-
-    <!-- Modal for Editing Right Content -->
+        <!-- Modal for Editing Right Content -->
     <div class="modal-overlay" id="editRightModal">
         <div class="modal-content" style="max-width: 600px;">
             <button class="modal-close" onclick="closeEditModal()">✕</button>
@@ -506,7 +521,7 @@
                 <div style="display:flex; flex-direction:column; gap:12px;">
                     <input type="text" placeholder="נושא / מילות מפתח (למשל: לימודים, פסיכולוג)" style="padding:10px; border-radius:8px; border:1px solid var(--border);" id="adminTipKeywords">
                     <textarea placeholder="הטיפ / המידע (למשל: 'כדאי להגיש את הבקשה למלגה בחודש אוגוסט כי יש עומס')" rows="3" style="padding:10px; border-radius:8px; border:1px solid var(--border); resize:vertical;" id="adminTipContent"></textarea>
-                    <button class="btn btn-primary" onclick="alert('טיפ נשמר וישולב בסריקה הבאה!')" style="align-self:flex-start;">שמור טיפ במאגר</button>
+                    <button class="btn btn-primary" onclick="saveAdminTip(this)" style="align-self:flex-start;">שמור טיפ במאגר</button>
                 </div>
             </div>
 
