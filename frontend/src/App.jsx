@@ -11,16 +11,26 @@ const TABS = [
   { id: "chat", label: "צ'אט" },
 ];
 
+function hasStoredAnswers() {
+  try {
+    const saved = localStorage.getItem("novahub_answers");
+    return !!(saved && JSON.parse(saved)?.survivor);
+  } catch { return false; }
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState("compass");
   const [userProfile, setUserProfile] = useState(null);
+  const [showNav, setShowNav] = useState(hasStoredAnswers);
 
   function handleComplete(profile) {
     setUserProfile(profile);
+    setShowNav(true);
   }
 
   function handleReset() {
     setUserProfile(null);
+    setShowNav(false);
     setActiveTab("compass");
   }
 
@@ -35,7 +45,7 @@ export default function App() {
         {activeTab === "chat" && <SupportChat userProfile={userProfile} />}
       </div>
 
-      {userProfile && (
+      {showNav && (
         <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-stone-200 flex" dir="ltr">
           {TABS.map((tab) => (
             <button

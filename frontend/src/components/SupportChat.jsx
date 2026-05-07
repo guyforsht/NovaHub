@@ -122,7 +122,7 @@ export default function SupportChat({ userProfile }) {
       </div>
 
       {/* Input bar */}
-      <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-stone-100 p-3 flex gap-2 z-40">
+      <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-stone-100 p-3 flex gap-2 z-40" dir="rtl">
         <input
           value={input}
           onChange={e => setInput(e.target.value)}

@@ -30,8 +30,8 @@ export default function Community() {
             >
               אתר שבט נובה ↗
             </a>
-            <a href="#" className="text-sm font-medium text-calm-700">עמוד פייסבוק</a>
-            <a href="#" className="text-sm font-medium text-calm-700">קבוצות וואטסאפ</a>
+            <span className="text-sm text-stone-400">עמוד פייסבוק — בקרוב</span>
+            <span className="text-sm text-stone-400">קבוצות וואטסאפ — בקרוב</span>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export default function Community() {
               <div>
                 <p className="font-semibold text-stone-900 text-sm leading-snug">{ev.title}</p>
                 <p className="text-xs text-stone-400 mt-1.5">
-                  📍 {ev.location} &nbsp;·&nbsp; {ev.time}
+                  {ev.location} &nbsp;·&nbsp; {ev.time}
                 </p>
               </div>
             </div>
