@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Heebo", "sans-serif"],
+      },
       colors: {
         calm: {
           50: "#f4f8ff",
