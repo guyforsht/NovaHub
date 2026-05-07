@@ -84,6 +84,12 @@ class UpdateRightsRequest(BaseModel):
     emergency_contacts: dict
     metadata: dict
 
+class RightPatch(BaseModel):
+    title: str | None = None
+    desc: str | None = None
+    amount: str | None = None
+    amount_note: str | None = None
+
 # --- Endpoints ---
 
 @app.get("/health")
@@ -136,6 +142,31 @@ async def update_rights(request: UpdateRightsRequest):
     except Exception as e:
         print(f"❌ Error updating rights: {e}")
         raise HTTPException(status_code=500, detail="שגיאה בשמירת הנתונים")
+
+@app.patch("/api/rights/card/{right_key}")
+async def patch_right_card(right_key: str, patch: RightPatch):
+    """Patch display fields (title/desc/amount) for a single right key."""
+    overrides_file = os.path.join(os.path.dirname(__file__), "data", "card_overrides.json")
+    try:
+        overrides = {}
+        if os.path.exists(overrides_file):
+            with open(overrides_file, "r", encoding="utf-8") as f:
+                overrides = json.load(f)
+        overrides[right_key] = {k: v for k, v in patch.dict().items() if v is not None}
+        with open(overrides_file, "w", encoding="utf-8") as f:
+            json.dump(overrides, f, ensure_ascii=False, indent=2)
+        return {"status": "ok", "key": right_key, "saved": overrides[right_key]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/rights/cards")
+async def get_card_overrides():
+    """Returns saved card display overrides."""
+    overrides_file = os.path.join(os.path.dirname(__file__), "data", "card_overrides.json")
+    if not os.path.exists(overrides_file):
+        return {}
+    with open(overrides_file, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 @app.post("/api/save-tip")
 async def save_tip(request: TipRequest):

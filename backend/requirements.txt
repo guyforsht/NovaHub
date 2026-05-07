@@ -10,3 +10,5 @@ python-dotenv
 fastapi
 uvicorn[standard]
 websockets
+httpx
+beautifulsoup4
