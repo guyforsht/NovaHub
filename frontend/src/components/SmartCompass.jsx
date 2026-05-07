@@ -310,7 +310,7 @@ function RightCard({ r, detail, isExpanded, onToggle }) {
               )}
               <button
                 onClick={() => { setDraft({ title, desc, amount: amount||"", amount_note: amountNote||"" }); setEditing(true); }}
-                className="text-stone-300 hover:text-calm-500 transition-colors text-xs mt-1"
+                className="flex items-center justify-center w-7 h-7 rounded-lg bg-stone-100 text-stone-400 hover:bg-calm-100 hover:text-calm-600 transition-colors text-sm"
                 title="ערוך כרטיסייה"
               >
                 ✎
