@@ -2,27 +2,14 @@
 Community Scraper Agent Node — retrieves community event data from ChromaDB.
 """
 
-import os
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from ..prompts.community_prompt import COMMUNITY_SYSTEM_PROMPT, COMMUNITY_USER_TEMPLATE
 from ..utils.chroma_client import get_chroma_retriever
 from ..state import NovaHubState
 
 
 def community_scraper_node(state: NovaHubState) -> dict:
-    """
-    Retrieve and summarize community event information from ChromaDB.
-
-    Steps:
-    1. Query ChromaDB with the user's question using MMR retrieval
-    2. Pass retrieved documents to the LLM for summarization
-    3. Return structured response with sources
-    """
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
-        temperature=0.3,  # Slight creativity for natural summaries
-        api_key=os.getenv("GOOGLE_API_KEY")
-    )
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.3)
 
     user_query = state["user_query"]
 

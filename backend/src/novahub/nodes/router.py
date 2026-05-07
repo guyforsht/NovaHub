@@ -5,7 +5,7 @@ Uses Gemini with structured output for reliable classification.
 
 import json
 import os
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from ..prompts.router_prompt import ROUTER_SYSTEM_PROMPT, ROUTER_USER_TEMPLATE
 from ..state import NovaHubState
 
@@ -19,11 +19,7 @@ def router_node(state: NovaHubState) -> dict:
 
     If classified as official_rights with low confidence, falls back to emotional_support.
     """
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash",
-        temperature=0,
-        api_key=os.getenv("GOOGLE_API_KEY")
-    )
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
     user_query = state["user_query"]
 
@@ -54,7 +50,7 @@ def router_node(state: NovaHubState) -> dict:
 
     # Safety: if classified as official_rights but confidence is too low,
     # fall back to emotional_support to avoid giving inaccurate rights info
-    if route == "official_rights" and confidence < 0.95:
+    if route == "official_rights" and confidence < 0.80:
         return {
             "route": "emotional_support",
             "confidence": confidence,

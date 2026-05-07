@@ -2,21 +2,12 @@
 Rewrite Node — fixes responses that failed the safety filter.
 """
 
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 from ..state import NovaHubState
 
 
 def rewrite_node(state: NovaHubState) -> dict:
-    """
-    Rewrite a response that failed the safety filter.
-
-    Takes the original response and the identified issues,
-    and produces a corrected version that addresses all problems.
-    """
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
-        temperature=0.2,
-    )
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
 
     agent_response = state.get("agent_response", "")
     safety_issues = state.get("safety_issues", [])

@@ -1,17 +1,35 @@
-import { useReducer, useState } from "react";
+import { useReducer, useState, useEffect } from "react";
 
 // ─── State ────────────────────────────────────────────────────────────────────
 
-const INIT = { survivor: null, bituach: null, tier: null };
+const INIT = { survivor: null, bituach: null, tier: null, student: null, property: null };
 
 function reducer(state, action) {
   switch (action.type) {
     case "SURVIVOR": return { ...INIT, survivor: action.v };
-    case "BITUACH":  return { ...state, bituach: action.v, tier: null };
-    case "TIER":     return { ...state, tier: action.v };
+    case "BITUACH":  return { ...state, bituach: action.v, tier: null, student: null, property: null };
+    case "TIER":     return { ...state, tier: action.v, student: null, property: null };
+    case "STUDENT":  return { ...state, student: action.v };
+    case "PROPERTY": return { ...state, property: action.v };
     case "RESET":    return INIT;
     default:         return state;
   }
+}
+
+// ─── Profile builder ──────────────────────────────────────────────────────────
+
+const TIER_TO_PCT = { low: 10, mid: 35, high: 65 };
+const BITUACH_TO_RECOGNITION = { yes: "מוכר", in_process: "בתהליך", no: "לא מוכר" };
+
+function buildUserProfile(s) {
+  return {
+    disability_pct: TIER_TO_PCT[s.tier] ?? 0,
+    recognition: BITUACH_TO_RECOGNITION[s.bituach] ?? "",
+    status: s.student === "yes" ? "סטודנט" : "",
+    owns_property: s.property === "yes" ? true : s.property === "no" ? false : null,
+    survivor_type: s.survivor,
+    condition: "נפגע פעולת איבה",
+  };
 }
 
 // ─── Rights catalogue ─────────────────────────────────────────────────────────
@@ -84,25 +102,35 @@ const CATALOGUE = {
   },
 };
 
-function computeRights({ survivor, bituach, tier }) {
+const RIGHTS_ID_MAP = {
+  nefesh: "R_MED_01", meds: "R_MED_02",
+  grant: "R_FIN_01", monthly: "R_FIN_02", heat: "R_FIN_05",
+  tuition: "R_ACAD_01", laptop: "R_ACAD_02", tutoring: "R_ACAD_03",
+  rent: "R_HOUSE_01", arnona: "R_HOUSE_02",
+  transport: "R_FIN_04", supplement: "R_FIN_03",
+};
+
+function computeRights({ survivor, bituach, tier, student, property }) {
   if (!survivor || survivor === "no") return [];
 
-  const R = [CATALOGUE.nefesh, CATALOGUE.meds];
+  const push = (key) => ({ key, ...CATALOGUE[key] });
+  const R = [push("nefesh"), push("meds")];
 
-  if (bituach === "yes" || bituach === "in_process") R.push(CATALOGUE.grant);
+  if (bituach === "yes" || bituach === "in_process") R.push(push("grant"));
 
   if (bituach === "yes") {
-    R.push(CATALOGUE.monthly, CATALOGUE.heat);
+    R.push(push("monthly"), push("heat"));
 
     if (tier === "mid" || tier === "high") {
-      R.push(CATALOGUE.tuition, CATALOGUE.laptop, CATALOGUE.tutoring, CATALOGUE.rent);
+      if (student === "yes") R.push(push("tuition"), push("laptop"), push("tutoring"));
+      if (property === "no") R.push(push("rent"));
     }
     if (tier === "high") {
-      R.push(CATALOGUE.supplement, CATALOGUE.arnona, CATALOGUE.transport);
+      R.push(push("supplement"), push("arnona"), push("transport"));
     }
   }
 
-  if (bituach === "no") R.push(CATALOGUE.applyPrompt);
+  if (bituach === "no") R.push(push("applyPrompt"));
 
   return R;
 }
@@ -157,26 +185,91 @@ function TileBtn({ icon, label, sub, checked, onTap }) {
   );
 }
 
-function RightCard({ r }) {
+function RightCard({ r, detail, isExpanded, onToggle }) {
   return (
-    <div className="flex gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
-      <span className="mt-0.5 flex-shrink-0 text-3xl leading-none">{r.icon}</span>
-      <div className="min-w-0 flex-1">
-        <span className={`mb-1.5 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${r.tagCls}`}>
-          {r.tag}
-        </span>
-        <p className="font-bold leading-snug text-slate-900">{r.title}</p>
-        <p className="mt-1 text-sm leading-relaxed text-slate-500">{r.desc}</p>
+    <div className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden">
+      <div className="flex gap-3 p-4">
+        <span className="mt-0.5 flex-shrink-0 text-3xl leading-none">{r.icon}</span>
+        <div className="min-w-0 flex-1">
+          <span className={`mb-1.5 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${r.tagCls}`}>
+            {r.tag}
+          </span>
+          <p className="font-bold leading-snug text-slate-900">{r.title}</p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-500">{r.desc}</p>
+        </div>
       </div>
+
+      {detail && (
+        <button
+          onClick={onToggle}
+          className="w-full border-t border-slate-100 px-4 py-2.5 text-sm font-medium text-calm-600 hover:bg-calm-50 transition-colors flex items-center justify-between"
+          dir="rtl"
+        >
+          <span>פרטים נוספים</span>
+          <span className={`transition-transform duration-200 inline-block ${isExpanded ? "rotate-180" : ""}`}>▾</span>
+        </button>
+      )}
+
+      {detail && isExpanded && (
+        <div className="border-t border-slate-100 bg-slate-50 p-4 text-sm text-slate-700 flex flex-col gap-3" dir="rtl">
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">✅ זכאות</p>
+            <p className="leading-relaxed">{detail.eligibility}</p>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-800 mb-1">📋 איך מממשים</p>
+            <p className="leading-relaxed">{detail.how_to_apply}</p>
+          </div>
+          {detail.offline_tips?.length > 0 && (
+            <div>
+              <p className="font-semibold text-slate-800 mb-1">💡 טיפ מהשטח</p>
+              {detail.offline_tips.map((tip, i) => (
+                <p key={i} className="leading-relaxed">{tip}</p>
+              ))}
+            </div>
+          )}
+          {detail.official_sources?.length > 0 && (
+            <a
+              href={detail.official_sources[0]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-calm-600 font-medium hover:underline"
+            >
+              🔗 מקור רשמי
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
-export default function SmartCompass() {
+export default function SmartCompass({ onComplete, onReset }) {
   const [s, dispatch] = useReducer(reducer, INIT);
-  const [step, setStep] = useState(0); // 0=welcome 1=survivor 2=bituach 3=tier 4=results
+  const [step, setStep] = useState(0); // 0=welcome 1=survivor 2=bituach 3=tier 4=student 5=property 6+=results
+  const [expanded, setExpanded] = useState({});
+  const [rightsData, setRightsData] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/rights")
+      .then(r => r.json())
+      .then(data => {
+        const map = {};
+        data.shells?.forEach(shell =>
+          shell.rights?.forEach(right => { map[right.id] = right; })
+        );
+        setRightsData(map);
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (step >= 6) {
+      onComplete?.(buildUserProfile(s));
+    }
+  }, [step]);
 
   function pick(type, v, next) {
     dispatch({ type, v });
@@ -185,7 +278,9 @@ export default function SmartCompass() {
 
   function reset() {
     dispatch({ type: "RESET" });
+    setExpanded({});
     setStep(0);
+    onReset?.();
   }
 
   const rights = computeRights(s);
@@ -197,7 +292,7 @@ export default function SmartCompass() {
         <div className="mb-6 text-7xl">🧭</div>
         <h1 className="mb-3 text-3xl font-bold text-slate-900">מצפן הזכויות</h1>
         <p className="mb-10 text-lg leading-relaxed text-slate-500">
-          3 שאלות קצרות,<br />
+          כמה שאלות קצרות,<br />
           <span className="font-medium text-calm-600">ואנחנו נמצא את הזכויות שמגיעות לך.</span>
         </p>
         <button
@@ -252,12 +347,12 @@ export default function SmartCompass() {
           <TileBtn
             icon="⏳" label="התהליך בעיצומו" sub="הגשתי תביעה ומחכה לתשובה"
             checked={s.bituach === "in_process"}
-            onTap={() => pick("BITUACH", "in_process", 4)}
+            onTap={() => pick("BITUACH", "in_process", 6)}
           />
           <TileBtn
             icon="❓" label="עדיין לא פניתי"
             checked={s.bituach === "no"}
-            onTap={() => pick("BITUACH", "no", 4)}
+            onTap={() => pick("BITUACH", "no", 6)}
           />
         </div>
         <button onClick={() => setStep(1)} className="mt-8 w-full text-center text-sm text-slate-400 transition-colors hover:text-slate-600">
@@ -278,7 +373,7 @@ export default function SmartCompass() {
           <TileBtn
             icon="🌱" label="דרגה נמוכה" sub="עד 19%"
             checked={s.tier === "low"}
-            onTap={() => pick("TIER", "low", 4)}
+            onTap={() => pick("TIER", "low", 6)}
           />
           <TileBtn
             icon="🌿" label="דרגה בינונית" sub="20% – 49%"
@@ -292,6 +387,58 @@ export default function SmartCompass() {
           />
         </div>
         <button onClick={() => setStep(2)} className="mt-8 w-full text-center text-sm text-slate-400 transition-colors hover:text-slate-600">
+          ← חזרה
+        </button>
+      </div>
+    </div>
+  );
+
+  // ── Q4 – Student status ───────────────────────────────────────────────────────
+  if (step === 4) return (
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-calm-50 to-white p-6">
+      <div className="w-full max-w-sm" dir="rtl">
+        <Dots total={5} current={3} />
+        <h2 className="mb-2 text-2xl font-bold text-slate-900">האם אתה/את סטודנט/ית?</h2>
+        <p className="mb-8 text-sm text-slate-400">לומד/ת במוסד להשכלה גבוהה בשנה הנוכחית</p>
+        <div className="flex flex-col gap-3">
+          <TileBtn
+            icon="🎓" label="כן, אני סטודנט/ית"
+            checked={s.student === "yes"}
+            onTap={() => pick("STUDENT", "yes", 5)}
+          />
+          <TileBtn
+            icon="🚫" label="לא"
+            checked={s.student === "no"}
+            onTap={() => pick("STUDENT", "no", 5)}
+          />
+        </div>
+        <button onClick={() => setStep(3)} className="mt-8 w-full text-center text-sm text-slate-400 transition-colors hover:text-slate-600">
+          ← חזרה
+        </button>
+      </div>
+    </div>
+  );
+
+  // ── Q5 – Property ownership ──────────────────────────────────────────────────
+  if (step === 5) return (
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-calm-50 to-white p-6">
+      <div className="w-full max-w-sm" dir="rtl">
+        <Dots total={5} current={4} />
+        <h2 className="mb-2 text-2xl font-bold text-slate-900">האם אתה/את בעל/ת נכס?</h2>
+        <p className="mb-8 text-sm text-slate-400">בבעלותך דירה או נכס מגורים</p>
+        <div className="flex flex-col gap-3">
+          <TileBtn
+            icon="🏠" label="כן, יש לי נכס"
+            checked={s.property === "yes"}
+            onTap={() => pick("PROPERTY", "yes", 6)}
+          />
+          <TileBtn
+            icon="🔑" label="לא, אני שוכר/ת"
+            checked={s.property === "no"}
+            onTap={() => pick("PROPERTY", "no", 6)}
+          />
+        </div>
+        <button onClick={() => setStep(4)} className="mt-8 w-full text-center text-sm text-slate-400 transition-colors hover:text-slate-600">
           ← חזרה
         </button>
       </div>
@@ -317,7 +464,15 @@ export default function SmartCompass() {
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {rights.map((r, i) => <RightCard key={i} r={r} />)}
+            {rights.map((r) => (
+              <RightCard
+                key={r.key}
+                r={r}
+                detail={RIGHTS_ID_MAP[r.key] ? rightsData[RIGHTS_ID_MAP[r.key]] : null}
+                isExpanded={!!expanded[r.key]}
+                onToggle={() => setExpanded(prev => ({ ...prev, [r.key]: !prev[r.key] }))}
+              />
+            ))}
           </div>
         )}
 
