@@ -107,8 +107,9 @@ python rights_admin_agent.py merge R_FIN_01 R_FIN_02
 | Layer | Technology |
 |---|---|
 | Frontend | React 18, Vite, Tailwind CSS |
-| Backend | FastAPI, LangGraph, LangChain |
-| AI | OpenAI GPT-4o |
+| Backend | Python 3.11, FastAPI, LangGraph, LangChain |
+| AI models | OpenAI GPT-4o, Claude Sonnet (Anthropic) |
 | Vector store | ChromaDB |
 | Scraping | httpx, BeautifulSoup4 |
 | Persistence | localStorage (client), JSON files (server) |
+| Built with | Claude Code (Anthropic) |
