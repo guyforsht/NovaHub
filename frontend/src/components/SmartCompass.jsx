@@ -21,7 +21,7 @@ function clearAnswers() {
 
 // ─── State ────────────────────────────────────────────────────────────────────
 
-const INIT = { survivor: null, bituach: null, tier: null, student: null, property: null };
+const INIT = { survivor: "yes", bituach: null, tier: null, student: null, property: null };
 
 function reducer(state, action) {
   switch (action.type) {
@@ -444,6 +444,7 @@ export default function SmartCompass({ onComplete, onReset }) {
   const [s, dispatch] = useReducer(reducer, INIT);
   const [step, setStep] = useState(0);
   const [expanded, setExpanded] = useState({});
+  const [calcOpen, setCalcOpen] = useState(false);
   const [rightsData, setRightsData] = useState({});
   const [returnUser, setReturnUser] = useState(false);
 
@@ -495,7 +496,7 @@ export default function SmartCompass({ onComplete, onReset }) {
     dispatch({ type: "RESET" });
     setExpanded({});
     setReturnUser(false);
-    setStep(1);
+    setStep(2);
   }
 
   const rights = computeRights(s);
@@ -511,7 +512,7 @@ export default function SmartCompass({ onComplete, onReset }) {
           <span className="font-medium text-calm-700">ואנחנו נמצא את הזכויות שמגיעות לך.</span>
         </p>
         <button
-          onClick={() => setStep(1)}
+          onClick={() => setStep(2)}
           className="w-full rounded-xl bg-calm-600 py-4 text-lg font-semibold text-white shadow-calm transition-all hover:bg-calm-700 active:scale-[.99]"
         >
           בואו נתחיל
@@ -520,34 +521,10 @@ export default function SmartCompass({ onComplete, onReset }) {
     </div>
   );
 
-  // ── Q1 – Survivor ────────────────────────────────────────────────────────────
-  if (step === 1) return (
-    <StepPage>
-      <StepDots total={3} current={0} />
-      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם שרדת את אירוע נובה?</h2>
-      <p className="mb-7 text-sm text-stone-400">המידע לא נשמר בשרת ומשמש רק לחישוב הזכויות שלך</p>
-      <div className="flex flex-col gap-3">
-        <TileBtn
-          label="כן, שרדתי"
-          checked={s.survivor === "yes"}
-          onTap={() => pick("SURVIVOR", "yes", 2)}
-        />
-        <TileBtn
-          label="בן/בת משפחה של ניצול/ת"
-          checked={s.survivor === "family"}
-          onTap={() => pick("SURVIVOR", "family", 2)}
-        />
-      </div>
-      <button onClick={reset} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
-        חזרה לדף הבית
-      </button>
-    </StepPage>
-  );
-
   // ── Q2 – Bituach Leumi ───────────────────────────────────────────────────────
   if (step === 2) return (
     <StepPage>
-      <StepDots total={3} current={1} />
+      <StepDots total={2} current={0} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">הוכרת על ידי הביטוח הלאומי?</h2>
       <p className="mb-7 text-sm text-stone-400">הכרה כנפגע/ת פעולת איבה פותחת זכויות נוספות</p>
       <div className="flex flex-col gap-3">
@@ -567,7 +544,7 @@ export default function SmartCompass({ onComplete, onReset }) {
           onTap={() => pick("BITUACH", "no", 6)}
         />
       </div>
-      <button onClick={() => setStep(1)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
+      <button onClick={() => setStep(0)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
         חזרה
       </button>
     </StepPage>
@@ -576,7 +553,7 @@ export default function SmartCompass({ onComplete, onReset }) {
   // ── Q3 – Disability tier ─────────────────────────────────────────────────────
   if (step === 3) return (
     <StepPage>
-      <StepDots total={3} current={2} />
+      <StepDots total={2} current={1} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">מה דרגת הנכות המוכרת שלך?</h2>
       <p className="mb-7 text-sm text-stone-400">לפי ההכרה הרשמית של הביטוח הלאומי</p>
       <div className="flex flex-col gap-3">
@@ -672,10 +649,6 @@ export default function SmartCompass({ onComplete, onReset }) {
           <p className="mt-1 text-sm text-stone-400">על בסיס הפרטים שמסרת</p>
         </div>
 
-        {s.bituach === "yes" && s.tier && (
-          <AllowanceCalculator initialPct={TIER_TO_PCT[s.tier]} />
-        )}
-
         {rights.length === 0 ? (
           <div className="rounded-xl border border-stone-100 bg-white p-7 text-center shadow-card">
             <p className="text-lg font-semibold text-stone-700">גם ללא הכרה רשמית, יש תמיכה זמינה עכשיו</p>
@@ -698,6 +671,24 @@ export default function SmartCompass({ onComplete, onReset }) {
         {s.bituach === "no" && (
           <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 leading-relaxed">
             הגשת תביעה לביטוח הלאומי עשויה לפתוח דלתות לזכויות רבות נוספות.
+          </div>
+        )}
+
+        {s.bituach === "yes" && s.tier && (
+          <div className="mt-4">
+            <button
+              onClick={() => setCalcOpen(o => !o)}
+              className="w-full flex items-center justify-between rounded-xl border border-stone-200 bg-white px-4 py-3.5 text-sm font-medium text-stone-600 hover:border-calm-300 hover:text-calm-700 transition-colors"
+              dir="rtl"
+            >
+              <span>מחשבון קצבה חודשית</span>
+              <span className={`transition-transform duration-200 inline-block text-stone-400 ${calcOpen ? "rotate-180" : ""}`}>▾</span>
+            </button>
+            {calcOpen && (
+              <div className="mt-2">
+                <AllowanceCalculator initialPct={TIER_TO_PCT[s.tier]} />
+              </div>
+            )}
           </div>
         )}
 
