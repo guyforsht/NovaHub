@@ -21,20 +21,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_ST_01",
-          "source_file": "right_139.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות קבועה של 20% ומעלה לנפגעי איבה"
-          }
+          "source_file": "right_139.md"
         },
         {
           "title": "פגיעת איבה (פעולת איבה)",
@@ -51,20 +38,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_ST_02",
-          "source_file": "right_149.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_149.md"
         },
         {
           "title": "נפגעי פעולות איבה",
@@ -80,20 +54,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_ST_03",
-          "source_file": "right_155.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_155.md"
         },
         {
           "title": "הכרה בפגיעת איבה",
@@ -110,20 +71,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_ST_04",
-          "source_file": "right_2.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_2.md"
         }
       ]
     },
@@ -147,20 +95,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_01",
-          "source_file": "right_143.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_143.md"
         },
         {
           "title": "ערעור על החלטת המוסד לביטוח לאומי",
@@ -177,20 +112,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_02",
-          "source_file": "right_153.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_153.md"
         },
         {
           "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
@@ -207,20 +129,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_03",
-          "source_file": "right_154.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_154.md"
         },
         {
           "title": "הרשות המאשרת במשרד הביטחון לנפגעי פעולות איבה",
@@ -237,20 +146,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_04",
-          "source_file": "right_157.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_157.md"
         },
         {
           "title": "הגשת תביעה לקביעת דרגת נכות ולתשלום תגמול נכות לנפגעי איבה",
@@ -267,20 +163,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_05",
-          "source_file": "right_3.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_3.md"
         },
         {
           "title": "ועדה רפואית לנכות לנפגעי פעולות איבה",
@@ -297,20 +180,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_06",
-          "source_file": "right_43.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_43.md"
         },
         {
           "title": "קביעת דרגת נכות לנפגע פעולת איבה",
@@ -327,20 +197,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_07",
-          "source_file": "right_44.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_44.md"
         },
         {
           "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
@@ -357,20 +214,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CLM_08",
-          "source_file": "right_45.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_45.md"
         }
       ]
     },
@@ -394,20 +238,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_01",
-          "source_file": "right_10.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החזר גם ללא תביעה להכרה"
-          }
+          "source_file": "right_10.md"
         },
         {
           "title": "מענק נעליים לנפגעי פעולת איבה",
@@ -424,20 +255,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_02",
-          "source_file": "right_120.md",
-          "eligibility_filters": {
-            "min_disability_pct": 30,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות לנעליים אורתופדיות או מיוחדות"
-          }
+          "source_file": "right_120.md"
         },
         {
           "title": "אביזרי עזר לנפגעי פעולת איבה עיוורים",
@@ -454,20 +272,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_03",
-          "source_file": "right_127.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות לעיוורים בלבד"
-          }
+          "source_file": "right_127.md"
         },
         {
           "title": "תרופות לנפגעי פעולת איבה",
@@ -484,20 +289,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_04",
-          "source_file": "right_13.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_13.md"
         },
         {
           "title": "טיפול בחמי מרפא לנפגעי פעולות איבה",
@@ -515,20 +307,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_05",
-          "source_file": "right_14.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מימון שהות של מלווה במקרים מסוימים"
-          }
+          "source_file": "right_14.md"
         },
         {
           "title": "טיפולי שיניים לנפגעי פעולת איבה",
@@ -546,20 +325,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_06",
-          "source_file": "right_15.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "פגיעה בשיניים או בלסת עם נכות מוכרת"
-          }
+          "source_file": "right_15.md"
         },
         {
           "title": "טיפולי שיניים לנפגעי פעולת איבה עם תגמולים מיוחדים",
@@ -576,20 +342,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_07",
-          "source_file": "right_16.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות מותנית בקבלת תגמול מיוחד"
-          }
+          "source_file": "right_16.md"
         },
         {
           "title": "טיפולי שיניים לנפגעי פעולות איבה עם פגיעה נפשית",
@@ -606,20 +359,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_08",
-          "source_file": "right_17.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות למשך 3 שנים לפחות"
-          }
+          "source_file": "right_17.md"
         },
         {
           "title": "טיפול בסוכרת לנפגעי פעולות איבה",
@@ -636,20 +376,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_09",
-          "source_file": "right_18.md",
-          "eligibility_filters": {
-            "min_disability_pct": 65,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות על מחלת הסוכרת"
-          }
+          "source_file": "right_18.md"
         },
         {
           "title": "טיפול בפסוריאזיס לנפגעי פעולות איבה",
@@ -666,20 +393,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_10",
-          "source_file": "right_19.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות על פסוריאזיס בלבד"
-          }
+          "source_file": "right_19.md"
         },
         {
           "title": "טיפולי פוריות לנפגעי פעולות איבה",
@@ -696,20 +410,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_11",
-          "source_file": "right_20.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מימון גם אם בעיית הפוריות לא קשורה לפגיעה"
-          }
+          "source_file": "right_20.md"
         },
         {
           "title": "טיפולי פיזיותרפיה והידרותרפיה לנפגעי פעולות איבה",
@@ -727,20 +428,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_12",
-          "source_file": "right_21.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "המלצה מרופא מומחה נדרשת"
-          }
+          "source_file": "right_21.md"
         },
         {
           "title": "טיפול בפגיעת גב באמצעות שחייה לנפגעי פעולת איבה",
@@ -757,20 +445,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_13",
-          "source_file": "right_22.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "המלצה מרופא מומחה ואישור רופא הביטוח הלאומי"
-          }
+          "source_file": "right_22.md"
         },
         {
           "title": "מימון קנביס רפואי לנפגעי פעולות איבה",
@@ -787,20 +462,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_14",
-          "source_file": "right_24.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נדרש רישיון לשימוש בקנביס רפואי"
-          }
+          "source_file": "right_24.md"
         },
         {
           "title": "החלמה במלון אחרי אשפוז לנפגעי פעולת איבה",
@@ -817,20 +479,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_15",
-          "source_file": "right_25.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "אושפזו 5 ימים או 3 ימים אחרי ניתוח"
-          }
+          "source_file": "right_25.md"
         },
         {
           "title": "בדיקות סקר תקופתיות לנפגעי פעולות איבה",
@@ -848,20 +497,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_16",
-          "source_file": "right_27.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "בדיקות סקר לפגיעת ראש"
-          }
+          "source_file": "right_27.md"
         },
         {
           "title": "נעליים אורתופדיות ומדרסים לנפגעי פעולות איבה",
@@ -878,20 +514,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_17",
-          "source_file": "right_32.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא רלוונטי למי שהוכרה נכות על סוכרת"
-          }
+          "source_file": "right_32.md"
         },
         {
           "title": "משקפיים ועדשות מגע לנפגעי פעולת איבה",
@@ -909,20 +532,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_18",
-          "source_file": "right_33.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מימון למשקפיים ועדשות מגע לפגיעות ראייה"
-          }
+          "source_file": "right_33.md"
         },
         {
           "title": "מכשירי שמיעה לנפגעי פעולות איבה",
@@ -939,20 +549,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_19",
-          "source_file": "right_34.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות מותנית בירידה בשמיעה בעקבות הפגיעה"
-          }
+          "source_file": "right_34.md"
         },
         {
           "title": "אביזרי עזר לנפגעי פעולות איבה עם לקויות שמיעה",
@@ -969,20 +566,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_20",
-          "source_file": "right_35.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "10% נכות לפני 1996"
-          }
+          "source_file": "right_35.md"
         },
         {
           "title": "תותבות יד ורגל לנפגעי פעולות איבה קטועי גפיים",
@@ -999,20 +583,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_21",
-          "source_file": "right_36.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות לקטועי גפיים בלבד"
-          }
+          "source_file": "right_36.md"
         },
         {
           "title": "תותבות עיניים לנפגעי פעולות איבה",
@@ -1029,20 +600,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MED_22",
-          "source_file": "right_37.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הכרה בנכות על אובדן עין"
-          }
+          "source_file": "right_37.md"
         }
       ]
     },
@@ -1066,20 +624,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_01",
-          "source_file": "right_11.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות עד 49% עם קשיי תפקוד"
-          }
+          "source_file": "right_11.md"
         },
         {
           "title": "טיפול נפשי לנפגעי חרדה עקב פעולת איבה",
@@ -1096,20 +641,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_02",
-          "source_file": "right_12.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_12.md"
         },
         {
           "title": "כלב נחייה לנפגע פעולת איבה עיוור",
@@ -1126,20 +658,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_03",
-          "source_file": "right_126.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לעיוורים בשתי עיניהם"
-          }
+          "source_file": "right_126.md"
         },
         {
           "title": "טיפולים נפשיים לבני משפחה של נפגעי פעולת איבה",
@@ -1156,20 +675,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_04",
-          "source_file": "right_129.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "family_of_affected",
-            "notes": "זכאות להורים, בני/בנות זוג וילדים 7-30"
-          }
+          "source_file": "right_129.md"
         },
         {
           "title": "טיפולי רפואה משלימה לילדיהם של נפגעי פעולת איבה",
@@ -1186,20 +692,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_05",
-          "source_file": "right_130.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החזר לילדים בגיל 7-18 בלבד"
-          }
+          "source_file": "right_130.md"
         },
         {
           "title": "קבוצות תמיכה לנפגעי פעולות איבה ובני משפחותיהם",
@@ -1216,20 +709,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_06",
-          "source_file": "right_131.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_131.md"
         },
         {
           "title": "מרכזים לתמיכה נפשית לנפגעי טראומה וחרדה",
@@ -1246,20 +726,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_07",
-          "source_file": "right_144.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_144.md"
         },
         {
           "title": "מוקדים לסיוע נפשי לנפגעי טראומה וחרדה",
@@ -1277,20 +744,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_08",
-          "source_file": "right_145.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זמין למבוטחי קופות החולים"
-          }
+          "source_file": "right_145.md"
         },
         {
           "title": "הפרעת דחק פוסט טראומתית (PTSD)",
@@ -1307,20 +761,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_09",
-          "source_file": "right_152.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "בוגרים עם 60% נכות רפואית או 40% עם ליקויים נוספים"
-          }
+          "source_file": "right_152.md"
         },
         {
           "title": "טיפולי רפואה משלימה לנפגעי פעולת איבה",
@@ -1337,20 +778,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_10",
-          "source_file": "right_23.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החזר לילדים בגיל 7-18"
-          }
+          "source_file": "right_23.md"
         },
         {
           "title": "כלבי שירות לנפגעי פעולות איבה עם פוסט טראומה",
@@ -1367,20 +795,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_11",
-          "source_file": "right_28.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "10% נכות לפני 1996"
-          }
+          "source_file": "right_28.md"
         },
         {
           "title": "הבראה לנפגעי פעולות איבה מתמודדי נפש",
@@ -1397,20 +812,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MEN_12",
-          "source_file": "right_29.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות עד 49%, אשפוז 5 ימים לפחות"
-          }
+          "source_file": "right_29.md"
         }
       ]
     },
@@ -1434,20 +836,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_01",
-          "source_file": "right_1.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_1.md"
         },
         {
           "title": "מענק השתתפות בתשלום מס הכנסה לנפגעי פעולת איבה",
@@ -1464,20 +853,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_02",
-          "source_file": "right_108.md",
-          "eligibility_filters": {
-            "min_disability_pct": 19,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "תשלום מס הכנסה על הכנסה מיגיעה אישית"
-          }
+          "source_file": "right_108.md"
         },
         {
           "title": "מענק הבראה שנתי לנפגעי פעולת איבה",
@@ -1494,20 +870,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_03",
-          "source_file": "right_118.md",
-          "eligibility_filters": {
-            "min_disability_pct": 30,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא זכאים חולים כרוניים מאושפזים מעל 6 חודשים"
-          }
+          "source_file": "right_118.md"
         },
         {
           "title": "מענק ביגוד לנפגעי פעולת איבה",
@@ -1525,20 +888,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_04",
-          "source_file": "right_121.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מענק בשל שימוש במכשיר אורתופדי או תותבת"
-          }
+          "source_file": "right_121.md"
         },
         {
           "title": "מענק חג לנפגע פעולת איבה",
@@ -1555,20 +905,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_05",
-          "source_file": "right_122.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נדרש להתקיים מתגמול מיוחד לפחות שנה"
-          }
+          "source_file": "right_122.md"
         },
         {
           "title": "תגמולים לנפגעי פעולות איבה",
@@ -1585,20 +922,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_06",
-          "source_file": "right_150.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_150.md"
         },
         {
           "title": "דרגת נכות מיוחדת לנפגעי פעולת איבה",
@@ -1616,20 +940,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_07",
-          "source_file": "right_151.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "נכות לתקופה של 36 חודשים לפחות"
-          }
+          "source_file": "right_151.md"
         },
         {
           "title": "תגמולי נכות חודשיים לנפגעי פעולת איבה",
@@ -1646,20 +957,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_08",
-          "source_file": "right_4.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נפגעי פעולת איבה לפני 1996 עם 10% נכות"
-          }
+          "source_file": "right_4.md"
         },
         {
           "title": "תגמול בתקופת הטיפול הרפואי לנפגע פעולת איבה",
@@ -1676,20 +974,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_09",
-          "source_file": "right_40.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא מסוגלים לעבוד בתקופת טיפול רפואי"
-          }
+          "source_file": "right_40.md"
         },
         {
           "title": "השתתפות בתשלום ביטוח בריאות לנפגעי פעולת איבה",
@@ -1706,20 +991,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_10",
-          "source_file": "right_41.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא מקבלים קצבת זיקנה"
-          }
+          "source_file": "right_41.md"
         },
         {
           "title": "תגמול נכות לנפגעי פעולת איבה",
@@ -1737,20 +1009,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_11",
-          "source_file": "right_42.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכי צה\"ל זכאים לתגמול ממשרד הביטחון בלבד"
-          }
+          "source_file": "right_42.md"
         },
         {
           "title": "בחירה בין סוגי תגמולים לנכה נפגע פעולת איבה",
@@ -1767,20 +1026,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_12",
-          "source_file": "right_46.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "יש להגיש בקשה תוך 6 חודשים מההודעה"
-          }
+          "source_file": "right_46.md"
         },
         {
           "title": "תגמול נצרך לנכה נפגע פעולת איבה",
@@ -1797,20 +1043,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_13",
-          "source_file": "right_47.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הכנסה מעבודה לא עולה על 13,769 ₪"
-          }
+          "source_file": "right_47.md"
         },
         {
           "title": "תגמול מיוחד ברמה 6 לנפגעי פעולת איבה",
@@ -1827,20 +1060,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_14",
-          "source_file": "right_48.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "גיל בין 18 לגיל פרישה, הכנסה עד 13,769 ₪"
-          }
+          "source_file": "right_48.md"
         },
         {
           "title": "תגמול מחוסר פרנסה לנכה נפגע פעולת איבה",
@@ -1857,20 +1077,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_15",
-          "source_file": "right_49.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הכנסה מעבודה לא עולה על 2,904 ₪"
-          }
+          "source_file": "right_49.md"
         },
         {
           "title": "מענק נכות חד פעמי לנפגעי פעולת איבה",
@@ -1887,20 +1094,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_16",
-          "source_file": "right_5.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות בין 10% ל-19%"
-          }
+          "source_file": "right_5.md"
         },
         {
           "title": "תגמול אובדן כושר עבודה חלקי לנפגעי פעולת איבה",
@@ -1917,20 +1111,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_17",
-          "source_file": "right_50.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "טרם הגיעו לגיל פרישה"
-          }
+          "source_file": "right_50.md"
         },
         {
           "title": "תגמול פרישה מוקדמת לנכה נפגע פעולת איבה",
@@ -1947,20 +1128,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_18",
-          "source_file": "right_51.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "גיל בין 50 לגיל פרישה, אי-כושר עבודה"
-          }
+          "source_file": "right_51.md"
         },
         {
           "title": "תוספת למימון צרכים מיוחדים לנפגעי פעולת איבה",
@@ -1977,20 +1145,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_19",
-          "source_file": "right_52.md",
-          "eligibility_filters": {
-            "min_disability_pct": 25,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "כולל אלמנים ואלמנות, הורים יחידים, נשים בהיריון"
-          }
+          "source_file": "right_52.md"
         },
         {
           "title": "קצבת נכות מקרן פנסיה",
@@ -2007,20 +1162,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_20",
-          "source_file": "right_53.md",
-          "eligibility_filters": {
-            "min_disability_pct": 25,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "חייב להיות עמית פעיל בקרן ולא הגיע לגיל פרישה"
-          }
+          "source_file": "right_53.md"
         },
         {
           "title": "חישוב גובה קצבת נכות מקרן פנסיה לנפגעי פעולות איבה",
@@ -2037,20 +1179,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_21",
-          "source_file": "right_54.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "יש למצות זכויות מול הביטוח הלאומי"
-          }
+          "source_file": "right_54.md"
         },
         {
           "title": "תביעה לקצבת נכות מקרן פנסיה לנפגעי פעולות איבה",
@@ -2067,20 +1196,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_22",
-          "source_file": "right_55.md",
-          "eligibility_filters": {
-            "min_disability_pct": 25,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "עמית בקרן פנסיה"
-          }
+          "source_file": "right_55.md"
         },
         {
           "title": "פנסיה במקרה של נכות (אובדן כושר עבודה)",
@@ -2097,20 +1213,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_23",
-          "source_file": "right_56.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "תלוי בתקנון הקרן או הפוליסה"
-          }
+          "source_file": "right_56.md"
         },
         {
           "title": "החזר דמי היוון לנכה נפגע פעולת איבה",
@@ -2127,20 +1230,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_INC_24",
-          "source_file": "right_75.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "משותקים או קטועי שתי רגליים"
-          }
+          "source_file": "right_75.md"
         }
       ]
     },
@@ -2164,20 +1254,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_01",
-          "source_file": "right_106.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לנסיעת עבודה לחו\"ל בלבד"
-          }
+          "source_file": "right_106.md"
         },
         {
           "title": "מימון שעות הקראה לנפגעי פעולת איבה עיוורים",
@@ -2194,20 +1271,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_02",
-          "source_file": "right_125.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לעיוורים בלבד"
-          }
+          "source_file": "right_125.md"
         },
         {
           "title": "פטור מתשלום בכניסה למקום ציבורי למלווה של אדם עם לקות נפשית",
@@ -2224,20 +1288,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_03",
-          "source_file": "right_132.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מלווה של אדם עם תעודת נכה"
-          }
+          "source_file": "right_132.md"
         },
         {
           "title": "זכויות בני משפחה המטפלים בקשישים או באנשים עם מוגבלות",
@@ -2255,20 +1306,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_04",
-          "source_file": "right_138.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הטבות לבני משפחה מטפלים"
-          }
+          "source_file": "right_138.md"
         },
         {
           "title": "שירותי אשפוז ביתי לנפגעי פעולות איבה",
@@ -2285,20 +1323,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_05",
-          "source_file": "right_26.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לנפגעים הזקוקים לטיפול ביתי"
-          }
+          "source_file": "right_26.md"
         },
         {
           "title": "מימון לחצן מצוקה לנכי צה\"ל וכוחות הביטחון מגיל פרישה",
@@ -2315,20 +1340,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_06",
-          "source_file": "right_38.md",
-          "eligibility_filters": {
-            "min_disability_pct": 30,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מגיל פרישה, אפשרות ללא הגבלת גיל במקרים רפואיים"
-          }
+          "source_file": "right_38.md"
         },
         {
           "title": "תוספת עזרת הזולת לנפגעי פעולת איבה",
@@ -2345,20 +1357,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_07",
-          "source_file": "right_57.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החמרה זמנית דורשת 100% נכות"
-          }
+          "source_file": "right_57.md"
         },
         {
           "title": "מלווה סיעודי לנפגעי פעולת איבה",
@@ -2375,20 +1374,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_08",
-          "source_file": "right_58.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נדרשות לפחות 12 שעות ליווי ביממה"
-          }
+          "source_file": "right_58.md"
         },
         {
           "title": "סידור במוסד סיעודי לנפגעי פעולת איבה",
@@ -2406,20 +1392,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_09",
-          "source_file": "right_59.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מימון לשהות במוסד סיעודי"
-          }
+          "source_file": "right_59.md"
         },
         {
           "title": "מענקים לציוד יומיומי לנפגעי פעולת איבה עם שיתוק או אי-שליטה על סוגרים",
@@ -2436,20 +1409,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_10",
-          "source_file": "right_60.md",
-          "eligibility_filters": {
-            "min_disability_pct": 40,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות על סעיפים ספציפיים בתקנות הנכים"
-          }
+          "source_file": "right_60.md"
         },
         {
           "title": "זכאות להעסקת עובד זר בסיעוד",
@@ -2467,20 +1427,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_11",
-          "source_file": "right_61.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות ל-59 שעות סיעוד חודשיות"
-          }
+          "source_file": "right_61.md"
         },
         {
           "title": "פטור מתשלום בכניסה למקום ציבורי למלווה של נפגעי פעולת איבה",
@@ -2497,20 +1444,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_CARE_12",
-          "source_file": "right_62.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "פטור למלווה עם תעודת נכה מתאימה"
-          }
+          "source_file": "right_62.md"
         }
       ]
     },
@@ -2534,20 +1468,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_01",
-          "source_file": "right_107.md",
-          "eligibility_filters": {
-            "min_disability_pct": 25,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "רכב לצורך עבודתם במסגרת שיקום כלכלי"
-          }
+          "source_file": "right_107.md"
         },
         {
           "title": "השתתפות ברכישת טלפון סלולרי לרכב לנפגע פעולת איבה נכה",
@@ -2565,20 +1486,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_02",
-          "source_file": "right_112.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לפגיעות פרפלגיה או קוודרופלגיה"
-          }
+          "source_file": "right_112.md"
         },
         {
           "title": "השתתפות במימון נסיעה לחו\"ל לנפגעי פעולת איבה עם דרגת נכות מיוחדת",
@@ -2596,20 +1504,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_03",
-          "source_file": "right_119.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מענק לנפגעי פעולת איבה עם נכות מיוחדת"
-          }
+          "source_file": "right_119.md"
         },
         {
           "title": "החזר הוצאות נסיעה לטיפול רפואי לנפגעי פעולת איבה",
@@ -2626,20 +1521,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_04",
-          "source_file": "right_39.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נסיעה למוסד רפואי ציבורי מוכר"
-          }
+          "source_file": "right_39.md"
         },
         {
           "title": "רכב רפואי לנכה נפגע פעולת איבה",
@@ -2656,20 +1538,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_05",
-          "source_file": "right_63.md",
-          "eligibility_filters": {
-            "min_disability_pct": 30,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "נכות בגפיים תחתונות או מערכת לוקומוטורית"
-          }
+          "source_file": "right_63.md"
         },
         {
           "title": "דמי ניידות לנפגעי פעולת איבה",
@@ -2686,20 +1555,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_06",
-          "source_file": "right_64.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "זכאים לרכב רפואי"
-          }
+          "source_file": "right_64.md"
         },
         {
           "title": "דמי נסיעה חודשיים לנפגעי פעולת איבה",
@@ -2716,20 +1572,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_07",
-          "source_file": "right_65.md",
-          "eligibility_filters": {
-            "min_disability_pct": 19,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "לא זכאים לרכב רפואי או קצבת ניידות"
-          }
+          "source_file": "right_65.md"
         },
         {
           "title": "השתתפות בהוצאות נסיעה לעבודה וללימודים לנפגעי פעולת איבה עיוורים",
@@ -2747,20 +1590,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_08",
-          "source_file": "right_66.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": "nova_survivor",
-            "notes": "עיוורים, עובדים או מתנדבים 3 ימים בשבוע"
-          }
+          "source_file": "right_66.md"
         },
         {
           "title": "השתתפות בביטוח שנתי למעלית לנכה בכיסא גלגלים",
@@ -2777,20 +1607,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_09",
-          "source_file": "right_67.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מותנה בפרפלגיה או קוודרופלגיה"
-          }
+          "source_file": "right_67.md"
         },
         {
           "title": "תג חניה לנכה ולקרוב המסיע",
@@ -2808,20 +1625,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_10",
-          "source_file": "right_68.md",
-          "eligibility_filters": {
-            "min_disability_pct": 60,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "כולל עיוורים בעלי תעודת עיוור"
-          }
+          "source_file": "right_68.md"
         },
         {
           "title": "הנחה בתחבורה הציבורית לנפגעי פעולות איבה",
@@ -2838,20 +1642,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_11",
-          "source_file": "right_69.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_69.md"
         },
         {
           "title": "מענק להתקנת מעלון או מעלית לנפגעי פעולת איבה",
@@ -2870,20 +1661,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_MOB_12",
-          "source_file": "right_92.md",
-          "eligibility_filters": {
-            "min_disability_pct": 35,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "החמרה במצב הרפואי לאחר סיוע קודם"
-          }
+          "source_file": "right_92.md"
         }
       ]
     },
@@ -2907,20 +1685,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_01",
-          "source_file": "right_100.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות נקבעה לפני 1996"
-          }
+          "source_file": "right_100.md"
         },
         {
           "title": "דיור מוגן לנפגעי פעולת איבה עם פגיעת ראש או נפשית",
@@ -2937,20 +1702,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_02",
-          "source_file": "right_31.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד למי שאינו יכול להתגורר עצמאי"
-          }
+          "source_file": "right_31.md"
         },
         {
           "title": "סיוע בהתאמת תנאי דיור למוגבלים בניידות",
@@ -2967,20 +1719,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_03",
-          "source_file": "right_70.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מיצוי כושר השתכרות נדרש למענק"
-          }
+          "source_file": "right_70.md"
         },
         {
           "title": "מענק לרכישת דירה לנפגעי איבה עם נכות 100% מיוחדת",
@@ -2997,20 +1736,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_04",
-          "source_file": "right_71.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "לרכישת דירה ראשונה או להחלפת דירה לא מותאמת"
-          }
+          "source_file": "right_71.md"
         },
         {
           "title": "מענק לרכישת דירה ראשונה לנפגעי פעולת איבה",
@@ -3028,20 +1754,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_05",
-          "source_file": "right_72.md",
-          "eligibility_filters": {
-            "min_disability_pct": 35,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "ללא בעלות על דירה בעשור האחרון"
-          }
+          "source_file": "right_72.md"
         },
         {
           "title": "מענק להחלפת דירה לנפגעי פעולות איבה",
@@ -3058,20 +1771,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_06",
-          "source_file": "right_73.md",
-          "eligibility_filters": {
-            "min_disability_pct": 35,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "בעלות על דירה יחידה בלבד"
-          }
+          "source_file": "right_73.md"
         },
         {
           "title": "הלוואות לסיוע בדיור לנפגעי פעולת איבה",
@@ -3089,20 +1789,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_07",
-          "source_file": "right_74.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות זמנית בתוקף ל-6 חודשים לפחות"
-          }
+          "source_file": "right_74.md"
         },
         {
           "title": "מענק והלוואה לחידוש חוזה חכירה לנפגעי פעולת איבה",
@@ -3120,20 +1807,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_08",
-          "source_file": "right_76.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "אין בבעלותם דירה נוספת מעל 33%"
-          }
+          "source_file": "right_76.md"
         },
         {
           "title": "פטור מאגרת רישום משכנתא לנפגעי פעולות איבה",
@@ -3150,20 +1824,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_09",
-          "source_file": "right_78.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות גם לבני זוג של הנפגעים"
-          }
+          "source_file": "right_78.md"
         },
         {
           "title": "פטור מתשלום דמי הסכמה לנפגעי פעולות איבה",
@@ -3181,20 +1842,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_10",
-          "source_file": "right_79.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מחזיק בדירה בתנאי חכירה, מתגורר דרך קבע"
-          }
+          "source_file": "right_79.md"
         },
         {
           "title": "מענק לאחזקת הדירה לנפגעי פעולת איבה עם דרגת נכות מיוחדת",
@@ -3211,20 +1859,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_11",
-          "source_file": "right_80.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לנפגעים שבבעלותם דירה"
-          }
+          "source_file": "right_80.md"
         },
         {
           "title": "מענק לחימום הדירה לנפגעי פעולת איבה",
@@ -3242,20 +1877,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_12",
-          "source_file": "right_81.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא זכאים: חולים כרוניים לא נשואים מאושפזים"
-          }
+          "source_file": "right_81.md"
         },
         {
           "title": "מענק שנתי לקירור הדירה לנפגעי פעולות איבה",
@@ -3272,20 +1894,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_13",
-          "source_file": "right_82.md",
-          "eligibility_filters": {
-            "min_disability_pct": 30,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מותנה באזור מגורים חם או מצב רפואי מסוים"
-          }
+          "source_file": "right_82.md"
         },
         {
           "title": "מענק אחזקת מעלית לנפגעי פעולת איבה",
@@ -3303,20 +1912,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_14",
-          "source_file": "right_83.md",
-          "eligibility_filters": {
-            "min_disability_pct": 60,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "מגורים בבניין עם מעלית"
-          }
+          "source_file": "right_83.md"
         },
         {
           "title": "הנחה בארנונה לנפגעי פעולת איבה",
@@ -3333,20 +1929,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_15",
-          "source_file": "right_84.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החזר נוסף ל-100%+ מיוחדת"
-          }
+          "source_file": "right_84.md"
         },
         {
           "title": "הנחה בחשבון חשמל לנפגעי פעולת איבה",
@@ -3363,20 +1946,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_16",
-          "source_file": "right_86.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מקבלי תגמול קיום קבוע או תגמול מיוחד"
-          }
+          "source_file": "right_86.md"
         },
         {
           "title": "הטבה בחשבון המים לנפגעי פעולות איבה",
@@ -3393,20 +1963,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_17",
-          "source_file": "right_87.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "דרגת נכות נמוכה מ-50% עם תשלומי מחיה"
-          }
+          "source_file": "right_87.md"
         },
         {
           "title": "סיוע בשכר דירה לנפגעי פעולת איבה",
@@ -3423,20 +1980,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_18",
-          "source_file": "right_88.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "בני 65 ומעלה עם דירה לא מתאימה"
-          }
+          "source_file": "right_88.md"
         },
         {
           "title": "סיוע בשכר דירה לנפגעי פעולת איבה בתקופת הלימודים",
@@ -3453,20 +1997,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_19",
-          "source_file": "right_89.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "אין בבעלותם דירה או חלק מדירה מעל 33%"
-          }
+          "source_file": "right_89.md"
         },
         {
           "title": "סיוע לנפגעי פעולת איבה בדיור הציבורי",
@@ -3483,20 +2014,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_20",
-          "source_file": "right_90.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": true,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הכנסות נוספות עד 8,261.4 ₪"
-          }
+          "source_file": "right_90.md"
         },
         {
           "title": "מענק עבור התאמת דירה לנפגעי פעולת איבה",
@@ -3514,20 +2032,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_21",
-          "source_file": "right_91.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "התאמת דירה גם להורים"
-          }
+          "source_file": "right_91.md"
         },
         {
           "title": "התקנת שער חשמלי לנכה נפגע פעולת איבה",
@@ -3544,20 +2049,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_22",
-          "source_file": "right_93.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "בעלי בית צמוד קרקע בלבד"
-          }
+          "source_file": "right_93.md"
         },
         {
           "title": "מימון דוד שמש וקולטים לנפגעי איבה עם נכות 100% מיוחדת",
@@ -3574,20 +2066,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_23",
-          "source_file": "right_94.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "הזכאות מותנית בבעלות על דירה/בית"
-          }
+          "source_file": "right_94.md"
         },
         {
           "title": "מענק שנתי לרכישת ציוד ביתי לנפגעי פעולת איבה",
@@ -3604,20 +2083,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_24",
-          "source_file": "right_96.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "החזר חד פעמי ל-10%-19% נכות"
-          }
+          "source_file": "right_96.md"
         },
         {
           "title": "מימון ציוד ביתי לנפגעי פעולת איבה עם פגיעות קשות",
@@ -3634,20 +2100,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_25",
-          "source_file": "right_97.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות לצמיתות או למשך שנה לפחות"
-          }
+          "source_file": "right_97.md"
         },
         {
           "title": "מענק ציוד ביתי לנפגעי פעולת איבה עיוורים",
@@ -3665,20 +2118,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_26",
-          "source_file": "right_98.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לעיוורים בלבד"
-          }
+          "source_file": "right_98.md"
         },
         {
           "title": "מענק ציוד ביתי לנפגעי פעולת איבה עם שיתוק",
@@ -3696,20 +2136,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_HOUSE_27",
-          "source_file": "right_99.md",
-          "eligibility_filters": {
-            "min_disability_pct": 100,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "החזר על רכישת מזגן לקוודריפלגיה"
-          }
+          "source_file": "right_99.md"
         }
       ]
     },
@@ -3733,20 +2160,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_01",
-          "source_file": "right_101.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "גיל עד 55, שיקום קודם נכשל"
-          }
+          "source_file": "right_101.md"
         },
         {
           "title": "מימון לימודים לנפגעי פעולת איבה",
@@ -3763,20 +2177,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_02",
-          "source_file": "right_102.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא זכאים מי שמקבלים תגמול נצרך או תגמול פרישה מוקדמת"
-          }
+          "source_file": "right_102.md"
         },
         {
           "title": "מימון לימודים במכינה קדם אקדמית לנפגעי פעולות איבה",
@@ -3793,20 +2194,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_03",
-          "source_file": "right_103.md",
-          "eligibility_filters": {
-            "min_disability_pct": 19,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "ועדת השיקום קבעה התאמה ללימודים"
-          }
+          "source_file": "right_103.md"
         },
         {
           "title": "חונכות ושיעורי עזר לנפגעי פעולת איבה",
@@ -3824,20 +2212,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_04",
-          "source_file": "right_104.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": true,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות 20% ומעלה על פגיעה נפשית או פגיעת ראש"
-          }
+          "source_file": "right_104.md"
         },
         {
           "title": "דמי מחיה לנפגע פעולת איבה בתקופת הלימודים",
@@ -3854,20 +2229,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_05",
-          "source_file": "right_105.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לומדים 15 שעות שבועיות לפחות"
-          }
+          "source_file": "right_105.md"
         },
         {
           "title": "מענק למימון לימודים לילדים של נפגעי פעולת איבה",
@@ -3885,20 +2247,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_06",
-          "source_file": "right_123.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "family_of_affected",
-            "notes": "ילדים שטרם מלאו להם 30"
-          }
+          "source_file": "right_123.md"
         },
         {
           "title": "חונכות לילדים של נפגעי פעולות איבה",
@@ -3915,20 +2264,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_07",
-          "source_file": "right_133.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "סיוע לילדים בגילים 18-5"
-          }
+          "source_file": "right_133.md"
         },
         {
           "title": "דמי מחיה והוצאות לימודים לנפגעי פעולות איבה",
@@ -3946,20 +2282,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_08",
-          "source_file": "right_25_dmei_mihya.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לומדים 20 שעות שבועיות לפחות"
-          }
+          "source_file": "right_25_dmei_mihya.md"
         },
         {
           "title": "השתתפות בשכר לימוד וציוד לימודי לנפגעי איבה",
@@ -3976,20 +2299,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_09",
-          "source_file": "right_26_tuition_hostilities.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": true,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "תוכנית שיקום מקצועי נדרשת"
-          }
+          "source_file": "right_26_tuition_hostilities.md"
         },
         {
           "title": "פעילויות טרום שיקום לנפגעי פעולות איבה עם פוסט טראומה",
@@ -4006,20 +2316,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_10",
-          "source_file": "right_30.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_30.md"
         },
         {
           "title": "שיקום מקצועי וסיוע בלימודים לנפגעי פעולת איבה",
@@ -4036,20 +2333,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_11",
-          "source_file": "right_6.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מותנה בקבלת תגמול חודשי"
-          }
+          "source_file": "right_6.md"
         },
         {
           "title": "שיקום כלכלי בעסק עצמאי לנפגעי פעולת איבה",
@@ -4066,20 +2350,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_EDU_12",
-          "source_file": "right_7.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_7.md"
         }
       ]
     },
@@ -4103,20 +2374,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_01",
-          "source_file": "right_114.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לרווקים, גרושים או אלמנים בלבד"
-          }
+          "source_file": "right_114.md"
         },
         {
           "title": "מענק נישואין לנפגעי איבה",
@@ -4133,20 +2391,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_02",
-          "source_file": "right_115.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מענק לילדים נישאים של מקבלי תגמול מיוחד"
-          }
+          "source_file": "right_115.md"
         },
         {
           "title": "מענק לידה לנפגעת פעולת איבה שהיא הורה עצמאי",
@@ -4163,20 +2408,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_03",
-          "source_file": "right_116.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לאם חד הורית בלבד"
-          }
+          "source_file": "right_116.md"
         },
         {
           "title": "מענק בר/בת מצווה לנפגעי פעולות איבה",
@@ -4194,20 +2426,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_04",
-          "source_file": "right_117.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "family_of_affected",
-            "notes": "מותנה בקבלת תגמולים מיוחדים"
-          }
+          "source_file": "right_117.md"
         },
         {
           "title": "החזר הוצאות לבני משפחה של נפגע פעולת איבה",
@@ -4224,20 +2443,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_05",
-          "source_file": "right_128.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "family_of_affected",
-            "notes": "החזר לבני משפחה מדרגה ראשונה בלבד"
-          }
+          "source_file": "right_128.md"
         },
         {
           "title": "מימון מעון או צהרון לילדים של נפגעי פעולת איבה",
@@ -4255,20 +2461,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_06",
-          "source_file": "right_134.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "קביעת צורך על ידי פסיכיאטר או פסיכולוג"
-          }
+          "source_file": "right_134.md"
         },
         {
           "title": "מימון פנימייה לילדים של נפגעי פעולת איבה",
@@ -4286,20 +2479,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_07",
-          "source_file": "right_135.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": true,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "family_of_affected",
-            "notes": "נדרש אישור מאיש מקצוע להעברת הילד לפנימייה"
-          }
+          "source_file": "right_135.md"
         },
         {
           "title": "תגמולים לבני משפחה של נפגעי פעולת איבה שנפטרו",
@@ -4316,20 +2496,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_08",
-          "source_file": "right_136.md",
-          "eligibility_filters": {
-            "min_disability_pct": 50,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "bereaved",
-            "notes": "פטירה קשורה לנכות שהוכרה"
-          }
+          "source_file": "right_136.md"
         },
         {
           "title": "משפחות שכולות של חללי פעולות איבה",
@@ -4346,20 +2513,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_09",
-          "source_file": "right_137.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "bereaved",
-            "notes": ""
-          }
+          "source_file": "right_137.md"
         },
         {
           "title": "מענק נישואים או כניסה לדירה לנפגעי איבה בדרגת נכות 100% מיוחדת",
@@ -4376,20 +2530,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_FAM_10",
-          "source_file": "right_95.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לנפגעים שלא היו נשואים בעת ההכרה"
-          }
+          "source_file": "right_95.md"
         }
       ]
     },
@@ -4413,20 +2554,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_01",
-          "source_file": "right_109.md",
-          "eligibility_filters": {
-            "min_disability_pct": 90,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נכות לצמיתות או זמנית למשך 185 יום לפחות"
-          }
+          "source_file": "right_109.md"
         },
         {
           "title": "הלוואה ומענק לכיסוי חובות לנפגעי פעולת איבה",
@@ -4444,20 +2572,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_02",
-          "source_file": "right_110.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "תקופת הזכאות עד שנתיים מהפגיעה או ההכרה"
-          }
+          "source_file": "right_110.md"
         },
         {
           "title": "השתתפות בחשבון טלפון והתקנת קו לנפגעי פעולות איבה",
@@ -4474,20 +2589,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_03",
-          "source_file": "right_111.md",
-          "eligibility_filters": {
-            "min_disability_pct": 20,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "10%-19% לפני 01.01.1996"
-          }
+          "source_file": "right_111.md"
         },
         {
           "title": "פטור מאגרת טלוויזיה לנפגעי פעולות איבה",
@@ -4505,20 +2607,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_04",
-          "source_file": "right_113.md",
-          "eligibility_filters": {
-            "min_disability_pct": 10,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "דרגת נכות 10% - 19% לפני 01.01.1996"
-          }
+          "source_file": "right_113.md"
         },
         {
           "title": "מענק לעולים ותושבים חוזרים במצבי משבר",
@@ -4535,20 +2624,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_05",
-          "source_file": "right_124.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "מיועד לעולים ותושבים חוזרים במצבי משבר"
-          }
+          "source_file": "right_124.md"
         },
         {
           "title": "פטור מהמתנה בתור לנפגעי פעולת איבה",
@@ -4566,20 +2642,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_06",
-          "source_file": "right_140.md",
-          "eligibility_filters": {
-            "min_disability_pct": 40,
-            "requires_recognition": true,
-            "requires_100_special": true,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": true,
-            "requires_caregiving": false,
-            "requires_mobility_limit": true,
-            "specific_to_survivor_type": null,
-            "notes": "זכאות לרכב רפואי"
-          }
+          "source_file": "right_140.md"
         },
         {
           "title": "ביטול הגבלת חשבון בגין צ'ק שחזר בעקבות פעולת איבה",
@@ -4596,20 +2659,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_07",
-          "source_file": "right_141.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_141.md"
         },
         {
           "title": "פיצוי חד פעמי לנפגעי אירוע לאומני או גזעני",
@@ -4626,20 +2676,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_08",
-          "source_file": "right_142.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "נדרשת הגשת תלונה למשטרה"
-          }
+          "source_file": "right_142.md"
         },
         {
           "title": "פיצוי על נזק לרכוש בגין פגיעת איבה גזענית או לאומנית",
@@ -4656,20 +2693,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_09",
-          "source_file": "right_146.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "לא כולל נזק לכסף מזומן, תכשיטים, אמנות או עתיקות"
-          }
+          "source_file": "right_146.md"
         },
         {
           "title": "ביטוח חפצים ביתיים בפני נזקי מלחמה או פעולות איבה",
@@ -4687,20 +2711,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_10",
-          "source_file": "right_147.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_147.md"
         },
         {
           "title": "פיצוי על נזקי רכוש בעקבות פעולות איבה",
@@ -4717,20 +2728,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_11",
-          "source_file": "right_148.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_148.md"
         },
         {
           "title": "קרן הפיצויים לנפגעי פעולות איבה",
@@ -4747,20 +2745,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_12",
-          "source_file": "right_156.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": false,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_156.md"
         },
         {
           "title": "הנחה במס רכישה לנפגעי פעולת איבה",
@@ -4777,20 +2762,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_13",
-          "source_file": "right_77.md",
-          "eligibility_filters": {
-            "min_disability_pct": 19,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": "דירה יחידה ששוויה עד 2,500,000 ₪"
-          }
+          "source_file": "right_77.md"
         },
         {
           "title": "זכויות לנפגעי תקיפות גזעניות ולאומניות",
@@ -4807,20 +2779,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_14",
-          "source_file": "right_8.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": null,
-            "notes": ""
-          }
+          "source_file": "right_8.md"
         },
         {
           "title": "הנחה בארנונה לפדויי שבי",
@@ -4836,20 +2795,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_15",
-          "source_file": "right_85.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "freed_hostage",
-            "notes": "הנחה מותנית בקצבה חודשית לפדויי שבי"
-          }
+          "source_file": "right_85.md"
         },
         {
           "title": "זכויות פדויי שבי וחטופים ששוחררו",
@@ -4867,20 +2813,7 @@
           "official_sources": [],
           "offline_tips": [],
           "id": "R_SPEC_16",
-          "source_file": "right_9.md",
-          "eligibility_filters": {
-            "min_disability_pct": 0,
-            "requires_recognition": true,
-            "requires_100_special": false,
-            "requires_student": false,
-            "requires_renter": false,
-            "requires_children_under_21": false,
-            "requires_mental_health": false,
-            "requires_caregiving": false,
-            "requires_mobility_limit": false,
-            "specific_to_survivor_type": "freed_hostage",
-            "notes": "שהייה בשבי 14 ימים לפחות"
-          }
+          "source_file": "right_9.md"
         }
       ]
     }
@@ -4934,10 +2867,9 @@
     }
   },
   "metadata": {
-    "version": "3.0.0-generated+enriched",
+    "version": "3.0.0-generated",
     "generated_at": "2026-05-25T16:32:28.693720",
     "source": "smart_data/ via categorize_rights.py",
-    "disclaimer": "המידע נאסף ועודכן אוטומטית ע״י הסוכן ונועד להנגשה בלבד.",
-    "enriched_at": "2026-05-25T17:20:27.768433"
+    "disclaimer": "המידע נאסף ועודכן אוטומטית ע״י הסוכן ונועד להנגשה בלבד."
   }
 }

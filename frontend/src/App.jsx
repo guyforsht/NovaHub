@@ -14,7 +14,7 @@ const TABS = [
 function hasStoredAnswers() {
   try {
     const saved = localStorage.getItem("novahub_answers");
-    return !!(saved && JSON.parse(saved)?.bituach);
+    return !!(saved && JSON.parse(saved)?.survivor_type);
   } catch { return false; }
 }
 

@@ -1,0 +1,122 @@
+[
+  {
+    "similarity": 1.0,
+    "right_a": {
+      "id": "R_CLM_03",
+      "shell_id": "claims_process",
+      "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_154.md"
+    },
+    "right_b": {
+      "id": "R_CLM_08",
+      "shell_id": "claims_process",
+      "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_45.md"
+    }
+  },
+  {
+    "similarity": 0.75,
+    "right_a": {
+      "id": "R_MEN_05",
+      "shell_id": "mental_health",
+      "title": "טיפולי רפואה משלימה לילדיהם של נפגעי פעולת איבה",
+      "source_file": "right_130.md"
+    },
+    "right_b": {
+      "id": "R_MEN_10",
+      "shell_id": "mental_health",
+      "title": "טיפולי רפואה משלימה לנפגעי פעולת איבה",
+      "source_file": "right_23.md"
+    }
+  },
+  {
+    "similarity": 0.67,
+    "right_a": {
+      "id": "R_INC_20",
+      "shell_id": "income_payments",
+      "title": "קצבת נכות מקרן פנסיה",
+      "source_file": "right_53.md"
+    },
+    "right_b": {
+      "id": "R_INC_21",
+      "shell_id": "income_payments",
+      "title": "חישוב גובה קצבת נכות מקרן פנסיה לנפגעי פעולות איבה",
+      "source_file": "right_54.md"
+    }
+  },
+  {
+    "similarity": 0.67,
+    "right_a": {
+      "id": "R_CARE_03",
+      "shell_id": "caregiving",
+      "title": "פטור מתשלום בכניסה למקום ציבורי למלווה של אדם עם לקות נפשית",
+      "source_file": "right_132.md"
+    },
+    "right_b": {
+      "id": "R_CARE_12",
+      "shell_id": "caregiving",
+      "title": "פטור מתשלום בכניסה למקום ציבורי למלווה של נפגעי פעולת איבה",
+      "source_file": "right_62.md"
+    }
+  },
+  {
+    "similarity": 0.6,
+    "right_a": {
+      "id": "R_CLM_03",
+      "shell_id": "claims_process",
+      "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_154.md"
+    },
+    "right_b": {
+      "id": "R_CLM_06",
+      "shell_id": "claims_process",
+      "title": "ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_43.md"
+    }
+  },
+  {
+    "similarity": 0.6,
+    "right_a": {
+      "id": "R_CLM_06",
+      "shell_id": "claims_process",
+      "title": "ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_43.md"
+    },
+    "right_b": {
+      "id": "R_CLM_08",
+      "shell_id": "claims_process",
+      "title": "ערר על החלטת ועדה רפואית לנכות לנפגעי פעולות איבה",
+      "source_file": "right_45.md"
+    }
+  },
+  {
+    "similarity": 0.6,
+    "right_a": {
+      "id": "R_HOUSE_18",
+      "shell_id": "housing",
+      "title": "סיוע בשכר דירה לנפגעי פעולת איבה",
+      "source_file": "right_88.md"
+    },
+    "right_b": {
+      "id": "R_HOUSE_19",
+      "shell_id": "housing",
+      "title": "סיוע בשכר דירה לנפגעי פעולת איבה בתקופת הלימודים",
+      "source_file": "right_89.md"
+    }
+  },
+  {
+    "similarity": 0.6,
+    "right_a": {
+      "id": "R_HOUSE_26",
+      "shell_id": "housing",
+      "title": "מענק ציוד ביתי לנפגעי פעולת איבה עיוורים",
+      "source_file": "right_98.md"
+    },
+    "right_b": {
+      "id": "R_HOUSE_27",
+      "shell_id": "housing",
+      "title": "מענק ציוד ביתי לנפגעי פעולת איבה עם שיתוק",
+      "source_file": "right_99.md"
+    }
+  }
+]

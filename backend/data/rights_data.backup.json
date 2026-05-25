@@ -1,0 +1,189 @@
+{
+  "shells": [
+    {
+      "shell_id": "academic",
+      "shell_name": "מעטפת לימודים",
+      "icon": "🎓",
+      "last_updated_auto": "2026-05-01T12:00:00Z",
+      "rights": [
+        {
+          "id": "R_ACAD_01",
+          "title": "מימון שכר לימוד",
+          "simple_description": "זכאות למימון חלקי או מלא של שכר הלימוד האקדמי.",
+          "eligibility": "נפגעי פעולת איבה עם נכות של 20% ומעלה.",
+          "how_to_apply": "הגשת בקשה לאגף שיקום בביטוח לאומי עם קבלות שכר לימוד.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [
+            "טיפ מהשטח: כדאי להגיש את הבקשה מיד אחרי ההרשמה, אל תחכו לתחילת הסמסטר."
+          ],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_ACAD_02",
+          "title": "מענק מחשב נייד",
+          "simple_description": "מענק לרכישת מחשב נייד לסטודנטים.",
+          "eligibility": "נפגעי איבה מוכרים הלומדים במוסד להשכלה גבוהה.",
+          "how_to_apply": "פנייה לעובדת השיקום עם אישור לימודים.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_ACAD_03",
+          "title": "סיוע בשיעורי עזר",
+          "simple_description": "השתתפות במימון שיעורים פרטיים.",
+          "eligibility": "נפגעי איבה הזקוקים לתגבור בלימודים.",
+          "how_to_apply": "אישור מראש מעובדת השיקום.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "shell_id": "medical",
+      "shell_name": "מעטפת רפואית",
+      "icon": "🩺",
+      "last_updated_auto": "2026-05-01T12:00:00Z",
+      "rights": [
+        {
+          "id": "R_MED_01",
+          "title": "טיפולים פסיכולוגיים",
+          "simple_description": "זכאות לטיפולים פסיכולוגיים ופסיכיאטריים דרך מרכזי החוסן או קופות החולים.",
+          "eligibility": "מוכרים כנפגעי איבה (גם טרם הושלמה ההכרה הרשמית המלאה).",
+          "how_to_apply": "פנייה למרכז החוסן באזור המגורים או לקופת החולים.",
+          "official_sources": ["https://www.health.gov.il"],
+          "offline_tips": [
+            "טיפ מהשטח: אם יש עומס במרכזי החוסן, אפשר לבקש החזר על מטפל פרטי (יש לבדוק זכאות מראש)."
+          ],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_MED_02",
+          "title": "השתתפות ברכישת תרופות",
+          "simple_description": "פטור או הנחה משמעותית ברכישת תרופות מרשם הקשורות לפגיעה.",
+          "eligibility": "נפגעי איבה המטופלים תרופתית.",
+          "how_to_apply": "ההנחה מעודכנת אוטומטית במערכות קופת החולים לאחר הכרה.",
+          "official_sources": ["https://www.health.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "shell_id": "housing",
+      "shell_name": "מעטפת דיור",
+      "icon": "🏠",
+      "last_updated_auto": "2026-05-01T12:00:00Z",
+      "rights": [
+        {
+          "id": "R_HOUSE_01",
+          "title": "סיוע בשכר דירה",
+          "simple_description": "השתתפות בשכר דירה חודשי.",
+          "eligibility": "נפגעי פעולות איבה עם דרגת נכות של 20% ומעלה שאין בבעלותם דירה.",
+          "how_to_apply": "הגשת בקשה למשרד הבינוי והשיכון דרך חברות ההרשמה.",
+          "official_sources": ["https://www.gov.il/he/departments/ministry_of_construction_and_housing"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_HOUSE_02",
+          "title": "הנחה בארנונה",
+          "simple_description": "פטור או הנחה בארנונה לנפגעי איבה.",
+          "eligibility": "נפגעי איבה עם דרגת נכות של 60% ומעלה.",
+          "how_to_apply": "פנייה לרשות המקומית עם אישור על גובה הנכות מביטוח לאומי.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "shell_id": "financial",
+      "shell_name": "מעטפת כלכלית",
+      "icon": "💰",
+      "last_updated_auto": "2026-05-01T12:00:00Z",
+      "rights": [
+        {
+          "id": "R_FIN_01",
+          "title": "מענק חד פעמי",
+          "simple_description": "מענק כספי ראשוני לנפגעים מוכרים.",
+          "eligibility": "כל מי שהוכר כנפגע פעולת איבה.",
+          "how_to_apply": "אוטומטי לאחר אישור ההכרה.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_FIN_02",
+          "title": "קצבת נכות חודשית",
+          "simple_description": "קצבה משולמת מדי חודש בהתאם לאחוזי הנכות.",
+          "eligibility": "נכות רפואית של 10% ומעלה.",
+          "how_to_apply": "לאחר קביעת ועדה רפואית.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T12:00:00Z"
+        },
+        {
+          "id": "R_FIN_03",
+          "title": "תוספת למימון צרכים מיוחדים (עזרת הזולת)",
+          "simple_description": "סיוע חודשי למי שזקוק לעזרה בפעולות יום-יום (בין 425 ל-1,276 ש״ח כבסיס, וייתכן יותר במקרים מיוחדים).",
+          "eligibility": "נכים שדרגת נכותם 40% ומעלה התלויים בעזרת הזולת.",
+          "how_to_apply": "הגשת תביעה לתוספת למימון צרכים מיוחדים.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T13:00:00Z"
+        },
+        {
+          "id": "R_FIN_04",
+          "title": "דמי ניידות",
+          "simple_description": "השתתפות בהוצאות אחזקת רכב והוצאות נסיעה שוטפות.",
+          "eligibility": "מי שזכאי לרכב רפואי.",
+          "how_to_apply": "פנייה לעובדת שיקום לאחר קביעת ועדה.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T13:00:00Z"
+        },
+        {
+          "id": "R_FIN_05",
+          "title": "מענק חימום",
+          "simple_description": "מענק שנתי המשולם בדרך כלל בחודש אוקטובר להשתתפות בהוצאות חימום.",
+          "eligibility": "מוכרים בהתאם לתנאי הזכאות השנתיים.",
+          "how_to_apply": "משולם באופן אוטומטי לזכאים.",
+          "official_sources": ["https://btl.gov.il"],
+          "offline_tips": [],
+          "last_verified": "2026-05-01T13:00:00Z"
+        }
+      ]
+    }
+  ],
+  "shortcuts": {
+    "nefesh_achat": {
+      "title": "נפש אחת — מסלול מהיר",
+      "description": "החזרים לטיפולים נפשיים, זוגיים ואלטרנטיביים.",
+      "treatment_basket": [
+        "פסיכולוג מומחה: עד 326 ₪ לטיפול, פסיכולוג בכיר: 367 ₪.",
+        "טיפול זוגי/משפחתי: עד 459 ₪ לטיפול.",
+        "רפואה משלימה: עד 6,600 ₪ בשנה."
+      ],
+      "checklist": [
+        "חשבונית מס קבלה (עם 'מספר עוסק')",
+        "מספר רישיון מטפל",
+        "תאריכי טיפול וסכום"
+      ]
+    }
+  },
+  "emergency_contacts": {
+    "btl": {"name": "ביטוח לאומי", "phone": "*6050", "website": "https://btl.gov.il"},
+    "eran": {"name": "ער\"ן — עזרה ראשונה נפשית", "phone": "1201", "website": "https://eran.org.il"},
+    "natal": {"name": "נט\"ל — סיוע לנפגעי טרור", "phone": "*6771", "website": "https://natal.org.il"},
+    "crisis": {"name": "קו חירום נפשי", "phone": "*2401", "website": ""},
+    "welfare": {"name": "משרד הרווחה", "phone": "*118", "website": "https://molsa.gov.il"},
+    "tribe": {"name": "שבט נובה", "phone": "", "website": "https://tribeofnova.com"}
+  },
+  "metadata": {
+    "version": "2.0.0",
+    "last_updated": "2026-05-01T12:00:00Z",
+    "disclaimer": "המידע נאסף ועודכן אוטומטית ע״י הסוכן ונועד להנגשה בלבד."
+  }
+}

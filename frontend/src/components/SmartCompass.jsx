@@ -21,18 +21,30 @@ function clearAnswers() {
 
 // ─── State ────────────────────────────────────────────────────────────────────
 
-const INIT = { survivor: "yes", bituach: null, tier: null, student: null, property: null };
+const INIT = {
+  survivor_type: null,
+  bituach: null,
+  tier: null,
+  mental_health: null,
+  care_needs: null,
+  has_children: null,
+  student: null,
+  property: null,
+};
 
 function reducer(state, action) {
   switch (action.type) {
-    case "SURVIVOR": return { ...INIT, survivor: action.v };
-    case "BITUACH":  return { ...state, bituach: action.v, tier: null, student: null, property: null };
-    case "TIER":     return { ...state, tier: action.v, student: null, property: null };
-    case "STUDENT":  return { ...state, student: action.v };
-    case "PROPERTY": return { ...state, property: action.v };
-    case "LOAD":     return { ...INIT, ...action.v };
-    case "RESET":    return INIT;
-    default:         return state;
+    case "SURVIVOR_TYPE": return { ...INIT, survivor_type: action.v };
+    case "BITUACH":       return { ...state, bituach: action.v, tier: null, mental_health: null, care_needs: null, has_children: null, student: null, property: null };
+    case "TIER":          return { ...state, tier: action.v, mental_health: null, care_needs: null, has_children: null, student: null, property: null };
+    case "MENTAL_HEALTH": return { ...state, mental_health: action.v, care_needs: null, has_children: null, student: null, property: null };
+    case "CARE_NEEDS":    return { ...state, care_needs: action.v, has_children: null, student: null, property: null };
+    case "HAS_CHILDREN":  return { ...state, has_children: action.v, student: null, property: null };
+    case "STUDENT":       return { ...state, student: action.v, property: null };
+    case "PROPERTY":      return { ...state, property: action.v };
+    case "LOAD":          return { ...INIT, ...action.v };
+    case "RESET":         return INIT;
+    default:              return state;
   }
 }
 
@@ -40,127 +52,72 @@ function reducer(state, action) {
 
 const TIER_TO_PCT = { low: 10, mid: 35, high: 65 };
 const BITUACH_TO_RECOGNITION = { yes: "מוכר", in_process: "בתהליך", no: "לא מוכר" };
+const SURVIVOR_TYPE_HE = {
+  nova_survivor:      "שורד נובה",
+  family_of_affected: "בן משפחה של נפגע",
+  bereaved:           "משפחה שכולה",
+  freed_hostage:      "פדוי שבי",
+};
 
 function buildUserProfile(s) {
   return {
     disability_pct: TIER_TO_PCT[s.tier] ?? 0,
-    recognition: BITUACH_TO_RECOGNITION[s.bituach] ?? "",
-    status: s.student === "yes" ? "סטודנט" : "",
-    owns_property: s.property === "yes" ? true : s.property === "no" ? false : null,
-    survivor_type: s.survivor,
-    condition: "נפגע פעולת איבה",
+    recognition:    BITUACH_TO_RECOGNITION[s.bituach] ?? "",
+    status:         s.student === "yes" ? "סטודנט" : "",
+    owns_property:  s.property === "yes" ? true : s.property === "no" ? false : null,
+    survivor_type:  s.survivor_type ? SURVIVOR_TYPE_HE[s.survivor_type] : "שורד",
+    mental_health:  s.mental_health || "",
+    care_needs:     s.care_needs || "",
+    has_children:   s.has_children === "yes",
+    condition:      "נפגע פעולת איבה",
   };
 }
 
-// ─── Rights catalogue ─────────────────────────────────────────────────────────
+// ─── Shell metadata ───────────────────────────────────────────────────────────
 
-const CATALOGUE = {
-  nefesh: {
-    tag: "רפואה", tagCls: "bg-purple-100 text-purple-700",
-    title: "נפש אחת – טיפול נפשי מהיר",
-    desc: "גישה מהירה לפסיכולוג, פסיכיאטר וטיפולים משלימים – ללא תורים ארוכים",
-    amount: "ללא עלות", amountNote: "עד 20 מפגשים ממומנים",
-    phone: "03-5127118",
-    formLink: "https://forms.btl.gov.il/Form/OBStart/Nefesh",
-  },
-  meds: {
-    tag: "רפואה", tagCls: "bg-purple-100 text-purple-700",
-    title: "השתתפות בתרופות",
-    desc: "פטור או הנחה משמעותית ברכישת תרופות מרשם הקשורות לפגיעה",
-    amount: "עד 80% הנחה", amountNote: "על תרופות הקשורות לפגיעה",
-  },
-  grant: {
-    tag: "כלכלי", tagCls: "bg-emerald-100 text-emerald-700",
-    title: "מענק חד-פעמי",
-    desc: "מענק כספי חד-פעמי עבור ניצולים שהוכרו כנפגעי פעולת איבה",
-    amount: "₪13,000 – ₪52,000", amountNote: "לפי דרגת הנכות",
-  },
-  monthly: {
-    tag: "כלכלי", tagCls: "bg-emerald-100 text-emerald-700",
-    title: "קצבת נכות חודשית",
-    desc: "קצבה חודשית ממשרד הביטחון, בהתאם לדרגת הנכות המוכרת",
-    amount: "₪1,161 – ₪5,807", amountNote: "לחודש, לפי אחוז הנכות",
-  },
-  heat: {
-    tag: "כלכלי", tagCls: "bg-emerald-100 text-emerald-700",
-    title: "מענק חימום שנתי",
-    desc: "מענק שנתי אוטומטי לכיסוי הוצאות חימום בחורף",
-    amount: "~₪600", amountNote: "לשנה, מועבר אוטומטית",
-  },
-  tuition: {
-    tag: "לימודים", tagCls: "bg-calm-100 text-calm-700",
-    title: "מימון שכר לימוד",
-    desc: "שכר הלימוד משולם ישירות למוסד האקדמי, בנוסף לדמי מחייה חודשיים",
-    amount: "עד ₪40,000 לשנה", amountNote: "+ דמי מחייה של ₪2,000–₪3,500 לחודש",
-  },
-  laptop: {
-    tag: "לימודים", tagCls: "bg-calm-100 text-calm-700",
-    title: "מענק מחשב נייד",
-    desc: "מענק חד-פעמי לרכישת מחשב נייד לצורכי לימודים",
-    amount: "עד ₪3,600", amountNote: "חד-פעמי",
-  },
-  tutoring: {
-    tag: "לימודים", tagCls: "bg-calm-100 text-calm-700",
-    title: "שיעורי עזר",
-    desc: "מימון שיעורים פרטיים ותגבור אקדמי במהלך התואר",
-    amount: "עד ₪6,000", amountNote: "לשנת לימודים",
-  },
-  rent: {
-    tag: "דיור", tagCls: "bg-orange-100 text-orange-700",
-    title: "סיוע בשכר דירה",
-    desc: "השתתפות חודשית בשכר דירה לניצולים שאינם בעלי נכס",
-    amount: "₪1,500 – ₪2,500", amountNote: "לחודש, לפי מיקום",
-  },
-  arnona: {
-    tag: "דיור", tagCls: "bg-orange-100 text-orange-700",
-    title: "פטור מארנונה",
-    desc: "פטור מלא מתשלום ארנונה עירונית על נכס המגורים",
-    amount: "פטור מלא", amountNote: "₪3,000–₪10,000+ בשנה לפי עיר",
-  },
-  transport: {
-    tag: "ניידות", tagCls: "bg-sky-100 text-sky-700",
-    title: "דמי ניידות",
-    desc: "השתתפות חודשית בהוצאות אחזקת רכב ונסיעות שוטפות",
-    amount: "₪1,500 – ₪2,100", amountNote: "לחודש",
-  },
-  supplement: {
-    tag: "כלכלי", tagCls: "bg-emerald-100 text-emerald-700",
-    title: "תוספת לצרכים מיוחדים",
-    desc: "סיוע חודשי נוסף למי שזקוק לעזרה בפעולות יומיומיות בשל הפגיעה",
-    amount: "₪800 – ₪3,200", amountNote: "לחודש, לפי רמת התלות",
-  },
-  applyPrompt: {
-    tag: "המלצה", tagCls: "bg-amber-100 text-amber-700",
-    title: "כדאי להגיש תביעה לביטוח הלאומי",
-    desc: "הכרה כנפגע/ת פעולת איבה פותחת דלתות לזכויות רבות – הגשה אפשרית גם בשלב זה",
-  },
+const SHELL_META = {
+  status:             { icon: "📋", tagCls: "bg-amber-100 text-amber-800",     label: "הכרה ומעמד" },
+  claims_process:     { icon: "⚖️", tagCls: "bg-slate-100 text-slate-800",     label: "תביעות וערעורים" },
+  medical:            { icon: "🩺", tagCls: "bg-rose-100 text-rose-800",       label: "טיפול רפואי" },
+  mental_health:      { icon: "🧠", tagCls: "bg-violet-100 text-violet-800",   label: "בריאות הנפש" },
+  income_payments:    { icon: "💰", tagCls: "bg-emerald-100 text-emerald-800", label: "תגמולים וקצבאות" },
+  caregiving:         { icon: "🤝", tagCls: "bg-orange-100 text-orange-800",   label: "סיעוד ועזרה" },
+  mobility_transport: { icon: "🚗", tagCls: "bg-cyan-100 text-cyan-800",       label: "ניידות ותחבורה" },
+  housing:            { icon: "🏠", tagCls: "bg-sky-100 text-sky-800",         label: "דיור" },
+  rehab_education:    { icon: "🎓", tagCls: "bg-indigo-100 text-indigo-800",   label: "שיקום ולימודים" },
+  family_bereavement: { icon: "👨‍👩‍👧", tagCls: "bg-pink-100 text-pink-800",     label: "משפחה ושכול" },
+  special_situations: { icon: "✨", tagCls: "bg-yellow-100 text-yellow-800",   label: "מצבים מיוחדים" },
 };
 
-const RIGHTS_ID_MAP = {
-  nefesh: "R_MED_01", meds: "R_MED_02",
-  grant: "R_FIN_01", monthly: "R_FIN_02", heat: "R_FIN_05",
-  tuition: "R_ACAD_01", laptop: "R_ACAD_02", tutoring: "R_ACAD_03",
-  rent: "R_HOUSE_01", arnona: "R_HOUSE_02",
-  transport: "R_FIN_04", supplement: "R_FIN_03",
-};
+// ─── Profile-based filter ─────────────────────────────────────────────────────
 
-function computeRights({ survivor, bituach, tier, student, property }) {
-  if (!survivor || survivor === "no") return [];
-  const push = (key) => ({ key, ...CATALOGUE[key] });
-  const R = [push("nefesh"), push("meds")];
-  if (bituach === "yes" || bituach === "in_process") R.push(push("grant"));
-  if (bituach === "yes") {
-    R.push(push("monthly"), push("heat"));
-    if (tier === "mid" || tier === "high") {
-      if (student === "yes") R.push(push("tuition"), push("laptop"), push("tutoring"));
-      if (property === "no") R.push(push("rent"));
-    }
-    if (tier === "high") {
-      R.push(push("supplement"), push("arnona"), push("transport"));
-    }
+function matchesProfile(right, s) {
+  const f = right.eligibility_filters;
+  if (!f) return true;  // backward-compat for unfiltered rights
+
+  const pct = TIER_TO_PCT[s.tier] ?? 0;
+  if (f.min_disability_pct > 0 && pct < f.min_disability_pct) return false;
+  if (f.requires_100_special && s.tier !== "high") return false;
+  if (f.requires_recognition && !["yes", "in_process"].includes(s.bituach)) return false;
+  if (f.requires_student && s.student !== "yes") return false;
+  if (f.requires_renter && s.property !== "no") return false;
+  if (f.requires_children_under_21 && s.has_children !== "yes") return false;
+  if (f.requires_mental_health && (!s.mental_health || s.mental_health === "no")) return false;
+  if (f.requires_caregiving && (!s.care_needs || s.care_needs === "none")) return false;
+  if (f.requires_mobility_limit && s.care_needs !== "significant") return false;
+  if (f.specific_to_survivor_type && s.survivor_type !== f.specific_to_survivor_type) return false;
+
+  return true;
+}
+
+const SHELL_ORDER = Object.keys(SHELL_META);
+
+function groupByShell(rights) {
+  const groups = new Map(SHELL_ORDER.map(id => [id, []]));
+  for (const r of rights) {
+    if (groups.has(r.shell_id)) groups.get(r.shell_id).push(r);
   }
-  if (bituach === "no") R.push(push("applyPrompt"));
-  return R;
+  return Array.from(groups.entries()).filter(([, rs]) => rs.length > 0);
 }
 
 // ─── UI building blocks ───────────────────────────────────────────────────────
@@ -212,37 +169,39 @@ function TileBtn({ label, sub, checked, onTap }) {
   );
 }
 
+// ─── Inline card overrides (admin edit) ───────────────────────────────────────
+
 const LS_OVERRIDES_KEY = "novahub_card_overrides";
 
 function loadOverrides() {
   try { return JSON.parse(localStorage.getItem(LS_OVERRIDES_KEY) || "{}"); } catch { return {}; }
 }
-function saveOverride(key, data) {
+function saveOverride(id, data) {
   const all = loadOverrides();
-  all[key] = { ...all[key], ...data };
+  all[id] = { ...all[id], ...data };
   localStorage.setItem(LS_OVERRIDES_KEY, JSON.stringify(all));
-  // Also try to persist to backend (fire-and-forget)
-  fetch(`http://localhost:8000/api/rights/card/${key}`, {
+  fetch(`http://localhost:8000/api/rights/card/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   }).catch(() => {});
 }
 
-function RightCard({ r, detail, isExpanded, onToggle }) {
-  const overrides = loadOverrides()[r.key] || {};
-  const title     = overrides.title      ?? r.title;
-  const desc      = overrides.desc       ?? r.desc;
-  const amount    = overrides.amount     ?? r.amount;
-  const amountNote = overrides.amount_note ?? r.amountNote;
+// ─── RightCard ────────────────────────────────────────────────────────────────
+
+function RightCard({ r, isExpanded, onToggle }) {
+  const overrides = loadOverrides()[r.id] || {};
+  const title = overrides.title ?? r.title;
+  const desc  = overrides.desc  ?? r.simple_description;
+  const meta  = SHELL_META[r.shell_id] || { icon: "📌", tagCls: "bg-stone-100 text-stone-700", label: r.shell_id };
 
   const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState({ title, desc, amount: amount || "", amount_note: amountNote || "" });
+  const [draft, setDraft] = useState({ title, desc });
   const [saved, setSaved] = useState(false);
 
   function handleSave() {
     const clean = Object.fromEntries(Object.entries(draft).filter(([, v]) => v.trim() !== ""));
-    saveOverride(r.key, clean);
+    saveOverride(r.id, clean);
     setSaved(true);
     setTimeout(() => { setSaved(false); setEditing(false); }, 1000);
   }
@@ -252,30 +211,23 @@ function RightCard({ r, detail, isExpanded, onToggle }) {
       {editing ? (
         <div className="p-4 flex flex-col gap-2" dir="rtl">
           <p className="text-xs font-semibold text-stone-400 mb-1">עריכת כרטיסייה</p>
-          {[
-            { key: "title",       label: "כותרת",   multiline: false },
-            { key: "desc",        label: "תיאור",    multiline: true  },
-            { key: "amount",      label: "סכום",     multiline: false },
-            { key: "amount_note", label: "הערת סכום",multiline: false },
-          ].map(({ key, label, multiline }) => (
-            <div key={key}>
-              <label className="text-xs text-stone-400 mb-0.5 block">{label}</label>
-              {multiline ? (
-                <textarea
-                  rows={2}
-                  value={draft[key]}
-                  onChange={e => setDraft(d => ({ ...d, [key]: e.target.value }))}
-                  className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400 resize-none"
-                />
-              ) : (
-                <input
-                  value={draft[key]}
-                  onChange={e => setDraft(d => ({ ...d, [key]: e.target.value }))}
-                  className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400"
-                />
-              )}
-            </div>
-          ))}
+          <div>
+            <label className="text-xs text-stone-400 mb-0.5 block">כותרת</label>
+            <input
+              value={draft.title}
+              onChange={e => setDraft(d => ({ ...d, title: e.target.value }))}
+              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400"
+            />
+          </div>
+          <div>
+            <label className="text-xs text-stone-400 mb-0.5 block">תיאור</label>
+            <textarea
+              rows={3}
+              value={draft.desc}
+              onChange={e => setDraft(d => ({ ...d, desc: e.target.value }))}
+              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400 resize-none"
+            />
+          </div>
           <div className="flex gap-2 mt-1">
             <button
               onClick={handleSave}
@@ -295,83 +247,68 @@ function RightCard({ r, detail, isExpanded, onToggle }) {
         <div className="p-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <span className={`mb-1.5 inline-block rounded-full px-2.5 py-0.5 text-xs font-semibold ${r.tagCls}`}>
-                {r.tag}
+              <span className={`mb-1.5 inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${meta.tagCls}`}>
+                <span>{meta.icon}</span>
+                <span>{meta.label}</span>
               </span>
               <p className="font-bold leading-snug text-stone-900">{title}</p>
               <p className="mt-1 text-sm leading-relaxed text-stone-500">{desc}</p>
             </div>
-            <div className="flex flex-col items-end gap-1 flex-shrink-0">
-              {amount && (
-                <div className="text-left">
-                  <p className="text-base font-bold text-calm-700 leading-tight">{amount}</p>
-                  {amountNote && <p className="text-xs text-stone-400 mt-0.5">{amountNote}</p>}
-                </div>
-              )}
-              <button
-                onClick={() => { setDraft({ title, desc, amount: amount||"", amount_note: amountNote||"" }); setEditing(true); }}
-                className="flex items-center justify-center w-7 h-7 rounded-lg bg-stone-100 text-stone-400 hover:bg-calm-100 hover:text-calm-600 transition-colors text-sm"
-                title="ערוך כרטיסייה"
-              >
-                ✎
-              </button>
-            </div>
+            <button
+              onClick={() => { setDraft({ title, desc }); setEditing(true); }}
+              className="flex items-center justify-center w-7 h-7 rounded-lg bg-stone-100 text-stone-400 hover:bg-calm-100 hover:text-calm-600 transition-colors text-sm flex-shrink-0"
+              title="ערוך כרטיסייה"
+            >
+              ✎
+            </button>
           </div>
-          {(r.phone || r.formLink) && (
-            <div className="mt-3 flex flex-wrap gap-3 text-sm border-t border-stone-100 pt-3">
-              {r.phone && (
-                <a href={`tel:${r.phone.replace(/-/g, "")}`} className="font-semibold text-calm-700 hover:underline">
-                  {r.phone}
-                </a>
-              )}
-              {r.formLink && (
-                <a href={r.formLink} target="_blank" rel="noopener noreferrer" className="text-calm-600 hover:underline">
-                  לטופס פנייה ↗
-                </a>
-              )}
-            </div>
-          )}
         </div>
       )}
 
-      {detail && (
-        <button
-          onClick={onToggle}
-          className="w-full border-t border-stone-100 px-4 py-2.5 text-sm font-medium text-calm-700 hover:bg-calm-50 transition-colors flex items-center justify-between"
-          dir="rtl"
-        >
-          <span>פרטים נוספים</span>
-          <span className={`transition-transform duration-200 inline-block text-stone-400 ${isExpanded ? "rotate-180" : ""}`}>▾</span>
-        </button>
-      )}
+      <button
+        onClick={onToggle}
+        className="w-full border-t border-stone-100 px-4 py-2.5 text-sm font-medium text-calm-700 hover:bg-calm-50 transition-colors flex items-center justify-between"
+        dir="rtl"
+      >
+        <span>פרטים נוספים</span>
+        <span className={`transition-transform duration-200 inline-block text-stone-400 ${isExpanded ? "rotate-180" : ""}`}>▾</span>
+      </button>
 
-      {detail && isExpanded && (
+      {isExpanded && (
         <div className="border-t border-stone-100 bg-stone-50 p-4 text-sm text-stone-700 flex flex-col gap-3" dir="rtl">
-          <div>
-            <p className="font-semibold text-stone-800 mb-1">זכאות</p>
-            <p className="leading-relaxed">{detail.eligibility}</p>
-          </div>
-          <div>
-            <p className="font-semibold text-stone-800 mb-1">איך מממשים</p>
-            <p className="leading-relaxed">{detail.how_to_apply}</p>
-          </div>
-          {detail.offline_tips?.length > 0 && (
+          {r.eligibility && (
+            <div>
+              <p className="font-semibold text-stone-800 mb-1">זכאות</p>
+              <p className="leading-relaxed whitespace-pre-line">{r.eligibility}</p>
+            </div>
+          )}
+          {r.how_to_apply && (
+            <div>
+              <p className="font-semibold text-stone-800 mb-1">איך מממשים</p>
+              <p className="leading-relaxed whitespace-pre-line">{r.how_to_apply}</p>
+            </div>
+          )}
+          {r.offline_tips?.length > 0 && (
             <div>
               <p className="font-semibold text-stone-800 mb-1">טיפ מהשטח</p>
-              {detail.offline_tips.map((tip, i) => (
+              {r.offline_tips.map((tip, i) => (
                 <p key={i} className="leading-relaxed">{tip}</p>
               ))}
             </div>
           )}
-          {detail.official_sources?.length > 0 && (
+          {r.official_sources?.length > 0 ? (
             <a
-              href={detail.official_sources[0]}
+              href={r.official_sources[0]}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-calm-700 font-medium hover:underline"
             >
               מקור רשמי ↗
             </a>
+          ) : (
+            <p className="text-xs text-stone-400 italic">
+              לסכומים מעודכנים ולמידע המלא, פנו לביטוח לאומי או לאתר הרשמי.
+            </p>
           )}
         </div>
       )}
@@ -410,18 +347,17 @@ function AllowanceCalculator({ initialPct }) {
         <div className="text-center flex-shrink-0 bg-white rounded-xl border border-calm-200 px-4 py-3 min-w-[110px]">
           <p className="text-xs text-stone-400 mb-0.5">קצבה חודשית</p>
           <p className="text-xl font-bold text-calm-700">
-            {monthly > 0 ? `₪${monthly.toLocaleString()}` : "לא זכאי"}
+            {monthly > 0 ? `~₪${monthly.toLocaleString()}` : "לא זכאי"}
           </p>
           {pct >= 50 && (
             <p className="text-xs text-calm-600 mt-1">+ תוספות נוספות</p>
           )}
         </div>
       </div>
-      {pct >= 50 && (
-        <p className="mt-3 text-xs text-stone-500 leading-relaxed border-t border-calm-200 pt-2.5">
-          בדרגות 50% ומעלה ייתכנו תוספות לניידות, עזרת הזולת וצרכים מיוחדים — שיכולות להכפיל את הסכום.
-        </p>
-      )}
+      <p className="mt-3 text-xs text-stone-500 leading-relaxed border-t border-calm-200 pt-2.5">
+        ⚠️ הסכומים להמחשה בלבד ומבוססים על מדרגות מוכרות. לסכום מדויק ומעודכן יש לבדוק במוסד לביטוח לאומי.
+        {pct >= 50 && " בדרגות 50%+ ייתכנו תוספות לניידות, עזרת הזולת וצרכים מיוחדים."}
+      </p>
     </div>
   );
 }
@@ -440,19 +376,22 @@ function StepPage({ children }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
+const TOTAL_STEPS = 8;
+const RESULTS_STEP = 9;
+
 export default function SmartCompass({ onComplete, onReset }) {
   const [s, dispatch] = useReducer(reducer, INIT);
   const [step, setStep] = useState(0);
   const [expanded, setExpanded] = useState({});
   const [calcOpen, setCalcOpen] = useState(false);
-  const [rightsData, setRightsData] = useState({});
+  const [allRights, setAllRights] = useState([]);
   const [returnUser, setReturnUser] = useState(false);
 
   useEffect(() => {
     const saved = loadAnswers();
-    if (saved && saved.survivor) {
+    if (saved && saved.survivor_type) {
       dispatch({ type: "LOAD", v: saved });
-      setStep(6);
+      setStep(RESULTS_STEP);
       setReturnUser(true);
     }
   }, []);
@@ -461,17 +400,17 @@ export default function SmartCompass({ onComplete, onReset }) {
     fetch("http://localhost:8000/api/rights")
       .then(r => r.json())
       .then(data => {
-        const map = {};
+        const flat = [];
         data.shells?.forEach(shell =>
-          shell.rights?.forEach(right => { map[right.id] = right; })
+          shell.rights?.forEach(right => flat.push(right))
         );
-        setRightsData(map);
+        setAllRights(flat);
       })
       .catch(() => {});
   }, []);
 
   useEffect(() => {
-    if (step >= 6) {
+    if (step >= RESULTS_STEP) {
       saveAnswers(s);
       onComplete?.(buildUserProfile(s));
     }
@@ -496,10 +435,11 @@ export default function SmartCompass({ onComplete, onReset }) {
     dispatch({ type: "RESET" });
     setExpanded({});
     setReturnUser(false);
-    setStep(2);
+    setStep(1);
   }
 
-  const rights = computeRights(s);
+  const matchedRights = allRights.filter(r => matchesProfile(r, s));
+  const grouped = groupByShell(matchedRights);
 
   // ── Welcome ──────────────────────────────────────────────────────────────────
   if (step === 0) return (
@@ -512,7 +452,7 @@ export default function SmartCompass({ onComplete, onReset }) {
           <span className="font-medium text-calm-700">ואנחנו נמצא את הזכויות שמגיעות לך.</span>
         </p>
         <button
-          onClick={() => setStep(2)}
+          onClick={() => setStep(1)}
           className="w-full rounded-xl bg-calm-600 py-4 text-lg font-semibold text-white shadow-calm transition-all hover:bg-calm-700 active:scale-[.99]"
         >
           בואו נתחיל
@@ -521,109 +461,121 @@ export default function SmartCompass({ onComplete, onReset }) {
     </div>
   );
 
-  // ── Q2 – Bituach Leumi ───────────────────────────────────────────────────────
+  // ── Q1 — Survivor type ───────────────────────────────────────────────────────
+  if (step === 1) return (
+    <StepPage>
+      <StepDots total={TOTAL_STEPS} current={0} />
+      <h2 className="mb-1.5 text-xl font-bold text-stone-900">איזה מסלול מתאר אותך?</h2>
+      <p className="mb-7 text-sm text-stone-400">בחירה זו מסייעת להציג את הזכויות הרלוונטיות ביותר עבורך</p>
+      <div className="flex flex-col gap-3">
+        <TileBtn label="שורד/ת מסיבת נובה" checked={s.survivor_type === "nova_survivor"}      onTap={() => pick("SURVIVOR_TYPE", "nova_survivor", 2)} />
+        <TileBtn label="בן/בת משפחה של נפגע/ת"  checked={s.survivor_type === "family_of_affected"} onTap={() => pick("SURVIVOR_TYPE", "family_of_affected", 2)} />
+        <TileBtn label="משפחה שכולה" sub="קרוב משפחה של נופל בפעולת איבה" checked={s.survivor_type === "bereaved"} onTap={() => pick("SURVIVOR_TYPE", "bereaved", 2)} />
+        <TileBtn label="פדוי/ת שבי" sub="ששוחרר/ה מחטיפה" checked={s.survivor_type === "freed_hostage"} onTap={() => pick("SURVIVOR_TYPE", "freed_hostage", 2)} />
+      </div>
+      <button onClick={() => setStep(0)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
+    </StepPage>
+  );
+
+  // ── Q2 — Bituach Leumi recognition ───────────────────────────────────────────
   if (step === 2) return (
     <StepPage>
-      <StepDots total={2} current={0} />
+      <StepDots total={TOTAL_STEPS} current={1} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">הוכרת על ידי הביטוח הלאומי?</h2>
       <p className="mb-7 text-sm text-stone-400">הכרה כנפגע/ת פעולת איבה פותחת זכויות נוספות</p>
       <div className="flex flex-col gap-3">
-        <TileBtn
-          label="כן, הוכרתי"
-          checked={s.bituach === "yes"}
-          onTap={() => pick("BITUACH", "yes", 3)}
-        />
-        <TileBtn
-          label="התהליך בעיצומו" sub="הגשתי תביעה ומחכה לתשובה"
-          checked={s.bituach === "in_process"}
-          onTap={() => pick("BITUACH", "in_process", 6)}
-        />
-        <TileBtn
-          label="עדיין לא פניתי"
-          checked={s.bituach === "no"}
-          onTap={() => pick("BITUACH", "no", 6)}
-        />
+        <TileBtn label="כן, הוכרתי"             checked={s.bituach === "yes"}        onTap={() => pick("BITUACH", "yes", 3)} />
+        <TileBtn label="התהליך בעיצומו" sub="הגשתי תביעה ומחכה לתשובה" checked={s.bituach === "in_process"} onTap={() => pick("BITUACH", "in_process", 4)} />
+        <TileBtn label="עדיין לא פניתי"          checked={s.bituach === "no"}         onTap={() => pick("BITUACH", "no", 4)} />
       </div>
-      <button onClick={() => setStep(0)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
-        חזרה
-      </button>
+      <button onClick={() => setStep(1)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
     </StepPage>
   );
 
-  // ── Q3 – Disability tier ─────────────────────────────────────────────────────
+  // ── Q3 — Disability tier (only if recognized) ────────────────────────────────
   if (step === 3) return (
     <StepPage>
-      <StepDots total={2} current={1} />
+      <StepDots total={TOTAL_STEPS} current={2} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">מה דרגת הנכות המוכרת שלך?</h2>
       <p className="mb-7 text-sm text-stone-400">לפי ההכרה הרשמית של הביטוח הלאומי</p>
       <div className="flex flex-col gap-3">
-        <TileBtn
-          label="דרגה נמוכה" sub="עד 19%"
-          checked={s.tier === "low"}
-          onTap={() => pick("TIER", "low", 6)}
-        />
-        <TileBtn
-          label="דרגה בינונית" sub="20% – 49%"
-          checked={s.tier === "mid"}
-          onTap={() => pick("TIER", "mid", 4)}
-        />
-        <TileBtn
-          label="דרגה גבוהה" sub="50% ומעלה"
-          checked={s.tier === "high"}
-          onTap={() => pick("TIER", "high", 4)}
-        />
+        <TileBtn label="דרגה נמוכה"   sub="עד 19%"     checked={s.tier === "low"}  onTap={() => pick("TIER", "low",  4)} />
+        <TileBtn label="דרגה בינונית" sub="20% – 49%"  checked={s.tier === "mid"}  onTap={() => pick("TIER", "mid",  4)} />
+        <TileBtn label="דרגה גבוהה"   sub="50% ומעלה"  checked={s.tier === "high"} onTap={() => pick("TIER", "high", 4)} />
       </div>
-      <button onClick={() => setStep(2)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
-        חזרה
-      </button>
+      <button onClick={() => setStep(2)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
     </StepPage>
   );
 
-  // ── Q4 – Student status ───────────────────────────────────────────────────────
+  // ── Q4 — Mental health ───────────────────────────────────────────────────────
   if (step === 4) return (
     <StepPage>
-      <StepDots total={5} current={3} />
-      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את סטודנט/ית?</h2>
-      <p className="mb-7 text-sm text-stone-400">לומד/ת במוסד להשכלה גבוהה בשנה הנוכחית</p>
+      <StepDots total={TOTAL_STEPS} current={3} />
+      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את זקוק/ה לתמיכה נפשית?</h2>
+      <p className="mb-7 text-sm text-stone-400">פוסט-טראומה, חרדה, ליווי פסיכולוגי או פסיכיאטרי</p>
       <div className="flex flex-col gap-3">
-        <TileBtn
-          label="כן, אני סטודנט/ית"
-          checked={s.student === "yes"}
-          onTap={() => pick("STUDENT", "yes", 5)}
-        />
-        <TileBtn
-          label="לא"
-          checked={s.student === "no"}
-          onTap={() => pick("STUDENT", "no", 5)}
-        />
+        <TileBtn label="כן, מחפש/ת תמיכה"          checked={s.mental_health === "yes"}           onTap={() => pick("MENTAL_HEALTH", "yes", 5)} />
+        <TileBtn label="כבר נמצא/ת בטיפול"          checked={s.mental_health === "in_treatment"}  onTap={() => pick("MENTAL_HEALTH", "in_treatment", 5)} />
+        <TileBtn label="לא כרגע"                    checked={s.mental_health === "no"}            onTap={() => pick("MENTAL_HEALTH", "no", 5)} />
       </div>
-      <button onClick={() => setStep(3)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
-        חזרה
-      </button>
+      <button onClick={() => setStep(s.bituach === "yes" ? 3 : 2)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
     </StepPage>
   );
 
-  // ── Q5 – Property ownership ──────────────────────────────────────────────────
+  // ── Q5 — Care needs / mobility ───────────────────────────────────────────────
   if (step === 5) return (
     <StepPage>
-      <StepDots total={5} current={4} />
+      <StepDots total={TOTAL_STEPS} current={4} />
+      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם יש לך מגבלות בניידות או צורך בעזרה יומיומית?</h2>
+      <p className="mb-7 text-sm text-stone-400">סיוע אישי, רכב מותאם, מטפל/ת או עזרה בפעולות יום-יום</p>
+      <div className="flex flex-col gap-3">
+        <TileBtn label="ללא מגבלות"             checked={s.care_needs === "none"}        onTap={() => pick("CARE_NEEDS", "none", 6)} />
+        <TileBtn label="מגבלות חלקיות"  sub="זקוק/ה לעזרה לעיתים" checked={s.care_needs === "partial"}     onTap={() => pick("CARE_NEEDS", "partial", 6)} />
+        <TileBtn label="מגבלות משמעותיות" sub="נדרשת עזרה יומיומית" checked={s.care_needs === "significant"} onTap={() => pick("CARE_NEEDS", "significant", 6)} />
+      </div>
+      <button onClick={() => setStep(4)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
+    </StepPage>
+  );
+
+  // ── Q6 — Children ────────────────────────────────────────────────────────────
+  if (step === 6) return (
+    <StepPage>
+      <StepDots total={TOTAL_STEPS} current={5} />
+      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם יש לך ילדים מתחת לגיל 21?</h2>
+      <p className="mb-7 text-sm text-stone-400">קיימות זכויות ייעודיות לילדים של נפגעי פעולת איבה</p>
+      <div className="flex flex-col gap-3">
+        <TileBtn label="כן"  checked={s.has_children === "yes"} onTap={() => pick("HAS_CHILDREN", "yes", 7)} />
+        <TileBtn label="לא"  checked={s.has_children === "no"}  onTap={() => pick("HAS_CHILDREN", "no",  7)} />
+      </div>
+      <button onClick={() => setStep(5)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
+    </StepPage>
+  );
+
+  // ── Q7 — Student status ──────────────────────────────────────────────────────
+  if (step === 7) return (
+    <StepPage>
+      <StepDots total={TOTAL_STEPS} current={6} />
+      <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את סטודנט/ית?</h2>
+      <p className="mb-7 text-sm text-stone-400">לומד/ת במוסד להשכלה גבוהה או בהכשרה מקצועית</p>
+      <div className="flex flex-col gap-3">
+        <TileBtn label="כן, אני סטודנט/ית" checked={s.student === "yes"} onTap={() => pick("STUDENT", "yes", 8)} />
+        <TileBtn label="לא"                 checked={s.student === "no"}  onTap={() => pick("STUDENT", "no",  8)} />
+      </div>
+      <button onClick={() => setStep(6)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
+    </StepPage>
+  );
+
+  // ── Q8 — Property ────────────────────────────────────────────────────────────
+  if (step === 8) return (
+    <StepPage>
+      <StepDots total={TOTAL_STEPS} current={7} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את בעל/ת נכס?</h2>
       <p className="mb-7 text-sm text-stone-400">בבעלותך דירה או נכס מגורים</p>
       <div className="flex flex-col gap-3">
-        <TileBtn
-          label="כן, יש לי נכס"
-          checked={s.property === "yes"}
-          onTap={() => pick("PROPERTY", "yes", 6)}
-        />
-        <TileBtn
-          label="לא, אני שוכר/ת"
-          checked={s.property === "no"}
-          onTap={() => pick("PROPERTY", "no", 6)}
-        />
+        <TileBtn label="כן, יש לי נכס"  checked={s.property === "yes"} onTap={() => pick("PROPERTY", "yes", RESULTS_STEP)} />
+        <TileBtn label="לא, אני שוכר/ת" checked={s.property === "no"}  onTap={() => pick("PROPERTY", "no",  RESULTS_STEP)} />
       </div>
-      <button onClick={() => setStep(4)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">
-        חזרה
-      </button>
+      <button onClick={() => setStep(7)} className="mt-8 w-full text-center text-sm text-stone-400 transition-colors hover:text-stone-600">חזרה</button>
     </StepPage>
   );
 
@@ -646,25 +598,50 @@ export default function SmartCompass({ onComplete, onReset }) {
 
         <div className="mb-5 pt-2 text-center">
           <h2 className="text-2xl font-bold text-stone-900">הזכויות שמגיעות לך</h2>
-          <p className="mt-1 text-sm text-stone-400">על בסיס הפרטים שמסרת</p>
+          <p className="mt-1 text-sm text-stone-400">
+            {matchedRights.length > 0
+              ? `${matchedRights.length} זכויות בכל הקטגוריות הרלוונטיות`
+              : "על בסיס הפרטים שמסרת"}
+          </p>
         </div>
 
-        {rights.length === 0 ? (
+        <div className="mb-5 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 leading-relaxed" dir="rtl">
+          ⚠️ <span className="font-semibold">הסכומים והפרטים הם להמחשה בלבד.</span> לסכומים מעודכנים ולמידע המחייב — בדקו במקור הרשמי המופיע בכל כרטיסייה.
+        </div>
+
+        {grouped.length === 0 ? (
           <div className="rounded-xl border border-stone-100 bg-white p-7 text-center shadow-card">
-            <p className="text-lg font-semibold text-stone-700">גם ללא הכרה רשמית, יש תמיכה זמינה עכשיו</p>
-            <p className="mt-2 text-sm text-stone-400">ניתן לפנות לנפש אחת לטיפול פסיכולוגי מיידי</p>
+            <p className="text-lg font-semibold text-stone-700">לא הצלחנו למצוא זכויות מותאמות</p>
+            <p className="mt-2 text-sm text-stone-400">אנא נסו לעדכן את התשובות, או פנו ישירות לביטוח לאומי בטלפון *6050.</p>
           </div>
         ) : (
-          <div className="flex flex-col gap-3">
-            {rights.map((r) => (
-              <RightCard
-                key={r.key}
-                r={r}
-                detail={RIGHTS_ID_MAP[r.key] ? rightsData[RIGHTS_ID_MAP[r.key]] : null}
-                isExpanded={!!expanded[r.key]}
-                onToggle={() => setExpanded(prev => ({ ...prev, [r.key]: !prev[r.key] }))}
-              />
-            ))}
+          <div className="flex flex-col gap-6">
+            {grouped.map(([shellId, rs]) => {
+              const meta = SHELL_META[shellId];
+              return (
+                <section key={shellId}>
+                  <div className="flex items-center justify-between mb-2.5 px-1">
+                    <h3 className="text-base font-bold text-stone-800 flex items-center gap-2">
+                      <span className="text-lg">{meta.icon}</span>
+                      <span>{meta.label}</span>
+                    </h3>
+                    <span className={`text-xs font-semibold rounded-full px-2.5 py-1 ${meta.tagCls}`}>
+                      {rs.length}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    {rs.map(r => (
+                      <RightCard
+                        key={r.id}
+                        r={r}
+                        isExpanded={!!expanded[r.id]}
+                        onToggle={() => setExpanded(prev => ({ ...prev, [r.id]: !prev[r.id] }))}
+                      />
+                    ))}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         )}
 

@@ -46,6 +46,10 @@ If the condition is purely physical (e.g., amputation, back injury), do NOT sugg
 If it is mental, do NOT suggest physical rehabilitation. Exclude unrelated treatments such as dental.
 6. **Source citations:** End each bullet point with (מקור: [Document Name]).
 7. **Tone:** Warm, clear, non-bureaucratic Hebrew. This is for a trauma survivor — write with care.
+8. **DO NOT INVENT ₪ AMOUNTS:** Every monetary figure in your output must appear verbatim in the source documents. \
+If the exact amount is not in the sources, NEVER estimate, round, or guess. Instead write \
+"לסכום מעודכן יש לפנות למקור הרשמי" and surface the relevant URL from official_sources. \
+Wrong amounts cause real financial harm to trauma survivors — this rule overrides convenience.
 
 📝 OUTPUT TEMPLATE (Hebrew only):
 Populate sections dynamically. Create a bullet ONLY when you have real data.
