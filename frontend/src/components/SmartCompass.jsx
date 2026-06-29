@@ -1,4 +1,5 @@
 import { useReducer, useState, useEffect } from "react";
+import rightsData from "../data/rights_data.json";
 
 // ─── localStorage helpers ─────────────────────────────────────────────────────
 
@@ -397,16 +398,11 @@ export default function SmartCompass({ onComplete, onReset }) {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/rights")
-      .then(r => r.json())
-      .then(data => {
-        const flat = [];
-        data.shells?.forEach(shell =>
-          shell.rights?.forEach(right => flat.push(right))
-        );
-        setAllRights(flat);
-      })
-      .catch(() => {});
+    const flat = [];
+    rightsData.shells?.forEach(shell =>
+      shell.rights?.forEach(right => flat.push(right))
+    );
+    setAllRights(flat);
   }, []);
 
   useEffect(() => {

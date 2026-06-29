@@ -6,11 +6,54 @@ const SUGGESTIONS = [
   "אילו טיפולים נפשיים מכוסים עבורי?",
 ];
 
+const BTL_RATES = { 10: 0, 20: 1161, 30: 1742, 40: 2323, 50: 2904, 60: 3484, 70: 4065, 80: 4646, 90: 5227, 100: 5807 };
+
+const SOURCE_BTL = { title: "ביטוח לאומי — נפגעי איבה", source: "https://www.btl.gov.il/benefits/victims_of_hostile_actions/Pages/default.aspx" };
+const SOURCE_NOVA = { title: "עמותת שבט נובה", source: "https://tribeofnova.com" };
+
+function getMockResponse(message, profile) {
+  if (message === "מה הסכום המדויק של הקצבה שלי?") {
+    if (!profile || profile.recognition === "לא מוכר") {
+      return {
+        response: "על פי הפרטים שמסרת, טרם הוכרת כנפגע/ת פעולת איבה. לאחר הכרה, הקצבה מחושבת לפי דרגת נכות קבועה:\n\n• 10–19%: ₪0 (ללא קצבה, אך קיימות הטבות)\n• 20%: ~₪1,161 לחודש\n• 50%: ~₪2,904 לחודש\n• 100%: ~₪5,807 לחודש\n\nלסכום מדויק ומעודכן — ביטוח לאומי: 02-6269999.",
+        sources: [SOURCE_BTL],
+      };
+    }
+    const pct = profile.disability_pct ?? 0;
+    const snap = Math.max(10, Math.min(100, Math.round(pct / 10) * 10));
+    const monthly = BTL_RATES[snap] ?? 0;
+    const extra = pct >= 50 ? "\n\nבדרגה 50%+ ייתכנו תוספות לניידות ועזרת הזולת." : "";
+    return {
+      response: `על פי הפרטים שמסרת (דרגת נכות ~${pct}%), הקצבה החודשית המשוערת היא:\n\n${monthly > 0 ? `~₪${monthly.toLocaleString()} לחודש` : "בדרגה נמוכה מ-20% אין קצבה חודשית, אך קיימות הטבות אחרות"}${extra}\n\nסכום זה להמחשה בלבד. לנתון המדויק — ביטוח לאומי: 02-6269999.`,
+      sources: [SOURCE_BTL],
+    };
+  }
+
+  if (message === "איך מגישים תביעה לביטוח לאומי?") {
+    return {
+      response: 'הגשת תביעה כנפגע/ת פעולת איבה:\n\n1. מלאו טופס "בקשה לתגמול רפואי (תט"ר)" — זמין באתר הביטוח הלאומי\n2. צרפו: תעודת זהות, דוח רפואי, ותצהיר על מעורבות באירוע\n3. הגישו לסניף הביטוח הלאומי הקרוב — פיזית, בדואר, או דרך האתר\n4. לסיוע בהגשה: קו חירום *6050 או 02-6269999\n\nמומלץ להגיש ללא דיחוי — הזכויות פועלות ממועד הפגיעה.',
+      sources: [SOURCE_BTL],
+    };
+  }
+
+  if (message === "אילו טיפולים נפשיים מכוסים עבורי?") {
+    const inTreatment = profile?.mental_health === "in_treatment";
+    return {
+      response: `נפגעי פעולת איבה זכאים לטיפול נפשי מכוסה:\n\n• ${inTreatment ? "אתה/את כבר בטיפול — " : ""}ביטוח לאומי מממן עד 15 פגישות בשנה (פסיכולוג/פסיכיאטר)\n• קופת החולים מחויבת לספק הפניה לפסיכולוג\n• "נפש אחת" — ליווי מקצועי בחינם: 03-5127118\n• מרכזי חוסן עירוניים — ללא עלות לשורדי 7 באוקטובר\n\nבמצוקה חריפה — ער"ן 24/7: טלפון 1201.`,
+      sources: [SOURCE_BTL, SOURCE_NOVA],
+    };
+  }
+
+  return {
+    response: "אני כאן כדי לסייע לך בנושאי זכויות נפגעי פעולת איבה.\n\nניתן לשאול אותי על:\n• חישוב קצבאות ותגמולים\n• הגשת תביעות לביטוח לאומי\n• טיפולים נפשיים וליווי\n• זכויות ספציפיות לפי מצבך\n\nלתמיכה ישירה: ביטוח לאומי 02-6269999.",
+    sources: [SOURCE_BTL],
+  };
+}
+
 export default function SupportChat({ userProfile }) {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const threadId = useRef("thread_" + Math.random().toString(36).slice(2));
   const bottomRef = useRef(null);
 
   useEffect(() => {
@@ -23,24 +66,10 @@ export default function SupportChat({ userProfile }) {
     setMessages(prev => [...prev, { role: "user", content: trimmed }]);
     setInput("");
     setLoading(true);
-    try {
-      const res = await fetch("http://localhost:8000/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message: trimmed,
-          thread_id: threadId.current,
-          user_profile: userProfile,
-        }),
-      });
-      if (!res.ok) throw new Error();
-      const data = await res.json();
-      setMessages(prev => [...prev, { role: "assistant", content: data.response, sources: data.sources }]);
-    } catch {
-      setMessages(prev => [...prev, { role: "assistant", content: "מצטערים, אירעה שגיאה. אנא נסו שוב." }]);
-    } finally {
-      setLoading(false);
-    }
+    await new Promise(r => setTimeout(r, 750));
+    const data = getMockResponse(trimmed, userProfile);
+    setMessages(prev => [...prev, { role: "assistant", content: data.response, sources: data.sources }]);
+    setLoading(false);
   }
 
   return (
