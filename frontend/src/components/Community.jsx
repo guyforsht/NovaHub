@@ -6,7 +6,7 @@ const EVENTS = [
 
 export default function Community() {
   return (
-    <div className="min-h-screen bg-app p-6 pb-28" dir="rtl">
+    <div className="min-h-screen bg-app p-6 pb-28 page-in" dir="rtl">
       <div className="mx-auto max-w-sm">
 
         <div className="mb-8 pt-4">

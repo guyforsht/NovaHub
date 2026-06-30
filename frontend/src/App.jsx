@@ -46,7 +46,7 @@ export default function App() {
       </div>
 
       {showNav && (
-        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-stone-200 flex" dir="ltr">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-stone-200 flex" dir="ltr">
           {TABS.map((tab) => (
             <button
               key={tab.id}

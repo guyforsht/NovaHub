@@ -82,7 +82,7 @@ export default function SupportChat({ userProfile }) {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-36 flex flex-col gap-3">
+      <div className="flex-1 overflow-y-auto px-4 pt-4 pb-36 flex flex-col gap-3 page-in">
         {messages.length === 0 && (
           <div className="flex flex-col items-center text-center mt-10 gap-5">
             <div>
@@ -151,20 +151,20 @@ export default function SupportChat({ userProfile }) {
       </div>
 
       {/* Input bar */}
-      <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-stone-100 p-3 flex gap-2 z-40" dir="rtl">
+      <div className="fixed bottom-16 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-stone-100 p-3 flex gap-2 z-40" dir="rtl">
         <input
           value={input}
           onChange={e => setInput(e.target.value)}
           onKeyDown={e => e.key === "Enter" && !e.shiftKey && send()}
           placeholder="שאל/י שאלה על הזכויות שלך..."
           disabled={loading}
-          className="flex-1 rounded-xl border border-stone-200 bg-stone-50 px-3.5 py-2.5 text-sm focus:outline-none focus:border-calm-400 focus:bg-white transition-colors disabled:opacity-50"
+          className="flex-1 rounded-lg border border-stone-200 bg-stone-50 px-3.5 py-2.5 text-sm focus:outline-none focus:border-calm-400 focus:bg-white focus:shadow-[0_0_0_3px_rgba(90,125,92,0.15)] transition-all disabled:opacity-50"
           dir="rtl"
         />
         <button
           onClick={() => send()}
           disabled={!input.trim() || loading}
-          className="rounded-xl bg-calm-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-calm-700 active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+          className="rounded-xl bg-calm-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-calm-700 active:scale-[.99] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
         >
           שלח
         </button>
