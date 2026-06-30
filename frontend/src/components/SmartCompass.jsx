@@ -92,23 +92,29 @@ const SHELL_META = {
 
 // ─── Profile-based filter ─────────────────────────────────────────────────────
 
-function matchesProfile(right, s) {
-  const f = right.eligibility_filters;
-  if (!f) return true;  // backward-compat for unfiltered rights
+// Rights are split into 3 cumulative levels by disability percentage only.
+// A user sees every right whose min_disability_pct is at or below their
+// level's ceiling — kept in sync with the backend filter_rights_by_disability.
+const LEVEL_CEILINGS = [19, 49, 100];
 
-  const pct = TIER_TO_PCT[s.tier] ?? 0;
-  if (f.min_disability_pct > 0 && pct < f.min_disability_pct) return false;
-  if (f.requires_100_special && s.tier !== "high") return false;
-  if (f.requires_recognition && !["yes", "in_process"].includes(s.bituach)) return false;
-  if (f.requires_student && s.student !== "yes") return false;
-  if (f.requires_renter && s.property !== "no") return false;
-  if (f.requires_children_under_21 && s.has_children !== "yes") return false;
-  if (f.requires_mental_health && (!s.mental_health || s.mental_health === "no")) return false;
-  if (f.requires_caregiving && (!s.care_needs || s.care_needs === "none")) return false;
-  if (f.requires_mobility_limit && s.care_needs !== "significant") return false;
-  if (f.specific_to_survivor_type && s.survivor_type !== f.specific_to_survivor_type) return false;
+function levelCeiling(pct) {
+  if (pct < 20) return LEVEL_CEILINGS[0];
+  if (pct < 50) return LEVEL_CEILINGS[1];
+  return LEVEL_CEILINGS[2];
+}
 
-  return true;
+function matchesLevel(right, pct) {
+  const min = right.eligibility_filters?.min_disability_pct ?? 0;
+  return min <= levelCeiling(pct);
+}
+
+function dedupeByTitle(rights) {
+  const seen = new Set();
+  return rights.filter(r => {
+    if (seen.has(r.title)) return false;
+    seen.add(r.title);
+    return true;
+  });
 }
 
 const SHELL_ORDER = Object.keys(SHELL_META);
@@ -217,7 +223,7 @@ function RightCard({ r, isExpanded, onToggle }) {
             <input
               value={draft.title}
               onChange={e => setDraft(d => ({ ...d, title: e.target.value }))}
-              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400"
+              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400 focus:bg-white focus:shadow-[0_0_0_3px_rgba(90,125,92,0.15)]"
             />
           </div>
           <div>
@@ -226,7 +232,7 @@ function RightCard({ r, isExpanded, onToggle }) {
               rows={3}
               value={draft.desc}
               onChange={e => setDraft(d => ({ ...d, desc: e.target.value }))}
-              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400 resize-none"
+              className="w-full rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm focus:outline-none focus:border-calm-400 focus:bg-white focus:shadow-[0_0_0_3px_rgba(90,125,92,0.15)] resize-none"
             />
           </div>
           <div className="flex gap-2 mt-1">
@@ -367,7 +373,7 @@ function AllowanceCalculator({ initialPct }) {
 
 function StepPage({ children }) {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-app p-6">
+    <div className="flex min-h-screen items-center justify-center bg-app p-6 page-in">
       <div className="w-full max-w-sm" dir="rtl">
         {children}
       </div>
@@ -406,6 +412,24 @@ export default function SmartCompass({ onComplete, onReset }) {
   }, []);
 
   useEffect(() => {
+    if (step < RESULTS_STEP) return;
+    const pct = TIER_TO_PCT[s.tier] ?? 0;
+    let cancelled = false;
+    fetch(`http://localhost:8000/api/rights?disability_pct=${pct}`)
+      .then(r => (r.ok ? r.json() : Promise.reject()))
+      .then(data => {
+        if (cancelled) return;
+        const flat = [];
+        data.shells?.forEach(shell =>
+          shell.rights?.forEach(right => flat.push(right))
+        );
+        setAllRights(flat);
+      })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [step, s.tier]);
+
+  useEffect(() => {
     if (step >= RESULTS_STEP) {
       saveAnswers(s);
       onComplete?.(buildUserProfile(s));
@@ -434,15 +458,16 @@ export default function SmartCompass({ onComplete, onReset }) {
     setStep(1);
   }
 
-  const matchedRights = allRights.filter(r => matchesProfile(r, s));
+  const pct = TIER_TO_PCT[s.tier] ?? 0;
+  const matchedRights = dedupeByTitle(allRights.filter(r => matchesLevel(r, pct)));
   const grouped = groupByShell(matchedRights);
 
   // ── Welcome ──────────────────────────────────────────────────────────────────
   if (step === 0) return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-app p-6">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-app p-6 page-in">
       <div className="w-full max-w-sm text-center" dir="rtl">
         <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-calm-600">NovaHub</p>
-        <h1 className="mb-3 text-3xl font-bold text-stone-900 leading-snug">מצפן הזכויות</h1>
+        <h1 className="mb-3 text-3xl font-extrabold text-stone-900 leading-snug">מצפן הזכויות</h1>
         <p className="mb-10 text-base leading-relaxed text-stone-500">
           כמה שאלות קצרות,<br />
           <span className="font-medium text-calm-700">ואנחנו נמצא את הזכויות שמגיעות לך.</span>
@@ -459,7 +484,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q1 — Survivor type ───────────────────────────────────────────────────────
   if (step === 1) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={0} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">איזה מסלול מתאר אותך?</h2>
       <p className="mb-7 text-sm text-stone-400">בחירה זו מסייעת להציג את הזכויות הרלוונטיות ביותר עבורך</p>
@@ -475,7 +500,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q2 — Bituach Leumi recognition ───────────────────────────────────────────
   if (step === 2) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={1} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">הוכרת על ידי הביטוח הלאומי?</h2>
       <p className="mb-7 text-sm text-stone-400">הכרה כנפגע/ת פעולת איבה פותחת זכויות נוספות</p>
@@ -490,7 +515,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q3 — Disability tier (only if recognized) ────────────────────────────────
   if (step === 3) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={2} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">מה דרגת הנכות המוכרת שלך?</h2>
       <p className="mb-7 text-sm text-stone-400">לפי ההכרה הרשמית של הביטוח הלאומי</p>
@@ -505,7 +530,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q4 — Mental health ───────────────────────────────────────────────────────
   if (step === 4) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={3} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את זקוק/ה לתמיכה נפשית?</h2>
       <p className="mb-7 text-sm text-stone-400">פוסט-טראומה, חרדה, ליווי פסיכולוגי או פסיכיאטרי</p>
@@ -520,7 +545,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q5 — Care needs / mobility ───────────────────────────────────────────────
   if (step === 5) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={4} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם יש לך מגבלות בניידות או צורך בעזרה יומיומית?</h2>
       <p className="mb-7 text-sm text-stone-400">סיוע אישי, רכב מותאם, מטפל/ת או עזרה בפעולות יום-יום</p>
@@ -535,7 +560,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q6 — Children ────────────────────────────────────────────────────────────
   if (step === 6) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={5} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם יש לך ילדים מתחת לגיל 21?</h2>
       <p className="mb-7 text-sm text-stone-400">קיימות זכויות ייעודיות לילדים של נפגעי פעולת איבה</p>
@@ -549,7 +574,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q7 — Student status ──────────────────────────────────────────────────────
   if (step === 7) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={6} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את סטודנט/ית?</h2>
       <p className="mb-7 text-sm text-stone-400">לומד/ת במוסד להשכלה גבוהה או בהכשרה מקצועית</p>
@@ -563,7 +588,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Q8 — Property ────────────────────────────────────────────────────────────
   if (step === 8) return (
-    <StepPage>
+    <StepPage key={step}>
       <StepDots total={TOTAL_STEPS} current={7} />
       <h2 className="mb-1.5 text-xl font-bold text-stone-900">האם אתה/את בעל/ת נכס?</h2>
       <p className="mb-7 text-sm text-stone-400">בבעלותך דירה או נכס מגורים</p>
@@ -577,7 +602,7 @@ export default function SmartCompass({ onComplete, onReset }) {
 
   // ── Results ──────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-app p-6 pb-28" dir="rtl">
+    <div className="min-h-screen bg-app p-6 pb-28 page-in" dir="rtl">
       <div className="mx-auto max-w-sm">
 
         {returnUser && (

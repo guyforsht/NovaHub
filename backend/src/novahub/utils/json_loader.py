@@ -19,6 +19,47 @@ def load_rights_data(data_path: Optional[str] = None) -> dict:
         return json.load(f)
 
 
+LEVEL_CEILINGS = {1: 19, 2: 49, 3: 100}
+
+
+def disability_level(disability_pct: int) -> int:
+    """Map a disability percentage to one of 3 cumulative eligibility levels."""
+    if disability_pct < 20:
+        return 1
+    if disability_pct < 50:
+        return 2
+    return 3
+
+
+def filter_rights_by_disability(rights_db: dict, disability_pct: int) -> dict:
+    """
+    Filter the rights DB to entries a user qualifies for based solely on
+    disability percentage.
+
+    Rights fall into 3 cumulative levels by the user's percentage; a right is
+    included when its min_disability_pct is at or below the level's ceiling.
+    Results are de-duplicated by title (the raw DB holds repeated entries) and
+    empty shells are dropped.
+    """
+    ceiling = LEVEL_CEILINGS[disability_level(disability_pct)]
+    seen_titles = set()
+    filtered_shells = []
+    for shell in rights_db.get("shells", []):
+        kept = []
+        for right in shell.get("rights", []):
+            min_pct = right.get("eligibility_filters", {}).get("min_disability_pct", 0)
+            if min_pct > ceiling:
+                continue
+            title = right.get("title")
+            if title in seen_titles:
+                continue
+            seen_titles.add(title)
+            kept.append(right)
+        if kept:
+            filtered_shells.append({**shell, "rights": kept})
+    return {**rights_db, "shells": filtered_shells}
+
+
 def search_rights(query: str, rights_db: dict) -> list[dict]:
     """
     Search the rights database for relevant entries in the Shells architecture.

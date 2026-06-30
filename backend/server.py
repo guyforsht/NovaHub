@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
 from novahub.graph import build_graph
 from novahub.researcher.graph import build_research_graph
-from novahub.utils.json_loader import load_rights_data
+from novahub.utils.json_loader import load_rights_data, filter_rights_by_disability
 
 # Load environment variables
 load_dotenv()
@@ -126,9 +126,17 @@ async def chat(request: ChatRequest):
         raise HTTPException(status_code=500, detail="אירעה שגיאה בעיבוד ההודעה.")
 
 @app.get("/api/rights")
-async def get_rights():
-    """Returns the full rights database (Shells)."""
-    return load_rights_data()
+async def get_rights(disability_pct: int | None = None):
+    """Returns the rights database (Shells).
+
+    With ?disability_pct=N, returns only the rights the user qualifies for at
+    that disability level (3 cumulative levels, de-duplicated). Without it,
+    returns the full database.
+    """
+    data = load_rights_data()
+    if disability_pct is None:
+        return data
+    return filter_rights_by_disability(data, disability_pct)
 
 @app.post("/api/rights/update")
 async def update_rights(request: UpdateRightsRequest):
