@@ -390,6 +390,7 @@ export default function SmartCompass({ onComplete, onReset }) {
   const [s, dispatch] = useReducer(reducer, INIT);
   const [step, setStep] = useState(0);
   const [expanded, setExpanded] = useState({});
+  const [openShells, setOpenShells] = useState({});
   const [calcOpen, setCalcOpen] = useState(false);
   const [allRights, setAllRights] = useState([]);
   const [returnUser, setReturnUser] = useState(false);
@@ -445,6 +446,7 @@ export default function SmartCompass({ onComplete, onReset }) {
     clearAnswers();
     dispatch({ type: "RESET" });
     setExpanded({});
+    setOpenShells({});
     setReturnUser(false);
     setStep(0);
     onReset?.();
@@ -454,6 +456,7 @@ export default function SmartCompass({ onComplete, onReset }) {
     clearAnswers();
     dispatch({ type: "RESET" });
     setExpanded({});
+    setOpenShells({});
     setReturnUser(false);
     setStep(1);
   }
@@ -636,30 +639,40 @@ export default function SmartCompass({ onComplete, onReset }) {
             <p className="mt-2 text-sm text-stone-400">אנא נסו לעדכן את התשובות, או פנו ישירות לביטוח לאומי בטלפון *6050.</p>
           </div>
         ) : (
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-3">
             {grouped.map(([shellId, rs]) => {
               const meta = SHELL_META[shellId];
+              const isOpen = !!openShells[shellId];
               return (
                 <section key={shellId}>
-                  <div className="flex items-center justify-between mb-2.5 px-1">
+                  <button
+                    onClick={() => setOpenShells(prev => ({ ...prev, [shellId]: !prev[shellId] }))}
+                    className="w-full flex items-center justify-between rounded-xl border border-stone-200 bg-white px-4 py-3.5 shadow-card transition-all hover:border-calm-300 active:scale-[.99]"
+                    dir="rtl"
+                  >
                     <h3 className="text-base font-bold text-stone-800 flex items-center gap-2">
                       <span className="text-lg">{meta.icon}</span>
                       <span>{meta.label}</span>
                     </h3>
-                    <span className={`text-xs font-semibold rounded-full px-2.5 py-1 ${meta.tagCls}`}>
-                      {rs.length}
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    {rs.map(r => (
-                      <RightCard
-                        key={r.id}
-                        r={r}
-                        isExpanded={!!expanded[r.id]}
-                        onToggle={() => setExpanded(prev => ({ ...prev, [r.id]: !prev[r.id] }))}
-                      />
-                    ))}
-                  </div>
+                    <div className="flex items-center gap-2.5">
+                      <span className={`text-xs font-semibold rounded-full px-2.5 py-1 ${meta.tagCls}`}>
+                        {rs.length}
+                      </span>
+                      <span className={`transition-transform duration-200 inline-block text-stone-400 ${isOpen ? "rotate-180" : ""}`}>▾</span>
+                    </div>
+                  </button>
+                  {isOpen && (
+                    <div className="flex flex-col gap-3 mt-3 page-in">
+                      {rs.map(r => (
+                        <RightCard
+                          key={r.id}
+                          r={r}
+                          isExpanded={!!expanded[r.id]}
+                          onToggle={() => setExpanded(prev => ({ ...prev, [r.id]: !prev[r.id] }))}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </section>
               );
             })}
